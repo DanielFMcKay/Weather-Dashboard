@@ -1,25 +1,29 @@
 // Javascript goes here
 
-
 const citySidebar = $("#city-sidebar");
 
+// this is my API key
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
-// const cityListContainer = $("#city-list-container");
+
+// the input field. The reason I kept "citInputField" so much is it's easier to track in de-bugging
 var cityInputField = $("#fetch-field").val();
+
 
 const searchBtn = $("#searchBtn")[0];
 
+// jsdays makes time formatting easier and also flexible
 const currentDateTime = dayjs().format('dddd, MMMM DD YYYY, hh:mm a');
 console.log(currentDateTime);
 const dateTimeDisplay = $('#currentDateTime');
 dateTimeDisplay.text(currentDateTime);
-const currentDay = dayjs().format('dddd, MMMM DD YYYY');
+const currentDay = dayjs().format('dddd, MMMM DD');
 console.log(currentDay);
 const currentDayDisplay = $('.current-date');
 currentDayDisplay.text(currentDay);
 // const clearTheWeather = $('#clearEverything')[0];
 // const cityHistory = $('storedCity');
 
+// gets the array of cities stored in local storage
 var cityStored = JSON.parse(localStorage.getItem("citySearch")) || [];
 
 
@@ -27,7 +31,8 @@ var cityStored = JSON.parse(localStorage.getItem("citySearch")) || [];
 // saved for later for 5-day forecast
 // var OpenForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial' + APIKey;
 
-// function below is not called
+
+// function below is not called, just leaving it in case I change my mind. Obviously this would be deleted if optimized
 function storeCitySearch() {
     var citySearched = cityInputField.text;
     localStorage.setItem('citySearch', JSON.stringify(citySearched));
@@ -35,6 +40,7 @@ function storeCitySearch() {
 
 
 
+// Since the site requires new buttons for each city in the history, we need a function to create that
 function createWeatherButton() {
     var presetCityButtons = document.querySelectorAll(".cityName");
     presetCityButtons.forEach(function (historyBtn) {
@@ -45,6 +51,7 @@ function createWeatherButton() {
     });
 }
 
+// loads the search history and the buttons to check the weather for it
 function loadHistoryButtons() {
     for (let i = 0; i < cityStored.length; i++) {
         var citySearchHistory = document.createElement("button");
@@ -57,6 +64,7 @@ function loadHistoryButtons() {
 }
 
 
+// this works in concert with the weatherForecast function to target the specific city requested and return the data for it
 var retrieveCity = function (lat, lon) {
     var cityCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial'
     fetch(cityCall)
@@ -64,21 +72,24 @@ var retrieveCity = function (lat, lon) {
         return response.json();
     })
         .then(function (data) {
-            $('.weather-icon').html(`<img src="https://openweathermap.org/img/w/${data.current.weather[0].icon}.png" />`)
+            // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
+            $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png" />`)
             $('.city-info').html(cityInputField + " - " + currentDay);
             $('.temperature').text("Temperature: " + data.current.temp + " °F");
             $('.wind-speed').text("Wind Speed: " + data.current.wind_speed + " mph");
             $('.humidity').text("Humidity: " + data.current.wind_speed + " %");
             $('.uv-index').html ("UV Index: " + data.current.uvi);
         })
-
 }
 
 
+
+// this function gets makes the initial call to get the city's geographic coordinates
 var weatherForecast = function (cityInputField) {
     console.log("weatherForecast's cityInputField is");
     console.log(cityInputField);
     // storeCitySearch();
+
     var OpenWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial' + APIKey;
     console.log (OpenWeather);
 
@@ -117,7 +128,11 @@ searchBtn.addEventListener("click", function () {
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
 });
 
+// this loads the buttons from local storage. I think.
 loadHistoryButtons();
+
+
+// The function below was for a Clear Page button that turned out to be too clunk visually in the rough draft. 
 
 // clearTheWeather.addEventListener("click", function () {
 //     localStorage.clear();
