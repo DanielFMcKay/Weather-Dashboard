@@ -1,0 +1,122 @@
+/* CSS code goes here */
+html {
+    background-color: rgb(236, 247, 247);
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+header {
+    background-color: rgba(11, 51, 138, 0.815);
+    border-radius: 15px;
+}
+
+header h1 {
+    color: rgb(255, 253, 239);
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 4.4rem;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+.header-image {
+    height: 18rem;
+    width: 100%;
+    margin-bottom: 12px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    background-image: url("../Assets/images/weather-background-hero.png");
+    background-size: cover;
+    background-position: center;
+    margin-right: 4px;
+}
+
+#currentDay {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+#city-sidebar {
+    color: black;
+    background-color: lightskyblue;
+    display: block;
+    float: left;
+    border-radius: 10px;
+    width: 20%;
+    min-height: 48rem;
+    background-color: rgb(205, 232, 241);
+    font-size: 2.8rem;
+    font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    float: left;
+}
+
+#fetch-field {
+    line-height: 2.2rem;
+    text-align: center;
+    font-size: 2rem;
+    width: 90%;
+    border-radius: 6px;
+    border-width: 3px;
+    padding: 5px 0 5px 10px;
+    margin-left: 5px;
+}
+
+#searchBtn {
+    font-size: 1.8rem;
+    text-decoration: none;
+    padding: 6px 5px;
+    min-width: 90%;
+    width: fit-content;
+    display: block;
+    margin: 5px;
+    margin-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 6px;
+    border-width: 3px;
+    color: rgb(255, 254, 245);
+    border: none;
+    outline: none;
+    background-color: rgb(97, 117, 209);
+    box-shadow: 3px 3px darkgrey;
+}
+
+.historyBtn {
+    font-size: 1.8rem;
+    text-decoration: none;
+    padding: 6px 5px;
+    width: 90%;
+    display: block;
+    margin: 5px;
+    margin-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 6px;
+    border-width: 3px;
+    color: black;
+    text-shadow: darkgrey;
+    border: none;
+    outline: none;
+    background-color: rgba(186, 196, 240, 0.562);
+    box-shadow: 3px 3px darkgrey;
+}
+
+
+#city-button {
+    background: transparent;
+}
+
+.weather-card {
+    color: black;
+    background-color: aliceblue;
+    min-width: 50%;
+}
+
+.city-name {
+    font-size: 2rem;
+    font-weight: bold;
+}
