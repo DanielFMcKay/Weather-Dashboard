@@ -1,54 +1,26 @@
+![image](https://user-images.githubusercontent.com/123746582/226390922-f663f51c-e49d-4efe-8b2b-07c5b06658aa.png)
+
+
 # Weather-Dashboard
-a weather app for displaying current weather and five day forecasts that saves and reloads cities the user inputs
+
+Overview: a weather app for displaying current weather and five day forecasts that saves and reloads cities the user inputs
 
 # 06 Server-Side APIs: Weather Dashboard
 
-Note: this is still very much in progress, will be updated.
+Note: this is still in progress and will be updated.
 
-## Acceptance Criteria
+This app is for the week 06 assignment for the UC Berkeley coding boot camp through Boot Camp Spot.
 
-```
-GIVEN a weather dashboard with form inputs
+# This weather page will take a city name, and return a forecast with the temperature, wind speed, UV index, humidty, and current date, as well as a weather icon for the type of weather.
 
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
+# It does this by contacting OpenWeatherMap.org through an API call to retrieve the information.
 
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the wind speed
+# It also shows the current day, date, and time on the top of the page beneath the header
 
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+# The parameters for the app also include a five-day forecast. /!\This will be added later./!\
 
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
+# Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later.
 
-## Mock-Up
+# Finally, the button persists in local storage, so it reloads when the page does.
 
-The following image shows the web application's appearance and functionality:
-
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria: 
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the above acceptance criteria plus the following:
-
-    * Uses the OpenWeather API to retrieve weather data.
-
-    * Uses `localStorage` to store persistent data.
-
-
+Live Site: https://danielfmckay.github.io/Weather-Dashboard/
