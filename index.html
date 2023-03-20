@@ -16,47 +16,51 @@
     <p id="currentDateTime" class="lead"></p>
     <section class="header-image"></section>
   </header>
-  <div class="row">
-    <section id="city-sidebar">
-      <h2>City Search</h2>
-      <input type="search" id="fetch-field" placeholder="Enter city name" />
-      <button  id="searchBtn">Search Weather</button>
-      <hr>
-      <div class="list-group"></div>
-      <section id="storedCity">
-  </div>
-  <div class="col-md-8 container-left-columns">
-    <!--Current city-->
+
+  <div class="container-fluid">
+
     <div class="row">
-        <div class="card weather-card">
+      <section id="city-sidebar" class="col-md-4">
+        <h2><strong>City Search</strong></h2>
+        <input type="search" id="fetch-field" placeholder="Enter city name" />
+        <button id="searchBtn">Search Weather</button>
+        <hr>
+        <div class="list-group"></div>
+        <section id="storedCity"></section>
+      </section>
+
+      <div class="col-md-8">
+        <!--Current city-->
+        <div class="row">
+          <div class="card weather-card">
             <div class="card-body">
-                <p class="current-date"></p>
-                <p class="city-name"></p>
-                <!-- <p class="weather-icon"></p>
-                <p class="temperature"></p>
-                <p class="humidity"></p>
-                <p class="wind"></p>
-                <p class="uv"></p> -->
+              <h1 class="weather-icon"></h1>
+              <h2 class="current-date">Date</h2>
+              <h2 class="city-info">City</h2>
+                <h3 class="temperature">Temperature</h3>
+                <h3 class="wind-speed"></h3>
+                 <h3 class="humidity"></h3>
+                <h3 class="uv-index"></h3>
             </div>
+          </div>
+          <div class="row"><h2><strong>5 Day Forecast</strong></h2></div>
         </div>
+        <div class="row fiveDayForecast"></div>
+        <!-- <button id="clearEverything">Clear Page</button> -->
+      </div>
+
+
+
+
     </div>
-
-  </section>
-
-
-
-  </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
   <script src="Assets/script.js"></script>
-<script>dayjs().format()</script>
+  <script>dayjs().format()</script>
 </body>
 
 </html>
