@@ -1,5 +1,6 @@
 // Javascript goes here
 
+
 const citySidebar = $("#city-sidebar");
 
 // this is my API key
@@ -22,6 +23,13 @@ const currentDayDisplay = $('.current-date');
 currentDayDisplay.text(currentDay);
 // const clearTheWeather = $('#clearEverything')[0];
 // const cityHistory = $('storedCity');
+const weekday = dayjs().format('dddd + 1');
+console.log(weekday);
+
+var oneDayOut = dayjs().add(1, 'day').weekday;
+console.log(oneDayOut);
+console.log("is tomorrow");
+
 
 // gets the array of cities stored in local storage
 var cityStored = JSON.parse(localStorage.getItem("citySearch")) || [];
@@ -51,9 +59,9 @@ function createWeatherButton() {
     });
 }
 
-// loads the search history and the buttons to check the weather for it
+// loads the search history and the buttons to check the weather for it. Maximum 20 buttons (I think).
 function loadHistoryButtons() {
-    for (let i = 0; i < cityStored.length; i++) {
+    for (let i = 0; i < cityStored.length && i < 21; i++) {
         var citySearchHistory = document.createElement("button");
         citySearchHistory.setAttribute("class", "cityName historyBtn");
         citySearchHistory.textContent = cityStored[i];
@@ -69,7 +77,7 @@ var retrieveCity = function (lat, lon) {
     var cityCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial'
     fetch(cityCall)
     .then(function (response) {
-        return response.json();
+          return response.json();
     })
         .then(function (data) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
@@ -77,8 +85,10 @@ var retrieveCity = function (lat, lon) {
             $('.city-info').html(cityInputField + " - " + currentDay);
             $('.temperature').text("Temperature: " + data.current.temp + " °F");
             $('.wind-speed').text("Wind Speed: " + data.current.wind_speed + " mph");
-            $('.humidity').text("Humidity: " + data.current.wind_speed + " %");
+            $('.humidity').text("Humidity: " + data.current.humidity + " %");
             $('.uv-index').html ("UV Index: " + data.current.uvi);
+            fiveDayForecast(data);
+
         })
 }
 
@@ -108,7 +118,20 @@ var weatherForecast = function (cityInputField) {
 
 };
 
-// 5-day Forecast to be added
+// making the functions come from variables allows more flexibility in the order in how I list them, by the way
+
+var fiveDayForecast = function (data) {
+    var tomorrowUnix = data.current.dt + 86400;
+    var dayPlusOne = new Date(tomorrowUnix * 1000);
+    $(".day-plus-one-icon").html (`<img src="https://openweathermap.org/img/w/${data.daily[1].weather[0].icon}.png" />`);
+    $(".day-plus-one-date").html ('<h4>' + dayPlusOne.toLocaleDateString("en-US") + '</h4>');
+    $('.day-plus-one-hi-temp').text("High temp: " + data.daily[1].temp.max + " °F")
+    $('.day-plus-one-lo-temp').text("Low temp: " + data.daily[1].temp.min + " °F");
+    $('.day-plus-one-wind').text("Wind speed: " + data.daily[1].wind_speed + " mph");
+    $('.day-plus-one-humidity').text("Humidity: "+ data.daily[1].humidity + " %");
+    $('.day-plus-one-uv-index').text("UV Index: " + data.daily[1].uvi);
+}
+
 
 
 searchBtn.addEventListener("click", function () {
