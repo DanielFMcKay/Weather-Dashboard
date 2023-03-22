@@ -21,10 +21,6 @@ const currentDay = dayjs().format('dddd, MMMM DD');
 console.log(currentDay);
 const currentDayDisplay = $('.current-date');
 currentDayDisplay.text(currentDay);
-// const clearTheWeather = $('#clearEverything')[0];
-// const cityHistory = $('storedCity');
-// const weekday = dayjs().format('dddd + 1');
-// console.log(weekday);
 var fiveDayDisplay = $("#fiveDayForecast");
 
 var oneDayOut = dayjs().add(1, 'day').weekday;
@@ -42,10 +38,10 @@ var cityStored = JSON.parse(localStorage.getItem("citySearch")) || [];
 
 
 // function below is not called, just leaving it in case I change my mind. Obviously this would be deleted if optimized
-function storeCitySearch() {
-    var citySearched = cityInputField.text;
-    localStorage.setItem('citySearch', JSON.stringify(citySearched));
-}
+// function storeCitySearch() {
+//     var citySearched = cityInputField.text;
+//     localStorage.setItem('citySearch', JSON.stringify(citySearched));
+// }
 
 
 
@@ -99,7 +95,6 @@ var retrieveCity = function (lat, lon) {
 var weatherForecast = function (cityInputField) {
     console.log("weatherForecast's cityInputField is");
     console.log(cityInputField);
-    // storeCitySearch();
 
     var OpenWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial' + APIKey;
     console.log(OpenWeather);
@@ -129,7 +124,7 @@ var fiveDayForecast = function (data) {
         $(fiveDayDisplay).append(dayCard);
         var dayPlus = new Date((unixDate + (86400 * [i])) * 1000);
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
-        // $(dayCard).append(`<img src="https://openweathermap.org/img/w${data.daily[i].weather[0].icon}.png"/>`);
+        $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png"/>`);
         $(dayCard).append("<h5>High temp: " + data.daily[i].temp.max + " °F</h5>");
         console.log([i]);
         $(dayCard).append("<h5>Low temp: " + data.daily[i].temp.min + " °F</h5>");
@@ -137,14 +132,6 @@ var fiveDayForecast = function (data) {
         $(dayCard).append("<h5>Humidity: " + data.daily[i].humidity + "%</h5>");
         $(dayCard).append("<h5>UV Index: " + data.daily[i].uvi + "%</h5>");
     }
-
-    // $(".day-plus-one-icon").html (`<img src="https://openweathermap.org/img/w/${data.daily[1].weather[0].icon}.png" />`);
-    // $(".day-plus-one-date").html ('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
-    // $('.day-plus-one-hi-temp').text("High temp: " + data.daily[1].temp.max + " °F")
-    // $('.day-plus-one-lo-temp').text("Low temp: " + data.daily[1].temp.min + " °F");
-    // $('.day-plus-one-wind').text("Wind speed: " + data.daily[1].wind_speed + " mph");
-    // $('.day-plus-one-humidity').text("Humidity: "+ data.daily[1].humidity + " %");
-    // $('.day-plus-one-uv-index').text("UV Index: " + data.daily[1].uvi);
 }
 
 
@@ -169,10 +156,3 @@ searchBtn.addEventListener("click", function () {
 // this loads the buttons from local storage. I think.
 loadHistoryButtons();
 
-
-// The function below was for a Clear Page button that turned out to be too clunk visually in the rough draft.
-
-// clearTheWeather.addEventListener("click", function () {
-//     localStorage.clear();
-//     cityHistory.innerHTML = "";
-//   });

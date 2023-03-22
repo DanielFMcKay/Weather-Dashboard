@@ -124,6 +124,8 @@ header h1 {
     font-weight: bold;
     color: rgb(22, 26, 43);
     background-color: rgb(135, 178, 216);
+    width: fit-content;
+    min-width: 80rem;
     height: fit-content;
     /* min-width: 50%; */
 }
@@ -137,6 +139,7 @@ header h1 {
         background-color: rgba(255, 255, 255, 0.863);
         border-radius: 6px;
         width: fit-content;
+
         font-size: 2rem;
         padding: 6px;
 }
@@ -150,9 +153,13 @@ header h1 {
     padding: 0.5rem;
     text-align: left;
     border-radius: 6px;
-    width: 16rem;
-    max-width: 30%;
+    width: 18rem;
     height: fit-content;
+}
+
+.forecast5Card img {
+    width: 50%;
+    height: 50%;
 }
 
 .forecast5Card h4 {
