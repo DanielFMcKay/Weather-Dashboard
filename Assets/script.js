@@ -22,6 +22,7 @@ console.log(currentDay);
 const currentDayDisplay = $('.current-date');
 currentDayDisplay.text(currentDay);
 var fiveDayDisplay = $("#fiveDayForecast");
+const clearEverything = $("#clearStorageBtn")[0];
 
 var oneDayOut = dayjs().add(1, 'day').weekday;
 console.log(oneDayOut);
@@ -156,3 +157,8 @@ searchBtn.addEventListener("click", function () {
 // this loads the buttons from local storage. I think.
 loadHistoryButtons();
 
+// ngl, I added this button so I could show this one to my dad
+clearEverything.addEventListener("click", function () {
+    localStorage.clear();
+    $('#fiveDayForecast').innerHTML="";
+  });
