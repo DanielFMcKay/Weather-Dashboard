@@ -141,21 +141,31 @@ header h1 {
         padding: 6px;
 }
 
-.fiveDayforecast {
-    color: black;
-    background-color: rgb(65, 63, 82);
-}
-
 .forecast5Card {
     font-size: 1 rem;
     color: white;
+    flex-wrap: wrap;
     background-color: rgb(43, 38, 63);
     margin: 4px;
     padding: 0.5rem;
     text-align: left;
     border-radius: 6px;
+    width: 16rem;
     max-width: 30%;
     height: fit-content;
+}
+
+.forecast5Card h4 {
+    color: rgb(232, 236, 195);
+    flex: wrap;
+}
+
+#fiveDayforecast {
+    color: black;
+    background-color: rgb(65, 63, 82);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .card-date {

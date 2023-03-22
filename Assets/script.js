@@ -23,8 +23,9 @@ const currentDayDisplay = $('.current-date');
 currentDayDisplay.text(currentDay);
 // const clearTheWeather = $('#clearEverything')[0];
 // const cityHistory = $('storedCity');
-const weekday = dayjs().format('dddd + 1');
-console.log(weekday);
+// const weekday = dayjs().format('dddd + 1');
+// console.log(weekday);
+var fiveDayDisplay = $("#fiveDayForecast");
 
 var oneDayOut = dayjs().add(1, 'day').weekday;
 console.log(oneDayOut);
@@ -76,17 +77,17 @@ function loadHistoryButtons() {
 var retrieveCity = function (lat, lon) {
     var cityCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial'
     fetch(cityCall)
-    .then(function (response) {
-          return response.json();
-    })
+        .then(function (response) {
+            return response.json();
+        })
         .then(function (data) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png" />`)
             $('.city-info').html(cityInputField + " - " + currentDay);
             $('.temperature').text("Temperature: " + data.current.temp + " °F");
             $('.wind-speed').text("Wind Speed: " + data.current.wind_speed + " mph");
-            $('.humidity').text("Humidity: " + data.current.humidity + " %");
-            $('.uv-index').html ("UV Index: " + data.current.uvi);
+            $('.humidity').text("Humidity: " + data.current.humidity + "%");
+            $('.uv-index').html("UV Index: " + data.current.uvi);
             fiveDayForecast(data);
 
         })
@@ -101,7 +102,7 @@ var weatherForecast = function (cityInputField) {
     // storeCitySearch();
 
     var OpenWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial' + APIKey;
-    console.log (OpenWeather);
+    console.log(OpenWeather);
 
     fetch(OpenWeather)
         .then(function (response) {
@@ -121,15 +122,29 @@ var weatherForecast = function (cityInputField) {
 // making the functions come from variables allows more flexibility in the order in how I list them, by the way
 
 var fiveDayForecast = function (data) {
-    var tomorrowUnix = data.current.dt + 86400;
-    var dayPlusOne = new Date(tomorrowUnix * 1000);
-    $(".day-plus-one-icon").html (`<img src="https://openweathermap.org/img/w/${data.daily[1].weather[0].icon}.png" />`);
-    $(".day-plus-one-date").html ('<h4>' + dayPlusOne.toLocaleDateString("en-US") + '</h4>');
-    $('.day-plus-one-hi-temp').text("High temp: " + data.daily[1].temp.max + " °F")
-    $('.day-plus-one-lo-temp').text("Low temp: " + data.daily[1].temp.min + " °F");
-    $('.day-plus-one-wind').text("Wind speed: " + data.daily[1].wind_speed + " mph");
-    $('.day-plus-one-humidity').text("Humidity: "+ data.daily[1].humidity + " %");
-    $('.day-plus-one-uv-index').text("UV Index: " + data.daily[1].uvi);
+    $('#fiveDayForecast').empty();
+    var unixDate = data.current.dt;
+    for (let i = 0; i < 5; i++) {
+        var dayCard = $("<div class='row forecast5Card'><div/>");
+        $(fiveDayDisplay).append(dayCard);
+        var dayPlus = new Date((unixDate + (86400 * [i])) * 1000);
+        $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
+        // $(dayCard).append(`<img src="https://openweathermap.org/img/w${data.daily[i].weather[0].icon}.png"/>`);
+        $(dayCard).append("<h5>High temp: " + data.daily[i].temp.max + " °F</h5>");
+        console.log([i]);
+        $(dayCard).append("<h5>Low temp: " + data.daily[i].temp.min + " °F</h5>");
+        $(dayCard).append("<h5>Wind: " + data.daily[i].wind_speed + " mph</h5>");
+        $(dayCard).append("<h5>Humidity: " + data.daily[i].humidity + "%</h5>");
+        $(dayCard).append("<h5>UV Index: " + data.daily[i].uvi + "%</h5>");
+    }
+
+    // $(".day-plus-one-icon").html (`<img src="https://openweathermap.org/img/w/${data.daily[1].weather[0].icon}.png" />`);
+    // $(".day-plus-one-date").html ('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
+    // $('.day-plus-one-hi-temp').text("High temp: " + data.daily[1].temp.max + " °F")
+    // $('.day-plus-one-lo-temp').text("Low temp: " + data.daily[1].temp.min + " °F");
+    // $('.day-plus-one-wind').text("Wind speed: " + data.daily[1].wind_speed + " mph");
+    // $('.day-plus-one-humidity').text("Humidity: "+ data.daily[1].humidity + " %");
+    // $('.day-plus-one-uv-index').text("UV Index: " + data.daily[1].uvi);
 }
 
 
@@ -140,7 +155,7 @@ searchBtn.addEventListener("click", function () {
     console.log("is cityInputField");
     weatherForecast(cityInputField);
     console.log(cityStored);
-    console.log ("is CityStored");
+    console.log("is CityStored");
     cityStored.push(cityInputField);
 
     var historyButton = document.createElement("button");
@@ -155,7 +170,7 @@ searchBtn.addEventListener("click", function () {
 loadHistoryButtons();
 
 
-// The function below was for a Clear Page button that turned out to be too clunk visually in the rough draft. 
+// The function below was for a Clear Page button that turned out to be too clunk visually in the rough draft.
 
 // clearTheWeather.addEventListener("click", function () {
 //     localStorage.clear();
