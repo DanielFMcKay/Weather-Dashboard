@@ -82,8 +82,8 @@ header h1 {
     min-width: 90%;
     width: fit-content;
     display: block;
-    margin: 1.6rem;
-    margin-top: 12px;
+    margin: 1.2rem;
+    margin-bottom: 1.8rem;
     border-radius: 6px;
     border-width: 3px;
     color: rgb(255, 254, 245);
@@ -99,8 +99,8 @@ header h1 {
     padding: 6px 5px;
     width: 90%;
     display: block;
-    margin: 5px;
-    margin-top: 10px;
+    margin: 1.2rem;
+    margin-top: 0.5rem;
     padding-left: 15px;
     padding-right: 15px;
     border-radius: 6px;
@@ -125,9 +125,14 @@ header h1 {
     color: rgb(22, 26, 43);
     background-color: rgb(135, 178, 216);
     width: fit-content;
-    min-width: 80rem;
+    min-width: 89.5rem;
     height: fit-content;
     /* min-width: 50%; */
+}
+
+.fiveDayTitle {
+    margin: 0.5rem;
+    font-size: 2rem;
 }
 
 .city-title {
@@ -149,11 +154,11 @@ header h1 {
     color: white;
     flex-wrap: wrap;
     background-color: rgb(43, 38, 63);
-    margin: 4px;
+    margin: 0.5rem;
     padding: 0.5rem;
     text-align: left;
     border-radius: 6px;
-    width: 18rem;
+    width: 17rem;
     height: fit-content;
 }
 
