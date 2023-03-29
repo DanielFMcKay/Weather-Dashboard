@@ -11,12 +11,12 @@ header {
 }
 
 header h1 {
-    color: rgb(255, 253, 239);
+    color: rgb(250, 247, 228);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 4.4rem;
+    font-size: 4rem;
     font-weight: bold;
-    padding-top: 20px;
+    padding-top: 18px;
 }
 
 .header-image {
@@ -29,6 +29,11 @@ header h1 {
     background-size: cover;
     background-position: center;
     margin-right: 4px;
+}
+
+body {
+    max-width: 100%;
+    background-color:rgb(233, 246, 250);
 }
 
 #currentDay {
@@ -57,9 +62,10 @@ header h1 {
     justify-content: flex-end;
     align-items: flex-end;
     width: fit-content;
+    background: linear-gradient(to right, rgb(185, 185, 185),rgb(236, 236, 236));
     max-width: 10rem;
     float: right;
-    border-radius: 5px;
+    border-radius: 6px;
     margin: 0.5rem 1.4rem 0.5rem 1.4rem;
     font-size: 1rem;
     padding: 4px;
@@ -73,7 +79,7 @@ header h1 {
     text-align: center;
     border-radius: 10px;
     /* change the max-width after de-bugging!!!! */
-    max-width: 24rem;
+    max-width: 22rem;
     margin-left: 3px;
     min-height: 48rem;
     background-color: rgb(205, 232, 241);
@@ -89,7 +95,7 @@ header h1 {
     text-align: center;
     font-size: 2rem;
     width: 90%;
-    border-radius: 6px;
+    border-radius: 10px;
     border-width: 3px;
     padding: 5px 0 5px 10px;
     margin-left: 5px;
@@ -104,12 +110,12 @@ header h1 {
     display: block;
     margin: 1.2rem;
     margin-bottom: 1.8rem;
-    border-radius: 6px;
+    border-radius: 20px;
     border-width: 3px;
     color: rgb(255, 254, 245);
     border: none;
     outline: none;
-    background-color: rgb(97, 117, 209);
+    background: linear-gradient(to right, rgb(61, 82, 175), rgb(153, 168, 235));
     box-shadow: 3px 3px darkgrey;
 }
 
@@ -123,14 +129,14 @@ header h1 {
     margin-top: 0.5rem;
     padding-left: 15px;
     padding-right: 15px;
-    border-radius: 6px;
+    border-radius: 20px;
     border-width: 3px;
     color: black;
     background-color: rgb(151, 149, 141);
     text-shadow: darkgrey;
     border: none;
     outline: none;
-    background-color: rgba(186, 196, 240, 0.562);
+    background: linear-gradient(to right, rgba(127, 139, 196, 0.562), rgba(186, 196, 240, 0.562));
     box-shadow: 3px 3px darkgrey;
 }
 
@@ -142,17 +148,30 @@ header h1 {
 .weather-card {
     font-size: 1rem;
     font-weight: bold;
-    color: rgb(22, 26, 43);
-    background-color: rgb(135, 178, 216);
+    color: rgb(54, 57, 59);
+    background: linear-gradient(rgb(110, 147, 179),rgb(141, 186, 226));
     width: fit-content;
-    min-width: 89.5rem;
+    border-radius: 10px;
+    width: 64.5rem;
+    max-width: 100%;
     height: fit-content;
-    /* min-width: 50%; */
 }
+
+.weather-card h1 {
+    font-size: 2.8rem;
+    color: rgb(37, 44, 80);
+}
+
+.weather-card img {
+    max-width: 10rem;
+    max-height: 10rem;
+}
+
 
 .fiveDayTitle {
     margin: 0.5rem;
     font-size: 2rem;
+    margin-left: 2rem;
 }
 
 .city-title {
@@ -173,12 +192,12 @@ header h1 {
     font-size: 1 rem;
     color: white;
     flex-wrap: wrap;
-    background-color: rgb(43, 38, 63);
+    background: linear-gradient(rgb(51, 45, 75),rgb(96, 85, 141));
     margin: 0.5rem;
     padding: 0.5rem;
     text-align: left;
-    border-radius: 6px;
-    width: 17rem;
+    border-radius: 12px;
+    width: 12rem;
     height: fit-content;
 }
 
@@ -192,13 +211,18 @@ header h1 {
     flex: wrap;
 }
 
-#fiveDayforecast {
-    color: black;
-    background-color: rgb(65, 63, 82);
+.forecast5Card h5 {
+    font-size: 1.2rem;
+    color: white;
+    flex: wrap;
+}
+
+/* this area is just the background to the 5 Day Forecast area and ended up not being needed */
+/* #fiveDayForecast {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
+} */
 
 .card-date {
     color: rgb(241, 245, 205);

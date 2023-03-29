@@ -79,12 +79,15 @@ var retrieveCity = function (lat, lon) {
         })
         .then(function (data) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
-            $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png" />`)
+            $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
             $('.city-info').html(cityInputField + " - " + currentDay);
-            $('.temperature').text("Temperature: " + data.current.temp + " °F");
-            $('.wind-speed').text("Wind Speed: " + data.current.wind_speed + " mph");
+            $('.temperature').text("Current Temperature: " + parseInt(data.current.temp) + " °F");
+            $('.wind-speed').text("Wind Speed: " + parseInt(data.current.wind_speed) + " mph");
             $('.humidity').text("Humidity: " + data.current.humidity + "%");
             $('.uv-index').html("UV Index: " + data.current.uvi);
+            $('.hi-temp').text("Today's High Temp: " + parseInt(data.daily[0].temp.max) + " °F");
+            $('.lo-temp').text("Today's Low Temp: " + parseInt(data.daily[0].temp.min) + " °F");
+    
             fiveDayForecast(data);
 
         })
@@ -125,11 +128,11 @@ var fiveDayForecast = function (data) {
         $(fiveDayDisplay).append(dayCard);
         var dayPlus = new Date((unixDate + (86400 * [i])) * 1000);
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
-        $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png"/>`);
-        $(dayCard).append("<h5>High temp: " + data.daily[i].temp.max + " °F</h5>");
+        $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
+        $(dayCard).append("<h5>High temp: " + parseInt(data.daily[i].temp.max) + " °F</h5>");
         console.log([i]);
-        $(dayCard).append("<h5>Low temp: " + data.daily[i].temp.min + " °F</h5>");
-        $(dayCard).append("<h5>Wind: " + data.daily[i].wind_speed + " mph</h5>");
+        $(dayCard).append("<h5>Low temp: " + parseInt(data.daily[i].temp.min) + " °F</h5>");
+        $(dayCard).append("<h5>Wind: " + parseInt(data.daily[i].wind_speed) + " mph</h5>");
         $(dayCard).append("<h5>Humidity: " + data.daily[i].humidity + "%</h5>");
         $(dayCard).append("<h5>UV Index: " + data.daily[i].uvi + "%</h5>");
     }
