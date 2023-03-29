@@ -2,13 +2,11 @@
 
 # Weather-Dashboard
 
-Overview: a weather app for displaying current weather and five day forecasts that saves and reloads cities the user inputs
+Overview: a weather app for displaying current weather and five day forecasts that saves and reloads cities that the user inputs.
 
 # 06 Server-Side APIs: Weather Dashboard
 
-## Live Site: https://danielfmckay.github.io/Weather-Dashboard/
-
-Note: this is still in progress and will be updated.
+## Live Site: [Weather Dashboard](https://danielfmckay.github.io/Weather-Dashboard/) 
 
 This app is for the week 06 assignment for the UC Berkeley coding boot camp through Boot Camp Spot.
 
@@ -28,4 +26,4 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Finally, there is a button to both clear the local storage and reload the page, for easier use.
 
-Live Site: https://danielfmckay.github.io/Weather-Dashboard/
+### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
