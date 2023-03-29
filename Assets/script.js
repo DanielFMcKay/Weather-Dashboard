@@ -34,18 +34,6 @@ var cityStored = JSON.parse(localStorage.getItem("citySearch")) || [];
 
 
 
-// saved for later for 5-day forecast
-// var OpenForecast = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial' + APIKey;
-
-
-// function below is not called, just leaving it in case I change my mind. Obviously this would be deleted if optimized
-// function storeCitySearch() {
-//     var citySearched = cityInputField.text;
-//     localStorage.setItem('citySearch', JSON.stringify(citySearched));
-// }
-
-
-
 // Since the site requires new buttons for each city in the history, we need a function to create that
 function createWeatherButton() {
     var presetCityButtons = document.querySelectorAll(".cityName");
@@ -144,6 +132,10 @@ searchBtn.addEventListener("click", function () {
     cityInputField = $("#fetch-field").val();
     console.log(cityInputField);
     console.log("is cityInputField");
+    // stops process if nothing is entered
+    if (cityInputField === "") {
+        return;
+    } else {
     weatherForecast(cityInputField);
     console.log(cityStored);
     console.log("is CityStored");
@@ -155,6 +147,8 @@ searchBtn.addEventListener("click", function () {
     $("#storedCity").append(historyButton);
 
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
+    }
+
 });
 
 // this loads the buttons from local storage. I think.
