@@ -59,15 +59,14 @@ body {
 }
 
 #clearStorageBtn {
-    justify-content: flex-end;
-    align-items: flex-end;
     width: fit-content;
     background: linear-gradient(to right, rgb(185, 185, 185),rgb(236, 236, 236));
     max-width: 10rem;
     float: right;
-    border-radius: 6px;
+    border-radius: 16px;
     margin: 0.5rem 1.4rem 0.5rem 1.4rem;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
     padding: 4px;
 }
 
@@ -152,8 +151,7 @@ body {
     background: linear-gradient(rgb(110, 147, 179),rgb(141, 186, 226));
     width: fit-content;
     border-radius: 10px;
-    width: 64.5rem;
-    max-width: 100%;
+    width: 100%;
     height: fit-content;
 }
 
@@ -197,7 +195,8 @@ body {
     padding: 0.5rem;
     text-align: left;
     border-radius: 12px;
-    width: 12rem;
+    width: 18%;
+    min-width: 12rem;
     height: fit-content;
 }
 
@@ -207,12 +206,13 @@ body {
 }
 
 .forecast5Card h4 {
+    font-size: 1.8rem;
     color: rgb(232, 236, 195);
     flex: wrap;
 }
 
 .forecast5Card h5 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: white;
     flex: wrap;
 }

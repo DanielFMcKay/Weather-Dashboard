@@ -99,9 +99,18 @@ var weatherForecast = function (cityInputField) {
         .then(function (data) {
             if (data.cod !== "200") {
                 console.log("City not found.");
+                window.alert("City Not Found");
                 return;
             }
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
+            cityStored.push(cityInputField);
+
+            var historyButton = document.createElement("button");
+            historyButton.setAttribute("class", "cityName historyBtn");
+            historyButton.textContent = cityInputField;
+            $("#storedCity").append(historyButton);
+        
+            localStorage.setItem('citySearch', JSON.stringify(cityStored));
         });
 
 };
@@ -139,14 +148,14 @@ searchBtn.addEventListener("click", function () {
     weatherForecast(cityInputField);
     console.log(cityStored);
     console.log("is CityStored");
-    cityStored.push(cityInputField);
+    // cityStored.push(cityInputField);
 
-    var historyButton = document.createElement("button");
-    historyButton.setAttribute("class", "cityName historyBtn");
-    historyButton.textContent = cityInputField;
-    $("#storedCity").append(historyButton);
+    // var historyButton = document.createElement("button");
+    // historyButton.setAttribute("class", "cityName historyBtn");
+    // historyButton.textContent = cityInputField;
+    // $("#storedCity").append(historyButton);
 
-    localStorage.setItem('citySearch', JSON.stringify(cityStored));
+    // localStorage.setItem('citySearch', JSON.stringify(cityStored));
     }
 
 });
@@ -157,5 +166,5 @@ loadHistoryButtons();
 // ngl, I added this button so I could show this one to my dad
 clearEverything.addEventListener("click", function () {
     localStorage.clear();
-    $('#fiveDayForecast').innerHTML="";
+    location.reload();
   });
