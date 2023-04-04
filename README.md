@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/123746582/229748354-0be90761-19d2-4b82-ae55-a7dc8d4d96b8.png)
+![image](https://user-images.githubusercontent.com/123746582/229811666-eada1fef-3fbd-4233-8f8c-f159b45fd9b8.png)
 
 # Weather-Dashboard
 
@@ -26,7 +26,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Additionally, the button persists in local storage, so it reloads when the page does.
 
-* The selected location's current wind-chill and UTC timezone are also displayed.
+* The selected location's current wind-chill and local time are also displayed.
 
 * Finally, there is a button to both clear the local storage and reload the page, for easier use.
 
