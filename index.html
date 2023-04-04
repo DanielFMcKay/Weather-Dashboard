@@ -12,11 +12,14 @@
 
 <body>
   <header>
-    <h1>Weather Dashboard</h1>
-    <div class="header-row row">
-      <p id="currentDateTime" class="lead"></p>
+    <div id="title-row">
       <button id="clearStorageBtn">Clear Page & Storage</button>
+      <h1 id="weather-title">Weather Dashboard</h1>
+      <!-- this is to keep the title row even -->
+      <button class="aligner">Clear Page & Storage
     </div>
+    </div>
+    <p id="currentDateTime" class="lead"></p>
     <section class="header-image"></section>
   </header>
 
@@ -36,22 +39,30 @@
         <div class="row">
           <div class="card weather-card">
             <!-- Current weather -->
-            <h1><strong>Current Weather</strong></h1>
+            <h1>Current Weather</h1>
             <div class="card-body">
+              <h2 class="city-info">Please Enter a City</h2>
               <h2 class="weather-icon"></h2>
               <!-- <h2 class="current-date">Date</h2> -->
-              <h2 class="city-info"></h2>
-              <h3 class="temperature">Please Enter a City</h3>
-              <h3 class="wind-speed"></h3>
-              <h3 class="humidity"></h3>
-              <h3 class="uv-index"></h3>
-              <h4 class="hi-temp"></h4>
-              <h4 class="lo-temp"></h4>
+              <div class="infoColumns">
+                <div class="infoColumn1">
+                  <h3 class="temperature"></h3>
+                  <h3 class="wind-speed"></h3>
+                  <h3 class="humidity"></h3>
+                  <h3 class="uv-index"></h3>
+                </div>
+                <div class="infoColumn2">
+                  <h4 class="timezone-offset"></h4>
+                  <h4 class="hi-temp"></h4>
+                  <h4 class="lo-temp"></h4>
+                  <h4 class="feels-like"></h4>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">
             <!-- Five Day Forecast below -->
-            <h2 class="fiveDayTitle"><strong>5 Day Forecast</strong></h2>
+            <h2 class="fiveDayTitle">5 Day Forecast</h2>
           </div>
         </div>
         <div class="row">

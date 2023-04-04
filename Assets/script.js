@@ -3,6 +3,7 @@
 
 const citySidebar = $("#city-sidebar");
 
+
 // this is my API key
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
 
@@ -52,7 +53,7 @@ function loadHistoryButtons() {
         citySearchHistory.setAttribute("class", "cityName historyBtn");
         citySearchHistory.textContent = cityStored[i];
         console.log("stored city is " + cityStored[i]);
-        $("#storedCity").append(citySearchHistory);
+        $("#storedCity").prepend(citySearchHistory);
         createWeatherButton();
     }
 }
@@ -69,15 +70,16 @@ var retrieveCity = function (lat, lon) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
             $('.city-info').html(cityInputField + " - " + currentDay);
-            $('.temperature').text("Current Temperature: " + parseInt(data.current.temp) + " °F");
-            $('.wind-speed').text("Wind Speed: " + parseInt(data.current.wind_speed) + " mph");
+            $('.temperature').text("Current Temperature: " + Math.round(parseFloat(data.current.temp)) + " °F");
+            $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
             $('.humidity').text("Humidity: " + data.current.humidity + "%");
             $('.uv-index').html("UV Index: " + data.current.uvi);
-            $('.hi-temp').text("Today's High Temp: " + parseInt(data.daily[0].temp.max) + " °F");
-            $('.lo-temp').text("Today's Low Temp: " + parseInt(data.daily[0].temp.min) + " °F");
+            $('.timezone-offset').html("Location's Timezone: UTC" + ((data.timezone_offset)/3600));
+            $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + " °F");
+            $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + " °F");
+            $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + " °F");
     
             fiveDayForecast(data);
-
         })
 }
 
@@ -88,6 +90,7 @@ var weatherForecast = function (cityInputField) {
     console.log("weatherForecast's cityInputField is");
     console.log(cityInputField);
 
+    
     var OpenWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial' + APIKey;
     console.log(OpenWeather);
 
@@ -98,17 +101,29 @@ var weatherForecast = function (cityInputField) {
 
         .then(function (data) {
             if (data.cod !== "200") {
-                console.log("City not found.");
-                window.alert("City Not Found");
+                console.log("Location not found.");
+                window.alert("Place Not Found");
                 return;
             }
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
-            cityStored.push(cityInputField);
+
+            // catch for duplicate entries below
+            for (let i = 0; i < cityStored.length; i++) {
+                console.log(cityStored[i]);
+                if (cityInputField === cityStored[i]) {
+                    console.log("duplicate location found");
+                    console.log(cityStored.length);
+                    console.log("is number of locations stored")
+                    return;
+                }}
+
+
+            cityStored.push(cityInputField);           
 
             var historyButton = document.createElement("button");
             historyButton.setAttribute("class", "cityName historyBtn");
             historyButton.textContent = cityInputField;
-            $("#storedCity").append(historyButton);
+            $("#storedCity").prepend(historyButton);
         
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
         });
@@ -126,10 +141,10 @@ var fiveDayForecast = function (data) {
         var dayPlus = new Date((unixDate + (86400 * [i])) * 1000);
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
-        $(dayCard).append("<h5>High temp: " + parseInt(data.daily[i].temp.max) + " °F</h5>");
+        $(dayCard).append("<h5>High temp: " + Math.round(parseFloat(data.daily[i].temp.max)) + " °F</h5>");
         console.log([i]);
-        $(dayCard).append("<h5>Low temp: " + parseInt(data.daily[i].temp.min) + " °F</h5>");
-        $(dayCard).append("<h5>Wind: " + parseInt(data.daily[i].wind_speed) + " mph</h5>");
+        $(dayCard).append("<h5>Low temp: " + Math.round(parseFloat(data.daily[i].temp.min)) + " °F</h5>");
+        $(dayCard).append("<h5>Wind: " + Math.round(parseFloat(data.daily[i].wind_speed)) + " mph</h5>");
         $(dayCard).append("<h5>Humidity: " + data.daily[i].humidity + "%</h5>");
         $(dayCard).append("<h5>UV Index: " + data.daily[i].uvi + "%</h5>");
     }
@@ -148,14 +163,7 @@ searchBtn.addEventListener("click", function () {
     weatherForecast(cityInputField);
     console.log(cityStored);
     console.log("is CityStored");
-    // cityStored.push(cityInputField);
 
-    // var historyButton = document.createElement("button");
-    // historyButton.setAttribute("class", "cityName historyBtn");
-    // historyButton.textContent = cityInputField;
-    // $("#storedCity").append(historyButton);
-
-    // localStorage.setItem('citySearch', JSON.stringify(cityStored));
     }
 
 });
