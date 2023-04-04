@@ -4,6 +4,7 @@ html {
     margin-left: 4px;
     margin-right: 4px;
     margin-top: 4px;
+    min-width: 360px;
 }
 
 header {
@@ -24,12 +25,11 @@ header {
     height: fit-content;
     background: linear-gradient(to right, rgb(185, 185, 185),rgb(236, 236, 236));
     max-width: 9rem;
-    /* float: left; */
     border-radius: 16px;
-    margin: 0.5rem 1.4rem 0.5rem 1.4rem;
-    font-size: 1rem;
+    margin: 0.5rem 0 0 0.5rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    padding: 4px;
+    padding: 0.4rem 0.75rem;
 }
 
 
@@ -37,29 +37,28 @@ header h1 {
     color: rgb(250, 247, 228);
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 3.6rem;
-    font-weight: bold;
+    font-size: 3.2rem;
+    font-weight: 600;
     padding-top: 20px;
     padding-bottom: 2px;
 }
 
 /* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
 .aligner {
-    border-radius: 16px;
     visibility: hidden;
+    font-size: 0.8rem;
     margin: 1rem;
 }
 
 .header-image {
-    height: 10rem;
+    height: 8.4rem;
     width: 100%;
-    margin-bottom: 12px;
+    margin-bottom: 6px;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     background-image: url("../Assets/images/weather-background-hero.png");
     background-size: cover;
     background-position: center;
-    margin-right: 4px;
 }
 
 body {
@@ -88,17 +87,15 @@ body {
 
 #city-sidebar {
     color: black;
-    background-color: lightskyblue;
     display: block;
     float: left;
     text-align: center;
     border-radius: 10px;
-    /* change the max-width after de-bugging!!!! */
     width: fit-content;
-    max-width: 22rem;
-    margin-left: 3px;
-    min-height: 48rem;
-    background-color: rgb(205, 232, 241);
+    max-width: 19rem;
+    margin: 0px 6px 0 2px;
+    min-height: 40rem;
+    background: linear-gradient(rgb(179, 214, 226),rgb(212, 235, 243));
     font-size: 2.5rem;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 1rem;
@@ -107,49 +104,55 @@ body {
 }
 
 #fetch-field {
-    line-height: 2.2rem;
+    line-height: 2rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     width: 90%;
     border-radius: 10px;
     border-width: 3px;
     padding: 5px 0 5px 10px;
-    margin-left: 5px;
+    margin-left: 4px;
 }
 
 #searchBtn {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     text-decoration: none;
     padding: 5px 0 5px 0;
     min-width: 90%;
     width: fit-content;
     display: block;
     margin: 1rem;
-    margin-bottom: 1.8rem;
-    border-radius: 20px;
+    margin-left: 0.8rem;
+    margin-right: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-radius: 18px;
     border-width: 3px;
     color: rgb(231, 231, 231);
     border: none;
     outline: none;
+    padding-left: 4px;
+    padding-right: 4px;
     background: linear-gradient(to right, rgb(61, 82, 175), rgb(153, 168, 235));
     box-shadow: 3px 3px darkgrey;
 }
 
 .historyBtn {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     text-decoration: none;
-    padding: 6px 5px;
+    padding: 2px 5px;
     width: 90%;
     display: block;
     margin: 1rem;
-    margin-top: 0.5rem;
-    padding-left: 12px;
-    padding-right: 12px;
+    margin-top: 0.1rem;
+    margin-bottom: 0.8rem;
+    margin-left: 0.8rem;
+    margin-right: 1.2rem;
+
     border-radius: 20px;
     border-width: 3px;
     color: black;
     background-color: rgb(151, 149, 141);
-    text-shadow: darkgrey;
+    text-shadow: #888888;
     border: none;
     outline: none;
     background: linear-gradient(to right, rgba(127, 139, 196, 0.562), rgba(186, 196, 240, 0.562));
@@ -162,6 +165,7 @@ body {
     background: transparent;
 }
 
+/* Main weather info area */
 .weather-card {
     color: black;
     background: linear-gradient(rgb(110, 147, 179),rgb(141, 186, 226));
@@ -172,14 +176,36 @@ body {
 }
 
 .weather-card h1 {
-    font-size: 2.5rem;
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: -0.6rem;
+    font-size: 2.2rem;
     color: black;
 }
 
+.weather-icon {
+    margin-left: 1rem;
+    margin-top: -0.6rem;
+}
+
 .weather-card h2 {
+    font-size: 1.75rem;
     color: black;
     text-shadow: 2px 2px 2px #AAAAAA; 
 }
+
+.weather-card h3 {
+    font-size: 1.6rem;
+    color: black;
+    text-shadow: 2px 2px 2px #AAAAAA; 
+}
+
+.weather-card h4 {
+    font-size: 1.2rem;
+    color: black;
+    text-shadow: 2px 2px 2px #AAAAAA; 
+}
+
 
 .card-body {
     display: flex;
@@ -191,11 +217,13 @@ body {
     text-shadow: 2px 2px 2px #AAAAAA;
     display: flex;
     flex-direction: row;
+    margin-top: -1rem;
 }
 
 .infoColumn1 {
     display: column;
-    margin-right: 2.4rem;
+    margin-right: 2.2rem;
+    margin-left: 0.2rem;
 }
 
 .infocolumn2 {
@@ -203,34 +231,20 @@ body {
 }
 
 .weather-card img {
-    max-width: 10rem;
-    max-height: 10rem;
+    max-width: 9rem;
+    max-height: 9rem;
 }
 
 
 .fiveDayTitle {
     font-size: 1.75rem;
     font-weight: 600;
-    margin: 0.5rem;
-    margin-left: 2rem;
-}
-
-.city-title {
-    font-size: 1.8rem;
-}
-
-#clearEverything {
-        color: rgb(56, 56, 56);
-        background-color: rgba(255, 255, 255, 0.863);
-        border-radius: 6px;
-        width: fit-content;
-
-        font-size: 2rem;
-        padding: 6px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    margin-left: 1.1rem;
 }
 
 .forecast5Card {
-    font-size: 1 rem;
     color: white;
     flex-wrap: wrap;
     background: linear-gradient(rgb(51, 45, 75),rgb(96, 85, 141));
@@ -238,24 +252,25 @@ body {
     padding: 0.5rem;
     text-align: left;
     border-radius: 12px;
-    width: 18%;
-    min-width: 12rem;
+    width: 17%;
+    min-width: 10rem;
     height: fit-content;
 }
 
 .forecast5Card img {
+    margin-top: -0.6rem;
     width: 50%;
     height: 50%;
 }
 
 .forecast5Card h4 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: rgb(232, 236, 195);
     flex: wrap;
 }
 
 .forecast5Card h5 {
-    font-size: 1.5rem;
+    font-size: 0.9rem;
     color: white;
     flex: wrap;
 }

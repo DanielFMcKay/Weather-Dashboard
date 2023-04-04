@@ -8,7 +8,7 @@ const citySidebar = $("#city-sidebar");
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
 
 // the input field. The reason I kept "citInputField" so much is it's easier to track in de-bugging
-var cityInputField = $("#fetch-field").val();
+let cityInputField = $("#fetch-field").val();
 
 
 const searchBtn = $("#searchBtn")[0];
@@ -74,7 +74,12 @@ var retrieveCity = function (lat, lon) {
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
             $('.humidity').text("Humidity: " + data.current.humidity + "%");
             $('.uv-index').html("UV Index: " + data.current.uvi);
-            $('.timezone-offset').html("Location's Timezone: UTC" + ((data.timezone_offset)/3600));
+            $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset)/3600));
+            // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
+            var localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
+            console.log(localTime.toLocaleTimeString("en-US"));
+            console.log("is new Unix Date fuckery");
+            $('.local-time').html("Local time is: " + localTime.toLocaleTimeString("en-US"));
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + " °F");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + " °F");
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + " °F");
@@ -130,8 +135,9 @@ var weatherForecast = function (cityInputField) {
 
 };
 
-// making the functions come from variables allows more flexibility in the order in how I list them, by the way
+// making the functions come from variables allows more flexibility in the order in how I list them, it would seem
 
+// this is for the Five Day Forecast
 var fiveDayForecast = function (data) {
     $('#fiveDayForecast').empty();
     var unixDate = data.current.dt;
@@ -151,7 +157,7 @@ var fiveDayForecast = function (data) {
 }
 
 
-
+// this is the search button and it's operation
 searchBtn.addEventListener("click", function () {
     cityInputField = $("#fetch-field").val();
     console.log(cityInputField);
