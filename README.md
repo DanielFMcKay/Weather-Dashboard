@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/123746582/229811666-eada1fef-3fbd-4233-8f8c-f159b45fd9b8.png)
+![image](https://user-images.githubusercontent.com/123746582/229821982-11908fa7-8f06-4c1c-8ae9-57edf747f3cf.png)
 
 # Weather-Dashboard
 
@@ -26,7 +26,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Additionally, the button persists in local storage, so it reloads when the page does.
 
-* The selected location's current wind-chill and local time are also displayed.
+* The selected location's current wind-chill, humidity, and local time are also displayed.
 
 * Finally, there is a button to both clear the local storage and reload the page, for easier use.
 
