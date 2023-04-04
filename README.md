@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/123746582/228471303-fc7161b8-4104-4563-8698-eb99a13735ed.png)
+![image](https://user-images.githubusercontent.com/123746582/229748354-0be90761-19d2-4b82-ae55-a7dc8d4d96b8.png)
 
 # Weather-Dashboard
 
@@ -18,11 +18,15 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Additionally, it shows a five day forecast on card along the bottom of the display to show same conditions for the next 5 days, including a high and low daily temperature in lieu of a current one.
 
-* Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later.
+* Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later. Technically, they are prepended, so that they display with the most recently called location at the top.
 
-* However, if the city is not found, no button is appended is appended or data retrieved, and there is a pop-up alert reading "City Not Found"
+* However, if the city is not found, no button is appended or data retrieved, and there is a pop-up alert reading "City Not Found".
+
+* Duplicate entries will also not append a button, but will still call that location's data.
 
 * Additionally, the button persists in local storage, so it reloads when the page does.
+
+* The selected location's current wind-chill and UTC timezone are also displayed.
 
 * Finally, there is a button to both clear the local storage and reload the page, for easier use.
 
