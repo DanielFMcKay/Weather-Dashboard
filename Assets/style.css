@@ -217,6 +217,7 @@ body {
     text-shadow: 2px 2px 2px #AAAAAA;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     margin-top: -1rem;
 }
 
