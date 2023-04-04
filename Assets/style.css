@@ -169,7 +169,7 @@ body {
 .weather-card {
     color: black;
     background: linear-gradient(rgb(110, 147, 179),rgb(141, 186, 226));
-    width: fit-content;
+    width: cover;
     border-radius: 10px;
     width: 100%;
     height: fit-content;

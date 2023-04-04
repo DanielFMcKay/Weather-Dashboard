@@ -68,22 +68,26 @@ var retrieveCity = function (lat, lon) {
         })
         .then(function (data) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
+            var localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
+            console.log(localTime.toLocaleTimeString("en-US"));
+            console.log("is the Unix-rendered local time");
+            console.log(localTime.toLocaleDateString("en-US"));
+            console.log("is the Unix-rendered local date");
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
-            $('.city-info').html(cityInputField + " - " + currentDay);
+            $('.city-info').html(cityInputField + " - " + localTime.toLocaleDateString("en-US"));
             $('.temperature').text("Current Temperature: " + Math.round(parseFloat(data.current.temp)) + " °F");
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
             $('.humidity').text("Humidity: " + data.current.humidity + "%");
             $('.uv-index').html("UV Index: " + data.current.uvi);
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset)/3600));
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
-            var localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
-            console.log(localTime.toLocaleTimeString("en-US"));
-            console.log("is new Unix Date fuckery");
+
             $('.local-time').html("Local time is: " + localTime.toLocaleTimeString("en-US"));
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + " °F");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + " °F");
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + " °F");
-    
+            $('.humidity').text("Current humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
+
             fiveDayForecast(data);
         })
 }
