@@ -1,18 +1,16 @@
-![image](https://user-images.githubusercontent.com/123746582/228449227-ee6e228f-3045-47b2-bf6e-b058c2d48db6.png)
+![image](https://user-images.githubusercontent.com/123746582/228471303-fc7161b8-4104-4563-8698-eb99a13735ed.png)
 
 # Weather-Dashboard
 
-Overview: a weather app for displaying current weather and five day forecasts that saves and reloads cities the user inputs
+Overview: a weather app for displaying current weather and five day forecasts that saves and reloads cities that the user inputs.
 
 # 06 Server-Side APIs: Weather Dashboard
 
-## Live Site: https://danielfmckay.github.io/Weather-Dashboard/
-
-Note: this is still in progress and will be updated.
+## Live Site: [Weather Dashboard](https://danielfmckay.github.io/Weather-Dashboard/) 
 
 This app is for the week 06 assignment for the UC Berkeley coding boot camp through Boot Camp Spot.
 
-* This weather page will take a city name, and return a forecast with the temperature, wind speed, UV index, humidty, and current date, as well as a weather icon for the type of weather.
+* This weather page will take a city name, and return a forecast with the temperature, wind speed, UV index, humidty, and current date, as well as a weather icon for the type of weather. It will also show today's high and low temperatures.
 
 * It does this by contacting OpenWeatherMap.org through an API call to retrieve the information.
 
@@ -22,6 +20,10 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later.
 
-* Finally, the button persists in local storage, so it reloads when the page does.
+* However, if the city is not found, no button is appended is appended or data retrieved, and there is a pop-up alert reading "City Not Found"
 
-Live Site: https://danielfmckay.github.io/Weather-Dashboard/
+* Additionally, the button persists in local storage, so it reloads when the page does.
+
+* Finally, there is a button to both clear the local storage and reload the page, for easier use.
+
+### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
