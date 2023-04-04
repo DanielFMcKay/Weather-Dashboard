@@ -93,7 +93,7 @@ body {
     border-radius: 10px;
     width: fit-content;
     max-width: 19rem;
-    margin: 0px 6px 0 2px;
+    margin: 0px 6px 6px 2px;
     min-height: 40rem;
     background: linear-gradient(rgb(179, 214, 226),rgb(212, 235, 243));
     font-size: 2.5rem;
@@ -183,6 +183,7 @@ body {
     color: black;
 }
 
+
 .weather-icon {
     margin-left: 1rem;
     margin-top: -0.6rem;
@@ -241,7 +242,7 @@ body {
     font-size: 1.75rem;
     font-weight: 600;
     margin-top: 0.5rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.4rem;
     margin-left: 1.1rem;
 }
 
@@ -249,11 +250,11 @@ body {
     color: white;
     flex-wrap: wrap;
     background: linear-gradient(rgb(51, 45, 75),rgb(96, 85, 141));
-    margin: 0.5rem;
+    margin: 0.25rem;
     padding: 0.5rem;
     text-align: left;
     border-radius: 12px;
-    width: 17%;
+    width: 17.5%;
     min-width: 10rem;
     height: fit-content;
 }
