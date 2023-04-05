@@ -159,12 +159,6 @@ body {
     box-shadow: 3px 3px darkgrey;
 }
 
-
-/* not currently used */
-#city-button {
-    background: transparent;
-}
-
 /* Main weather info area */
 .weather-card {
     color: black;
@@ -239,6 +233,12 @@ body {
     max-height: 9rem;
 }
 
+.fiveDay {
+    background: linear-gradient(to right, rgba(127, 139, 196, 0.562), rgba(186, 196, 240, 0.562));
+    border-radius: 12px;
+    margin-top: 4px;
+    max-width: 62.4rem;
+}
 
 .fiveDayTitle {
     font-size: 1.75rem;
@@ -252,7 +252,7 @@ body {
     color: white;
     flex-wrap: wrap;
     background: linear-gradient(rgb(51, 45, 75),rgb(96, 85, 141));
-    margin: 0.25rem;
+    margin: 4px 4px 0 0;
     padding: 0.5rem;
     text-align: left;
     border-radius: 12px;
