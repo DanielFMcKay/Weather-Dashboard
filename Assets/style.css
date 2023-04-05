@@ -88,7 +88,7 @@ body {
 #city-sidebar {
     color: black;
     display: block;
-    float: left;
+    /* float: left; */
     text-align: center;
     border-radius: 10px;
     width: fit-content;
@@ -198,13 +198,15 @@ body {
 .weather-card h3 {
     font-size: 1.6rem;
     color: black;
-    text-shadow: 2px 2px 2px #AAAAAA; 
+    text-shadow: 2px 2px 2px #AAAAAA;
+    padding: 1px 0;
 }
 
 .weather-card h4 {
     font-size: 1.2rem;
     color: black;
-    text-shadow: 2px 2px 2px #AAAAAA; 
+    text-shadow: 2px 2px 2px #AAAAAA;
+    padding: 1px 0;
 }
 
 
