@@ -68,6 +68,7 @@ var retrieveCity = function (lat, lon) {
         })
         .then(function (data) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
+            // Below populates the Weather Card with the target location's information, then calls the 5-day forecast function
             var localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
             console.log(localTime.toLocaleTimeString("en-US"));
             console.log("is the Unix-rendered local time");
@@ -126,7 +127,7 @@ var weatherForecast = function (cityInputField) {
                     return;
                 }}
 
-
+            // below pushes the new location to the array of stored locations and makes a new button for it
             cityStored.push(cityInputField);           
 
             var historyButton = document.createElement("button");
