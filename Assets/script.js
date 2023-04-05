@@ -31,7 +31,7 @@ console.log("is tomorrow");
 
 
 // gets the array of cities stored in local storage
-var cityStored = JSON.parse(localStorage.getItem("citySearch")) || [];
+var cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 
 
 
@@ -128,7 +128,7 @@ var weatherForecast = function (cityInputField) {
                 }}
 
             // below pushes the new location to the array of stored locations and makes a new button for it
-            cityStored.push(cityInputField);           
+            cityStored.push(cityInputField);      
 
             var historyButton = document.createElement("button");
             historyButton.setAttribute("class", "cityName historyBtn");
