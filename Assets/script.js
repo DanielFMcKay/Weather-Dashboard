@@ -48,7 +48,7 @@ function createWeatherButton() {
 
 // loads the search history and the buttons to check the weather for it. Maximum 20 buttons (I think).
 function loadHistoryButtons() {
-    for (let i = 0; i < cityStored.length && i < 21; i++) {
+    for (let i = 0; i < cityStored.length && i < 31; i++) {
         var citySearchHistory = document.createElement("button");
         citySearchHistory.setAttribute("class", "cityName historyBtn");
         citySearchHistory.textContent = cityStored[i];
