@@ -234,10 +234,11 @@ body {
 }
 
 .fiveDay {
-    background: linear-gradient(to right, rgba(127, 139, 196, 0.562), rgba(186, 196, 240, 0.562));
+    background: linear-gradient(to right, rgb(174, 186, 220), rgb(207, 218, 245));
     border-radius: 12px;
     margin-top: 4px;
     max-width: 62.4rem;
+    padding-bottom: 4px;
 }
 
 .fiveDayTitle {
