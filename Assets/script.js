@@ -75,11 +75,13 @@ var retrieveCity = function (lat, lon) {
             console.log(localTime.toLocaleDateString("en-US"));
             console.log("is the Unix-rendered local date");
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
+            //  local Date
             $('.city-info').html(cityInputField + " - " + localTime.toLocaleDateString("en-US"));
             $('.temperature').text("Current Temperature: " + Math.round(parseFloat(data.current.temp)) + " °F");
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
             $('.humidity').text("Humidity: " + data.current.humidity + "%");
             $('.uv-index').html("UV Index: " + data.current.uvi);
+            // local Time
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset)/3600));
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
 
@@ -149,7 +151,12 @@ var fiveDayForecast = function (data) {
     for (let i = 0; i < 5; i++) {
         var dayCard = $("<div class='row forecast5Card'><div/>");
         $(fiveDayDisplay).append(dayCard);
-        var dayPlus = new Date((unixDate + (86400 * [i])) * 1000);
+        var dayPlus = new Date((unixDate + data.timezone_offset + 25200 + (86400 * [i + 1])) * 1000);
+        console.log(dayPlus);
+        console.log("is 24 hours from now at the selected location");
+
+        console.log(new Date(unixDate * 1000));
+        console.log("is Unix's latest fuckery")
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
         $(dayCard).append("<h5>High temp: " + Math.round(parseFloat(data.daily[i].temp.max)) + " °F</h5>");
