@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/123746582/230708187-85e7169b-e8ea-4186-959c-72f520de77a8.png)
 
-![image](https://user-images.githubusercontent.com/123746582/230708046-84b6ba1e-4886-4b70-8fcb-6baf9839337a.png)
+![image](https://user-images.githubusercontent.com/123746582/230724197-083855b2-0816-47b8-abe8-135b6a34cfda.png)
 
 # Weather-Dashboard
 
@@ -18,8 +18,6 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * It also shows the current day, date, and time on the top of the page beneath the header.
 
-* Additionally, it shows a six day forecast on card along the bottom of the display to show same conditions for the next 5 days, including a high and low daily temperature in lieu of a current one.
-
 * Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later. Technically, they are prepended, so that they display with the most recently called location at the top.
 
 * However, if the city is not found, no button is appended or data retrieved, and there is a pop-up alert reading "City Not Found".
@@ -28,7 +26,9 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Additionally, the button persists in local storage, so it reloads when the page does.
 
-* The selected location's current wind-chill, humidity, and local time are also displayed.
+* The selected location's current weather conditions, wind-chill, humidity, and local time are also displayed.
+
+* Furthermore, a six day forecast on separate cards is shown along the bottom of the display to show same conditions for the next 67 days, including a high and low daily temperature in lieu of a current one.
 
 * Finally, there is a button to both clear the local storage and reload the page, for easier use.
 
