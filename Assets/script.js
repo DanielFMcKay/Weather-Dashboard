@@ -64,7 +64,8 @@ function loadHistoryButtons() {
 
 // this works in concert with the weatherForecast function to target the specific city requested and return the data for it
 var retrieveCity = function (lat, lon) {
-    var cityCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial'
+    var cityCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon +
+     '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial' + '&lang=en';
     fetch(cityCall)
         .then(function (response) {
             return response.json();
@@ -80,11 +81,13 @@ var retrieveCity = function (lat, lon) {
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
             //  local Date
             $('.city-info').html(cityInputField + " - " + localTime.toLocaleDateString("en-US"));
+            $('.big-temp').text(Math.round(parseFloat(data.current.temp)) + " °F");
             $('.temperature').text("Current Temperature: " + Math.round(parseFloat(data.current.temp)) + " °F");
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
-            $('.humidity').text("Humidity: " + data.current.humidity + "%");
-            $('.uv-index').html("UV Index: " + data.current.uvi);
+            $('.humidity').text("Humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
+$('.uv-index').html("UV Index: " + data.current.uvi);
             // local Time
+            $('.current-conditions').text("Current condtions: " + data.current.weather[0].description);
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset)/3600));
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
 
@@ -92,7 +95,9 @@ var retrieveCity = function (lat, lon) {
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + " °F");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + " °F");
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + " °F");
-            $('.humidity').text("Current humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
+            
+            console.log("current weather parameters:");
+            console.log(data.current.weather.main);
 
             multiDayForecast(data);
         })
@@ -157,9 +162,6 @@ var multiDayForecast = function (data) {
         var dayPlus = new Date((unixDate + data.timezone_offset + 25200 + (86400 * [i + 1])) * 1000);
         console.log(dayPlus);
         console.log("is 24 hours from now at the selected location");
-
-        console.log(new Date(unixDate * 1000));
-        console.log("is Unix's latest fuckery")
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
         $(dayCard).append("<h5>High temp: " + Math.round(parseFloat(data.daily[i].temp.max)) + " °F</h5>");

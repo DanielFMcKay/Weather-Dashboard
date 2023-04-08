@@ -1,6 +1,6 @@
 /* CSS code goes here */
 html {
-    background-color: rgb(236, 247, 247);
+    background-color: #ecf7f7;
     margin-left: 4px;
     margin-right: 4px;
     margin-top: 4px;
@@ -23,7 +23,7 @@ header {
 #clearStorageBtn {
     width: fit-content;
     height: fit-content;
-    background: linear-gradient(to right, rgb(185, 185, 185),rgb(236, 236, 236));
+    background: linear-gradient(to right, #b9b9b9,#ececec);
     max-width: 9rem;
     border-radius: 16px;
     margin: 0.5rem 0 0 0.5rem;
@@ -34,7 +34,7 @@ header {
 
 
 header h1 {
-    color: rgb(250, 247, 228);
+    color: #faf7e4;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3.2rem;
@@ -63,7 +63,7 @@ header h1 {
 
 body {
     max-width: 100%;
-    background-color:rgb(233, 246, 250);
+    background-color:#e9f6fa;
 }
 
 /* not currently called */
@@ -91,35 +91,39 @@ body {
     /* float: left; */
     text-align: center;
     border-radius: 10px;
-    min-width: 14rem;
+    min-width: 13rem;
     width: fit-content;
     max-width: 17%;
     margin-bottom: 6px;
     min-height: 19.4rem;
-    background: linear-gradient(rgb(179, 214, 226),rgb(212, 235, 243));
+    background: linear-gradient(#b3d6e2,#d4ebf3);
     font-size: 2.5rem;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 1rem;
     padding-right: 1.2rem;
     padding-top: 1rem;
 }
+#city-sidebar h2 {
+    margin-bottom: -2px;
+}
+
 
 #fetch-field {
     line-height: 2rem;
     text-align: center;
-    font-size: 1.8rem;
-    width: 90%;
+    font-size: 1.7rem;
+    width: 94%;
     border-radius: 10px;
     border-width: 3px;
     padding: 5px 0 5px 10px;
-    margin-left: 4px;
+    margin-left: 0.75rem;
 }
 
 #searchBtn {
     font-size: 1.6rem;
     text-decoration: none;
     padding: 5px 0 5px 0;
-    min-width: 90%;
+    min-width: 95%;
     width: fit-content;
     display: block;
     margin: 1rem;
@@ -128,12 +132,12 @@ body {
     margin-bottom: 1.2rem;
     border-radius: 18px;
     border-width: 3px;
-    color: rgb(231, 231, 231);
+    color: #e7e7e7;
     border: none;
     outline: none;
     padding-left: 4px;
     padding-right: 4px;
-    background: linear-gradient(to right, rgb(61, 82, 175), rgb(153, 168, 235));
+    background: linear-gradient(to right, #3d52af, #99a8eb);
     box-shadow: 3px 3px darkgrey;
 }
 
@@ -141,7 +145,7 @@ body {
     font-size: 1.6rem;
     text-decoration: none;
     padding: 2px 5px;
-    width: 90%;
+    width: 95%;
     display: block;
     margin: 1rem;
     margin-top: 0.1rem;
@@ -152,25 +156,47 @@ body {
     border-radius: 20px;
     border-width: 3px;
     color: black;
-    background-color: rgb(151, 149, 141);
+    background-color: #97958d;
     text-shadow: #888888;
     border: none;
     outline: none;
-    background: linear-gradient(to right, rgba(127, 139, 196, 0.562), rgba(186, 196, 240, 0.562));
+    background: linear-gradient(to right, #7f8bc48f, #bac4f08f);
     box-shadow: 3px 3px darkgrey;
 }
 
 /* Main weather info area */
 .weather-card {
-    color: black;
-    background: linear-gradient(rgb(110, 147, 179),rgb(141, 186, 226));
-    margin-right: 0;
-    margin-left: 0.5%;
+    color: #012247;
+    background: linear-gradient(#6e93b3,#8dbae2);
+    margin-left: 6px;
     width: 100%;
     border-radius: 10px 10px 0 0;
-    border: 1px solid rgb(145, 160, 175);
+    border: 1px solid #91a0af;
     border-bottom: none;
     height: fit-content;
+}
+
+.overview-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.over-column1, .over-column2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.over-column1 {
+    margin-right: 7.75rem;
+}
+
+.big-temp {
+    color: #012247;
+    font-size: 4.8rem;
+    font-weight: 600;
+    margin-top: -4.6rem;
 }
 
 .weather-card h1 {
@@ -184,7 +210,8 @@ body {
 
 .weather-icon {
     margin-left: 0.75rem;
-    margin-top: -0.6rem;
+    margin-top: -0.75rem;
+    margin-bottom: 0.75rem;
 }
 
 .weather-card h2 {
@@ -239,11 +266,11 @@ body {
 }
 
 .multiDay {
-    background: linear-gradient(to right, rgb(174, 186, 220), rgb(207, 218, 245));
+    background: linear-gradient(to right, #aebadc, #cfdaf5);
     border-radius: 0 0 10px 10px;
     width: 100%;
-    margin-left: 0.5%;
-    border: 1px solid rgb(145, 160, 175);
+    margin-left: 6px;
+    border: 1px solid #91a0af;
     padding-bottom: 4px;
 }
 
@@ -255,12 +282,17 @@ body {
     margin-left: 0.75rem;
 }
 
+#multiDayForecast {
+    margin-left: -5px;
+    margin-right: -2.2%;
+}
+
 .forecastMultiCard {
     color: white;
     flex-wrap: wrap;
-    background: linear-gradient(rgb(51, 45, 75),rgb(96, 85, 141));
-    margin: 0.5% 0 0 0.5%;
-    padding: 0.5rem 0.25rem;
+    background: linear-gradient(#332d4b,#60558d);
+    margin: 0.5% 0.5% 0 0;
+    padding: 0.5rem 0.25rem 0 0;
     text-align: left;
     border-radius: 12px;
     width: 16.15%;
@@ -276,18 +308,18 @@ body {
 
 .forecastMultiCard h4 {
     font-size: 1.2rem;
-    color: rgb(232, 236, 195);
+    color: #e8ecc3;
     flex: wrap;
 }
 
 .forecastMultiCard h5 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: white;
     flex: wrap;
 }
 
 .card-date {
-    color: rgb(241, 245, 205);
+    color: #f1f5cd;
 }
 
 .col-md-8 {

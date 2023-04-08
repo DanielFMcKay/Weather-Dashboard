@@ -40,11 +40,16 @@
         <div class="row">
           <div class="weather-card">
             <!-- Current weather -->
-            <h1 class="current-title">Current Weather</h1>
+              <h1 class="current-title">Current Weather</h1>
             <div class="card-body">
               <div class="overview-row">
-                <h2 class="city-info">Please Enter a Location</h2>
-                <h2 class="weather-icon"></h2>
+                <div class="over-column1">
+                  <h2 class="city-info">Please Enter a Location</h2>
+                  <h2 class="weather-icon"></h2>
+                </div>
+                <div class="over-column2">
+                  <div class="big-temp"></div>
+                </div>
               </div>
               <!-- <h2 class="current-date">Date</h2> -->
               <div class="infoColumns">
@@ -57,6 +62,7 @@
                 <div class="infoColumn2">
                   <!-- this was originally for UTC timezones, but "local time" has made that unneeded -->
                   <!-- <h4 class="timezone-offset"></h4> -->
+                  <h4 class="current-conditions"></h4>
                   <h4 class="local-time"></h4>
                   <h4 class="hi-temp"><br>For locations with duplicate names, please add the <a
                       href="https://en.wikipedia.org/wiki/ISO_3166-2" target="_blank">official 2-digit country code</a>
@@ -64,7 +70,6 @@
                   </h4>
                   <h4 class="lo-temp">For the US, you can add the statecode as well, e.g. "Portland, ME, US".</h4>
                   <h4 class="feels-like">US Zipcodes are also accepted.</h4>
-                  <h4 class="humidity"></h4>
                 </div>
               </div>
             </div>
