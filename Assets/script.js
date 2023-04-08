@@ -10,6 +10,9 @@ const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
 // the input field. The reason I kept "citInputField" so much is it's easier to track in de-bugging
 let cityInputField = $("#fetch-field").val();
 
+// for use with directly pressing the Enter button
+let cityInput = $("#fetch-field")[0];
+
 
 const searchBtn = $("#searchBtn")[0];
 
@@ -22,7 +25,7 @@ const currentDay = dayjs().format('dddd, MMMM DD');
 console.log(currentDay);
 const currentDayDisplay = $('.current-date');
 currentDayDisplay.text(currentDay);
-var fiveDayDisplay = $("#fiveDayForecast");
+var multiDayDisplay = $("#multiDayForecast");
 const clearEverything = $("#clearStorageBtn")[0];
 
 var oneDayOut = dayjs().add(1, 'day').weekday;
@@ -91,7 +94,7 @@ var retrieveCity = function (lat, lon) {
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + " °F");
             $('.humidity').text("Current humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
 
-            fiveDayForecast(data);
+            multiDayForecast(data);
         })
 }
 
@@ -145,12 +148,12 @@ var weatherForecast = function (cityInputField) {
 // making the functions come from variables allows more flexibility in the order in how I list them, it would seem
 
 // this is for the Five Day Forecast
-var fiveDayForecast = function (data) {
-    $('#fiveDayForecast').empty();
+var multiDayForecast = function (data) {
+    $('#multiDayForecast').empty();
     var unixDate = data.current.dt;
-    for (let i = 0; i < 5; i++) {
-        var dayCard = $("<div class='row forecast5Card'><div/>");
-        $(fiveDayDisplay).append(dayCard);
+    for (let i = 0; i < 6; i++) {
+        var dayCard = $("<div class='row forecastMultiCard'><div/>");
+        $(multiDayDisplay).append(dayCard);
         var dayPlus = new Date((unixDate + data.timezone_offset + 25200 + (86400 * [i + 1])) * 1000);
         console.log(dayPlus);
         console.log("is 24 hours from now at the selected location");
@@ -185,6 +188,19 @@ searchBtn.addEventListener("click", function () {
     }
 
 });
+
+
+// add the Enter button as an alternative to pressing the search button
+cityInput.addEventListener("keypress", function(event) {
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter") {
+    // Cancel the default action, if needed
+    // event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("searchBtn").click();
+  }
+}); 
+
 
 // this loads the buttons from local storage. I think.
 loadHistoryButtons();
