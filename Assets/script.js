@@ -80,7 +80,7 @@ var retrieveCity = function (lat, lon) {
             console.log("is the Unix-rendered local date");
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
             //  local Date
-            $('.city-info').html(cityInputField + " - " + localTime.toLocaleDateString("en-US"));
+            $('.city-info').html(cityInputField + "<br>" + localTime.toLocaleDateString("en-US"));
             $('.big-temp').text(Math.round(parseFloat(data.current.temp)) + " °F");
             $('.temperature').text("Current Temperature: " + Math.round(parseFloat(data.current.temp)) + " °F");
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");

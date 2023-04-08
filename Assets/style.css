@@ -16,7 +16,6 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-
     justify-content: space-between;
 }
 
@@ -152,7 +151,6 @@ body {
     margin-bottom: 0.8rem;
     margin-left: 0.8rem;
     margin-right: 1.2rem;
-
     border-radius: 20px;
     border-width: 3px;
     color: black;
@@ -189,14 +187,15 @@ body {
 }
 
 .over-column1 {
-    margin-right: 7.75rem;
+    width: 18rem;
+    margin-right: 3.5rem;
 }
 
 .big-temp {
     color: #012247;
-    font-size: 4.8rem;
+    font-size: 5.4rem;
     font-weight: 600;
-    margin-top: -4.6rem;
+    margin-top: -4.8rem;
 }
 
 .weather-card h1 {
@@ -211,13 +210,13 @@ body {
 .weather-icon {
     margin-left: 0.75rem;
     margin-top: -0.75rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .weather-card h2 {
     font-size: 1.75rem;
     color: black;
-    text-shadow: 2px 2px 2px #AAAAAA; 
+    text-shadow: 2px 2px 2px #AAAAAA;
 }
 
 .weather-card h3 {
@@ -241,6 +240,7 @@ body {
     margin-left: -0.25rem;
 }
 
+/* main information beneath weather icon and temperature */
 .infoColumns {
     color: black;
     text-shadow: 2px 2px 2px #AAAAAA;
@@ -285,6 +285,7 @@ body {
 #multiDayForecast {
     margin-left: -5px;
     margin-right: -2.2%;
+    margin-bottom: 6px;
 }
 
 .forecastMultiCard {
