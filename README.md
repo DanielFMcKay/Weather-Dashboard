@@ -1,8 +1,8 @@
-![image](https://user-images.githubusercontent.com/123746582/230577979-0a6ee59b-545f-40ae-9613-43542754b96a.png)
+![image](https://user-images.githubusercontent.com/123746582/230707916-da387b6b-7312-44b5-be7a-1825c2bff229.png)
 
 # Weather-Dashboard
 
-Overview: a weather app for displaying current weather and five day forecasts that saves and reloads cities that the user inputs.
+Overview: a weather app for displaying current weather and six day forecasts that saves and reloads cities that the user inputs.
 
 # 06 Server-Side APIs: Weather Dashboard
 
@@ -16,7 +16,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * It also shows the current day, date, and time on the top of the page beneath the header.
 
-* Additionally, it shows a five day forecast on card along the bottom of the display to show same conditions for the next 5 days, including a high and low daily temperature in lieu of a current one.
+* Additionally, it shows a six day forecast on card along the bottom of the display to show same conditions for the next 5 days, including a high and low daily temperature in lieu of a current one.
 
 * Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later. Technically, they are prepended, so that they display with the most recently called location at the top.
 
