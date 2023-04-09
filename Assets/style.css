@@ -90,7 +90,7 @@ body {
     /* float: left; */
     text-align: center;
     border-radius: 10px;
-    min-width: 13.5rem;
+    min-width: 14rem;
     width: fit-content;
     max-width: 17%;
     margin-bottom: 6px;
@@ -189,48 +189,46 @@ body {
 
 .over-column1 {
     width: 18rem;
-    margin-right: 3.5rem;
+    margin-right: 0.8rem;
 }
 
 .big-temp {
     color: #012247;
     font-size: 5.4rem;
+    text-shadow: 3px 3px 3px #5684b9;
     font-weight: 600;
-    margin-top: -4.8rem;
+    margin-top: -1.8rem;
 }
 
 .weather-card h1 {
-    margin-left: 0.75rem;
-    margin-top: 0.5rem;
-    margin-bottom: -0.6rem;
     font-size: 2.2rem;
+    text-shadow: 1px 1px 1px #5684b9;
     color: black;
 }
 
-
 .weather-icon {
-    margin-left: 0.75rem;
-    margin-top: -0.75rem;
+    margin-left: 0.5rem;
+    margin-top: -2rem;
     margin-bottom: 0.5rem;
 }
 
 .weather-card h2 {
     font-size: 1.75rem;
     color: black;
-    text-shadow: 2px 2px 2px #AAAAAA;
+    text-shadow: 2px 2px 2px #8899AA;
 }
 
 .weather-card h3 {
     font-size: 1.6rem;
     color: black;
-    text-shadow: 2px 2px 2px #AAAAAA;
+    text-shadow: 2px 2px 2px #8899AA;
     padding: 1px 0;
 }
 
 .weather-card h4 {
     font-size: 1.2rem;
     color: black;
-    text-shadow: 2px 2px 2px #AAAAAA;
+    text-shadow: 1px 1px 1px #8899AA;
     padding: 1px 0;
 }
 
@@ -253,7 +251,7 @@ body {
 
 .infoColumn1 {
     display: column;
-    margin-right: 2.2rem;
+    margin-right: 2.5rem;
     margin-left: 0rem;
 }
 

@@ -28,11 +28,6 @@ currentDayDisplay.text(currentDay);
 var multiDayDisplay = $("#multiDayForecast");
 const clearEverything = $("#clearStorageBtn")[0];
 
-var oneDayOut = dayjs().add(1, 'day').weekday;
-console.log(oneDayOut);
-console.log("is tomorrow");
-
-
 // gets the array of cities stored in local storage
 var cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 
@@ -73,7 +68,11 @@ var retrieveCity = function (lat, lon) {
         .then(function (data) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
             // Below populates the Weather Card with the target location's information, then calls the 5-day forecast function
-            var localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
+            let localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
+            let currentCelsius = Math.round(parseFloat(((data.current.temp -32) *5/9)));
+            console.log(currentCelsius);
+            console.log("is currentCelsius");
+
             console.log(localTime.toLocaleTimeString("en-US"));
             console.log("is the Unix-rendered local time");
             console.log(localTime.toLocaleDateString("en-US"));
@@ -82,10 +81,10 @@ var retrieveCity = function (lat, lon) {
             //  local Date
             $('.city-info').html(cityInputField + "<br>" + localTime.toLocaleDateString("en-US"));
             $('.big-temp').text(Math.round(parseFloat(data.current.temp)) + " °F");
-            $('.temperature').text("Current Temperature: " + Math.round(parseFloat(data.current.temp)) + " °F");
+            $('.temperature').text("Currently: " + Math.round(parseFloat(data.current.temp)) + " °F (" + currentCelsius + " °C)");
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
             $('.humidity').text("Humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
-$('.uv-index').html("UV Index: " + data.current.uvi);
+            $('.uv-index').html("UV Index: " + data.current.uvi);
             // local Time
             $('.current-conditions').text("Current conditions: " + data.current.weather[0].description);
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset)/3600));
@@ -97,7 +96,7 @@ $('.uv-index').html("UV Index: " + data.current.uvi);
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + " °F");
             
             console.log("current weather parameters:");
-            console.log(data.current.weather.main);
+            console.log(data.current.weather);
 
             multiDayForecast(data);
         })
@@ -126,12 +125,13 @@ var weatherForecast = function (cityInputField) {
                 return;
             }
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
+            console.log(data.city.country);
+            console.log("is country of origin");
 
             // catch for duplicate entries below
             for (let i = 0; i < cityStored.length; i++) {
-                console.log(cityStored[i]);
+                // console.log(cityStored[i]);
                 if (cityInputField === cityStored[i]) {
-                    console.log("duplicate location found");
                     console.log(cityStored.length);
                     console.log("is number of locations stored")
                     return;
@@ -160,12 +160,12 @@ var multiDayForecast = function (data) {
         var dayCard = $("<div class='row forecastMultiCard'><div/>");
         $(multiDayDisplay).append(dayCard);
         var dayPlus = new Date((unixDate + data.timezone_offset + 25200 + (86400 * [i + 1])) * 1000);
-        console.log(dayPlus);
-        console.log("is 24 hours from now at the selected location");
+        // console.log(dayPlus);
+        // console.log("is 24 hours from now at the selected location");
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4>');
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
         $(dayCard).append("<h5>High temp: " + Math.round(parseFloat(data.daily[i].temp.max)) + " °F</h5>");
-        console.log([i]);
+        // console.log([i]);
         $(dayCard).append("<h5>Low temp: " + Math.round(parseFloat(data.daily[i].temp.min)) + " °F</h5>");
         $(dayCard).append("<h5>Wind: " + Math.round(parseFloat(data.daily[i].wind_speed)) + " mph</h5>");
         $(dayCard).append("<h5>Humidity: " + data.daily[i].humidity + "%</h5>");
@@ -177,8 +177,8 @@ var multiDayForecast = function (data) {
 // this is the search button and it's operation
 searchBtn.addEventListener("click", function () {
     cityInputField = $("#fetch-field").val();
-    console.log(cityInputField);
-    console.log("is cityInputField");
+    // console.log(cityInputField);
+    // console.log("is cityInputField");
     // stops process if nothing is entered
     if (cityInputField === "") {
         return;
@@ -186,9 +186,7 @@ searchBtn.addEventListener("click", function () {
     weatherForecast(cityInputField);
     console.log(cityStored);
     console.log("is CityStored");
-
     }
-
 });
 
 
