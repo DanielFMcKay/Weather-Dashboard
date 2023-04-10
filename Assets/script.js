@@ -69,7 +69,9 @@ var retrieveCity = function (lat, lon) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
             // Below populates the Weather Card with the target location's information, then calls the 5-day forecast function
             let localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
+            let localWeekday = localTime.getDay();
             let currentCelsius = Math.round(parseFloat(((data.current.temp -32) *5/9)));
+            console.log(localWeekday);
             console.log(currentCelsius);
             console.log("is currentCelsius");
 

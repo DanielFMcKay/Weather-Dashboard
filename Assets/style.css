@@ -103,7 +103,10 @@ body {
     padding-top: 1rem;
 }
 #city-sidebar h2 {
+    color:#272c30;
+    font-weight: 600;
     margin-bottom: -2px;
+    text-shadow: 1px 1px 1px #8c8c8c;
 }
 
 
@@ -137,13 +140,13 @@ body {
     padding-left: 4px;
     padding-right: 4px;
     background: linear-gradient(to right, #3d52af, #99a8eb);
-    box-shadow: 3px 3px darkgrey;
+    box-shadow: 3px 3px 3px rgb(119, 151, 184);
 }
 
 .historyBtn {
     font-size: 1.5rem;
     text-decoration: none;
-    padding: 2px 5px;
+    padding: 2px 6px;
     width: 95%;
     display: block;
     margin: 1rem;
@@ -151,15 +154,13 @@ body {
     margin-bottom: 0.8rem;
     margin-left: 0.8rem;
     margin-right: 1.2rem;
-    border-radius: 20px;
+    border-radius: 18px;
     border-width: 3px;
     color: black;
-    background-color: #97958d;
-    text-shadow: #888888;
     border: none;
     outline: none;
     background: linear-gradient(to right, #7f8bc48f, #bac4f08f);
-    box-shadow: 3px 3px darkgrey;
+    box-shadow: 2px 2px 2px #8b9daf;
 }
 
 /* Main weather info area */
@@ -298,6 +299,7 @@ body {
     border-radius: 12px;
     width: 16.15%;
     min-width: 9.8rem;
+    max-width: 15rem;
     height: fit-content;
 }
 
