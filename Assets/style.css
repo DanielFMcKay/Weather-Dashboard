@@ -177,6 +177,7 @@ body {
 }
 
 .overview-row {
+    margin: -0.5rem 0 -0.25rem -0.5rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -243,6 +244,7 @@ body {
 /* main information beneath weather icon and temperature */
 .infoColumns {
     color: black;
+    margin: -0.5rem 0 -0.25rem -0.5rem;
     text-shadow: 2px 2px 2px #AAAAAA;
     display: flex;
     flex-direction: row;
