@@ -44,14 +44,15 @@ function createWeatherButton() {
     });
 }
 
-// loads the search history and the buttons to check the weather for it. Maximum 20 buttons (I think).
+// Loads the search history and the buttons to check the weather for it. Maximum 30 buttons.
+// Only the 30 most recent searches are called and the buttons are displayed from most to least recent.
 function loadHistoryButtons() {
-    for (let i = 0; i < cityStored.length && i < 31; i++) {
+    for (let i = cityStored.length - 1; i > (cityStored.length - 30) && i >= 0; i--) {
         var citySearchHistory = document.createElement("button");
         citySearchHistory.setAttribute("class", "cityName historyBtn");
         citySearchHistory.textContent = cityStored[i];
-        console.log("stored city is " + cityStored[i]);
-        $("#storedCity").prepend(citySearchHistory);
+        console.log("location stored is " + cityStored[i] + " " + i);
+        $("#storedCity").append(citySearchHistory);
         createWeatherButton();
     }
 }
