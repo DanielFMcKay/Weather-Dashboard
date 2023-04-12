@@ -1,6 +1,6 @@
-![image](https://user-images.githubusercontent.com/123746582/230708187-85e7169b-e8ea-4186-959c-72f520de77a8.png)
+![image](https://user-images.githubusercontent.com/123746582/231445888-c008dfdf-9cbb-4df4-9ba4-d39e8b3e8c13.png)
 
-![image](https://user-images.githubusercontent.com/123746582/230802171-e0b8ae32-cef1-4e3c-a3c4-6528051de4a1.png)
+![image](https://user-images.githubusercontent.com/123746582/231446126-b5ac4be3-1460-4559-9a02-1625b8bbc789.png)
 
 # Weather-Dashboard
 
@@ -12,7 +12,7 @@ Overview: a weather app for displaying current weather and six day forecasts tha
 
 This app is for the week 06 assignment for the UC Berkeley coding boot camp through Boot Camp Spot.
 
-* This weather page will take a city name, and return a forecast with the temperature, wind speed, UV index, humidty, and current date, as well as a weather icon for the type of weather. It will also show today's high and low temperatures.
+* This weather page will take a city name, and return a forecast with the temperature, wind speed, UV index, humidty, and current date, as well as a weather icon for the type of weather. It will also show today's high and low temperatures. All measurements use Imperial units, although there is an additional Celsius readout for the current temperature.
 
 * It does this by contacting OpenWeatherMap.org through an API call to retrieve the information.
 
@@ -24,7 +24,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Duplicate entries will also not append a button, but will still call that location's data.
 
-* Additionally, the button persists in local storage, so it reloads when the page does.
+* Additionally, the button persists in local storage, so it reloads when the page does. Only the 30 most recently called searches are displayed however, starting with the one at the end of the array. I felt this was a practical upper limit for now.
 
 * The selected location's current weather conditions, wind-chill, humidity, and local time are also displayed.
 
