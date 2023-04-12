@@ -38,8 +38,7 @@ header h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3.2rem;
     font-weight: 600;
-    padding-top: 20px;
-    padding-bottom: 2px;
+    padding-top: 18px;
 }
 
 /* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
@@ -86,7 +85,7 @@ body {
 
 #city-sidebar {
     color: black;
-    display: block;
+    display: table-column-group;
     /* float: left; */
     text-align: center;
     border-radius: 10px;
@@ -105,7 +104,7 @@ body {
 #city-sidebar h2 {
     color:#272c30;
     font-weight: 600;
-    margin-bottom: -2px;
+    margin: -2px 0;
     text-shadow: 1px 1px 1px #8c8c8c;
 }
 
@@ -163,11 +162,15 @@ body {
     box-shadow: 2px 2px 2px #8b9daf;
 }
 
+.card-column {
+    max-width: 81.5%;
+}
+
 /* Main weather info area */
 .weather-card {
     color: #012247;
     background: linear-gradient(#6e93b3,#8dbae2);
-    margin-left: 6px;
+    margin-left: 0.5%;
     width: 100%;
     min-width: 20rem;
     border-radius: 10px 10px 0 0;
@@ -196,10 +199,10 @@ body {
 
 .big-temp {
     color: #012247;
-    font-size: 5.4rem;
+    font-size: 5rem;
     text-shadow: 3px 3px 3px #5684b9;
     font-weight: 600;
-    margin-top: -1.8rem;
+    margin-top: -1.6rem;
 }
 
 .weather-card h1 {
@@ -210,7 +213,7 @@ body {
 
 .weather-icon {
     margin-left: 0.5rem;
-    margin-top: -2rem;
+    margin-top: -2.2rem;
     margin-bottom: 0.5rem;
 }
 
@@ -224,14 +227,12 @@ body {
     font-size: 1.6rem;
     color: black;
     text-shadow: 2px 2px 2px #8899AA;
-    padding: 1px 0;
 }
 
 .weather-card h4 {
     font-size: 1.2rem;
     color: black;
     text-shadow: 1px 1px 1px #8899AA;
-    padding: 1px 0;
 }
 
 
@@ -272,7 +273,7 @@ body {
     border-radius: 0 0 10px 10px;
     width: 100%;
     min-width: 20rem;
-    margin-left: 6px;
+    margin-left: 0.5%;
     border: 1px solid #91a0af;
     padding-bottom: 4px;
 }
@@ -296,11 +297,11 @@ body {
     flex-wrap: wrap;
     background: linear-gradient(#332d4b,#60558d);
     margin: 0.5% 0.5% 0 0;
-    padding: 0.5rem 0.25rem 0 0;
+    padding: 0.5rem 0.25rem 0.25rem 0.25rem;
     text-align: left;
     border-radius: 12px;
     width: 16.15%;
-    min-width: 9.8rem;
+    min-width: 9.5rem;
     max-width: 15rem;
     height: fit-content;
 }
@@ -318,7 +319,7 @@ body {
 }
 
 .forecastMultiCard h5 {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: white;
     flex: wrap;
 }
