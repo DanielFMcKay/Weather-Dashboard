@@ -34,7 +34,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Finally, there is a button to both clear the local storage and reload the page, for easier use.
 
-### test link
+### Test Link
 
 ### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
 
