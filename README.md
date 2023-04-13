@@ -4,6 +4,8 @@
 
 # Weather-Dashboard
 
+* [Live Site](https://github.com/DanielFMcKay/weather-dashboard#live-site)
+
 Overview: a weather app for displaying current weather and six day forecasts that saves and reloads cities that the user inputs.
 
 # 06 Server-Side APIs: Weather Dashboard
