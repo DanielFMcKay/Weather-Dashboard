@@ -4,7 +4,7 @@
 
 # Weather-Dashboard
 
-* [Live Site](https://github.com/DanielFMcKay/Weather-Dashboard#live-site)
+* [Test](https://github.com/DanielFMcKay/Weather-Dashboard#test)
 
 Overview: a weather app for displaying current weather and six day forecasts that saves and reloads cities that the user inputs.
 
@@ -33,6 +33,8 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 * Furthermore, a six day forecast on separate cards is shown along the bottom of the display to show same conditions for the next 67 days, including a high and low daily temperature in lieu of a current one.
 
 * Finally, there is a button to both clear the local storage and reload the page, for easier use.
+
+### test
 
 ### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
 
