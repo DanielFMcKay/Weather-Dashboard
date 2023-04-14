@@ -186,6 +186,7 @@ body {
     border: 1px solid #91a0af;
     border-bottom: none;
     height: fit-content;
+    position: relative;
 }
 
 .overview-row {
@@ -289,6 +290,17 @@ body {
     max-height: 9rem;
 }
 
+.country-code {
+    position: absolute;
+    text-justify: right;
+    bottom: -0.35rem;
+    right: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    text-shadow: 1px 1px 1px #8899AA;
+    margin: 1rem;
+}
+
 .multiDay {
     background: linear-gradient(to right, #aebadc, #cfdaf5);
     border-radius: 0 0 10px 10px;
@@ -357,8 +369,6 @@ body {
 .card-date {
     color: #f1f5cd;
 }
-
-
 /* Place Not Found pop-up stuff */
 
 

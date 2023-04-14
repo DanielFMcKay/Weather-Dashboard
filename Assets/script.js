@@ -160,6 +160,51 @@ const weatherForecast = function (cityInputField) {
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
             console.log(data.city.country);
             console.log("is country of origin");
+            // below may be used later
+            let nationName = data.city.country;
+            if (data.city.country==="US") {
+                nationName = "United States"
+            } else if (data.city.country==="CA") {
+                nationName = "Canada"
+            } else if (data.city.country==="JP") {
+                nationName = "Japan"
+            } else if (data.city.country==="UK") {
+                nationName = "United Kingdom"
+            } else if (data.city.country==="MX") {
+                nationName = "Mexico"
+            } else if (data.city.country==="BR") {
+                nationName = "Brazil"
+            } else if (data.city.country==="FR") {
+                nationName = "France"
+            } else if (data.city.country==="RO") {
+                nationName = "Romania"
+            } else if (data.city.country==="UA") {
+                nationName = "Ukraine"
+            } else if (data.city.country==="ID") {
+                nationName = "Indonesia"
+            } else if (data.city.country==="CN") {
+                nationName = "China"
+            } else if (data.city.country==="RU") {
+                nationName = "Russia"
+            } else if (data.city.country==="DE") {
+                nationName = "Germany"
+            } else if (data.city.country==="ZA") {
+                nationName = "South Africa"
+            } else if (data.city.country==="IN") {
+                nationName = "India"
+            } else if (data.city.country==="PH") {
+                nationName = "Philippines"
+            } else if (data.city.country==="JM") {
+                nationName = "Jamaica"
+            } else if (data.city.country==="KR") {
+                nationName = "South Korea"
+            } else if (data.city.country==="AU") {
+                nationName = "Australia"
+            } else if (data.city.country==="IT") {
+                nationName = "Italy"
+            }
+
+            $('.country-code').text(nationName);
 
             // catch for duplicate entries below
             for (let i = 0; i < cityStored.length; i++) {
