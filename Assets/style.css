@@ -8,7 +8,7 @@ html {
 }
 
 header {
-    background: linear-gradient(#264075,#4b7de2);
+    background: linear-gradient(#264075,#5183e9);
     border-radius: 15px;
     width: 99.75%;
  
@@ -24,7 +24,7 @@ header {
 #clearStorageBtn {
     width: fit-content;
     height: fit-content;
-    background: linear-gradient(to right, #b9b9b9,#ececec);
+    background: linear-gradient(0.4turn, #b9b9b9,#ececec);
     max-width: 9rem;
     border-radius: 16px;
     margin: 0.5rem 0 0 0.5rem;
@@ -144,7 +144,7 @@ body {
     outline: none;
     padding-left: 4px;
     padding-right: 4px;
-    background: linear-gradient(to right, #3d52af, #99a8eb);
+    background: linear-gradient(0.45turn, #3d52af, #99a8eb);
     box-shadow: 3px 3px 3px rgb(119, 151, 184);
 }
 
@@ -177,7 +177,7 @@ body {
 /* Main weather info area */
 .weather-card {
     color: #012247;
-    background: linear-gradient(#6e93b3,#8dbae2);
+    background: linear-gradient(0.45turn, #6b90b1,#8dbae2,#a7c2da);
     margin-left: 0.5%;
     max-width: 100%;
     width: cover;
@@ -295,11 +295,12 @@ body {
     text-justify: right;
     bottom: -0.35rem;
     right: 0;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
-    text-shadow: 1px 1px 1px #8899AA;
+    text-shadow: 1px 1px 2px #8899AA;
     margin: 1rem;
 }
+
 
 .multiDay {
     background: linear-gradient(to right, #aebadc, #cfdaf5);
@@ -330,7 +331,7 @@ body {
 .forecastMultiCard {
     color: white;
     flex-wrap: wrap;
-    background: linear-gradient(#332d4b,#60558d);
+    background: linear-gradient(0.53turn, #332d4b,#8187a3,#60558d);
     margin: 0.5% 0.5% 0 0;
     padding: 0.5rem 0.25rem 0.25rem 0.25rem;
     text-align: left;

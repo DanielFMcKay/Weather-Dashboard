@@ -168,7 +168,7 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Canada"
             } else if (data.city.country==="JP") {
                 nationName = "Japan"
-            } else if (data.city.country==="UK") {
+            } else if (data.city.country==="GB") {
                 nationName = "United Kingdom"
             } else if (data.city.country==="MX") {
                 nationName = "Mexico"
@@ -202,6 +202,20 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Australia"
             } else if (data.city.country==="IT") {
                 nationName = "Italy"
+            } else if (data.city.country==="AR") {
+                nationName = "Argentina"
+            } else if (data.city.country==="IT") {
+                nationName = "Italy"
+            } else if (data.city.country==="IE") {
+                nationName = "Ireland"
+            } else if (data.city.country==="PL") {
+                nationName = "Poland"
+            } else if (data.city.country==="NG") {
+                nationName = "Nigeria"
+            } else if (data.city.country==="KE") {
+                nationName = "Kenya"
+            } else if (data.city.country==="SA") {
+                nationName = "Saudi Arabia"
             }
 
             $('.country-code').text(nationName);
