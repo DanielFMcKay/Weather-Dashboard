@@ -3,6 +3,24 @@
 
 const citySidebar = $("#city-sidebar");
 
+// experimental Modal thing
+const notFound = document.getElementById("placeNotFound");
+notFound.style.display = "none";
+const closeError = $(".close-error")[0];
+
+
+closeError.onclick = function() {
+    notFound.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == notFound) {
+        notFound.style.display = "none";
+    }
+}
+
+
+
 
 // this is my API key
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
@@ -132,8 +150,11 @@ const weatherForecast = function (cityInputField) {
 
         .then(function (data) {
             if (data.cod !== "200") {
-                console.log("Location not found.");
-                window.alert("Place Not Found");
+                console.log("Place Not Found");
+
+                notFound.style.display = "block";;
+        
+                // window.alert("Place Not Found");
                 return;
             }
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
@@ -205,8 +226,8 @@ searchBtn.addEventListener("click", function () {
         return;
     } else {
         weatherForecast(cityInputField);
-        console.log(cityStored);
-        console.log("is CityStored");
+        // console.log(cityStored);
+        // console.log("is CityStored");
     }
 });
 
