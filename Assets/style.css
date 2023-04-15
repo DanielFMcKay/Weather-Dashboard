@@ -1,19 +1,23 @@
 /* CSS code goes here */
+
+/* this color is a bit closer to the true color of daylight */
 html {
     background-color: #ecf7f7;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-left: 7px;
+/* the margin-right prevents a tablebreak in Firefox it would seem */
+    margin-right: 7px;
     margin-top: 4px;
     min-width: 360px;
 }
 
 header {
-    background: linear-gradient(0.49turn, #264075,#5183e9);
+    background: linear-gradient(0.49turn, #264075, #5183e9);
     border-radius: 15px;
     width: 99.75%;
- 
+    margin-left: 2px;
 }
 
+/* this keeps the title elements spaced correctly, including the hidden one */
 #title-row {
     display: flex;
     flex-direction: row;
@@ -21,10 +25,11 @@ header {
     justify-content: space-between;
 }
 
+/* Clearing the page and its history buttons */
 #clearStorageBtn {
     width: fit-content;
     height: fit-content;
-    background: linear-gradient(0.4turn, #b9b9b9,#ececec);
+    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
     max-width: 9rem;
     border-radius: 16px;
     margin: 0.5rem 0 0 0.5rem;
@@ -33,13 +38,20 @@ header {
     padding: 0.3rem 0.75rem;
 }
 
+#clearStorageBtn:hover {
+    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
+}
+
 
 header h1 {
-    color: #faf7e4;
+    background: -webkit-linear-gradient(0.265turn, #fcfaf5, #e0dab9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    /* color: #faf7e4; */
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
-    font-weight: 550;
+    font-weight: 600;
     padding-top: 18px;
 }
 
@@ -62,8 +74,7 @@ header h1 {
 }
 
 body {
-    max-width: 100%;
-    background-color:#e9f6fa;
+    background-color: #e9f6fa;
 }
 
 /* not currently called */
@@ -81,9 +92,10 @@ body {
     align-self: center;
     text-align: center;
     font-size: 1.25rem;
-    font-weight: bold;
-    color: white;
-    margin-bottom: 0.75rem;
+    font-weight: 600;
+    color: #f8f8f8;
+    margin-bottom: 0.7rem;
+    margin-top: -0.25rem;
 }
 
 #city-sidebar {
@@ -95,16 +107,18 @@ body {
     width: fit-content;
     max-width: 18%;
     margin-bottom: 6px;
+    margin-left: 2px;
     min-height: 18.25rem;
-    background: linear-gradient(#b3d6e2,#d4ebf3);
+    background: linear-gradient(0.49turn, #b0d3e0, #d4ebf3);
     font-size: 2.5rem;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 0.25rem;
     padding-right: 1.25rem;
     padding-top: 1rem;
 }
+
 #city-sidebar h2 {
-    color:#272c30;
+    color: #272c30;
     font-size: 2rem;
     font-weight: 600;
     margin: -2px 0;
@@ -121,9 +135,12 @@ body {
     border-width: 3px;
     padding: 5px 0 5px 10px;
     margin-left: 0.75rem;
+    background: #f5fafc;
 }
 
-
+#fetch-field:hover {
+    background: white;
+}
 
 
 #searchBtn {
@@ -139,13 +156,19 @@ body {
     margin-bottom: 1.2rem;
     border-radius: 18px;
     border-width: 3px;
-    color: #e7e7e7;
+    color: #f0f0f0;
     border: none;
     outline: none;
     padding-left: 4px;
     padding-right: 4px;
-    background: linear-gradient(0.45turn, #3d52af, #99a8eb);
-    box-shadow: 3px 3px 3px rgb(119, 151, 184);
+    background: linear-gradient(0.39turn, #3d52af, #99a8eb);
+    box-shadow: 3px 3px 3px #7797b8;
+}
+
+#searchBtn:hover {
+    color: #e8e8e8;
+    background: linear-gradient(0.45turn, #2d42a3, #8394e0);
+    box-shadow: 4px 4px 4px #6587a8;
 }
 
 .historyBtn {
@@ -161,11 +184,17 @@ body {
     margin-right: 1.2rem;
     border-radius: 18px;
     border-width: 3px;
-    color: black;
+    color: #101010;
     border: none;
     outline: none;
-    background: linear-gradient(to right, #7f8bc48f, #bac4f08f);
+    background: linear-gradient(0.41turn, #7f8bc4, #bac4f0);
     box-shadow: 2px 2px 2px #8b9daf;
+}
+
+.historyBtn:hover {
+    background: linear-gradient(0.41turn, #7176b2, #a9b2dd);
+    box-shadow: 3px 3px 3px #5f778d;
+    color: black;
 }
 
 .card-column {
@@ -177,7 +206,7 @@ body {
 /* Main weather info area */
 .weather-card {
     color: #012247;
-    background: linear-gradient(0.45turn, #6b90b1,#8dbae2,#a7c2da);
+    background: linear-gradient(0.44turn, #6b90b1, #8dbae2, #a7c2da);
     margin-left: 0.5%;
     max-width: 100%;
     width: cover;
@@ -196,7 +225,8 @@ body {
     flex-wrap: wrap;
 }
 
-.over-column1, .over-column2 {
+.over-column1,
+.over-column2 {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -331,7 +361,7 @@ body {
 .forecastMultiCard {
     color: white;
     flex-wrap: wrap;
-    background: linear-gradient(0.53turn, #332d4b,#8187a3,#60558d);
+    background: linear-gradient(0.53turn, #332d4b, #8187a3, #60558d);
     margin: 0.5% 0.5% 0 0;
     padding: 0.5rem 0.25rem 0.25rem 0.25rem;
     text-align: left;
@@ -372,7 +402,7 @@ body {
 /* Place Not Found pop-up stuff */
 
 .error-popup {
-    display: hidden;  
+    display: hidden;
     position: fixed;
     padding-top: 14rem;
     left: 0;
@@ -381,27 +411,27 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(5, 34, 66, 0.35);
-  }
-  
-  .error-message {
-    background: linear-gradient(0.475turn , #d4dde9, #f4f9fd);
+}
+
+.error-message {
+    background: linear-gradient(0.475turn, #d4dde9, #f4f9fd);
     border-radius: 15px;
     margin: auto;
     padding: 1.5rem 2rem;
     border: 1px solid #5a6164;
     width: 30rem;
-  }
-  
-  .error-message p {
+}
+
+.error-message p {
     text-align: center;
     color: #2a2a2e;
     font-size: 1.6rem;
     font-weight: 600;
     text-shadow: 2px 2px 2px #b9cde6;
-  }
-  
-  /* The Close Button */
-  .close-error {
+}
+
+/* The Close Button */
+.close-error {
     color: #5f5f5f;
     float: right;
     position: relative;
@@ -409,11 +439,11 @@ body {
     right: 0;
     font-size: 1.6rem;
     font-weight: 600;
-  }
-  
-  .close-error:hover,
-  .close-error:focus {
+}
+
+.close-error:hover,
+.close-error:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+}
