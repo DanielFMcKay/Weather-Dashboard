@@ -472,4 +472,7 @@ body {
     .forecastMultiCard {
         width: 49%;
     }
+    .aligner {
+        display: none;
+    }
 }
