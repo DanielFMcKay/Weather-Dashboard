@@ -29,7 +29,7 @@ header {
 #clearStorageBtn {
     width: fit-content;
     height: fit-content;
-    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
+    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
     max-width: 9rem;
     border-radius: 16px;
     margin: 0.5rem 0 0 0.5rem;
@@ -39,7 +39,7 @@ header {
 }
 
 #clearStorageBtn:hover {
-    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
+    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
 }
 
 
