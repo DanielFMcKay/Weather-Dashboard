@@ -239,6 +239,7 @@ const weatherForecast = function (cityInputField) {
             historyButton.setAttribute("class", "cityName historyBtn");
             historyButton.textContent = cityInputField;
             $("#storedCity").prepend(historyButton);
+            createWeatherButton();
 
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
         });
