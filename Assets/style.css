@@ -1,5 +1,6 @@
 /* CSS code goes here */
 
+
 /* this color is a bit closer to the true color of daylight */
 html {
     background-color: #ecf7f7;
@@ -212,7 +213,7 @@ body {
 }
 
 .overview-row {
-    margin: -0.5rem 0 -0.25rem -0.5rem;
+    margin: -0.6rem 0 -0.25rem -0.6rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -272,12 +273,21 @@ body {
     font-size: 1.6rem;
     color: black;
     text-shadow: 2px 2px 2px #8899AA;
+    margin-top: -0.1rem;
 }
 
 .weather-card h4 {
     font-size: 1.2rem;
     color: black;
     text-shadow: 1px 1px 1px #8899AA;
+    margin-top: -0.1rem;
+}
+
+.weather-card h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: -0.25rem;
+    color: #5f1a1a;
 }
 
 
@@ -290,7 +300,7 @@ body {
 /* main information beneath weather icon and temperature */
 .infoColumns {
     color: black;
-    margin: -0.5rem 0 -0.25rem -0.5rem;
+    margin: -0.5rem 0 -0.5rem -0.6rem;
     text-shadow: 2px 2px 2px #AAAAAA;
     display: flex;
     flex-direction: row;
@@ -326,7 +336,7 @@ body {
 
 
 .multiDay {
-    background: linear-gradient(to right, #aebadc, #cfdaf5);
+    background: linear-gradient(to right , #aebadc, #cfdaf5);
     border-radius: 0 0 10px 10px;
     width: cover;
     min-width: 10rem;
@@ -372,6 +382,7 @@ body {
 }
 
 .forecastMultiCard h4 {
+    margin-bottom: 0.46rem;
     font-size: 1.2rem;
     text-shadow: 1px 1px 1px rgb(52, 50, 78);
     color: #e8ecc3;
@@ -388,6 +399,13 @@ body {
     font-size: 0.9rem;
     color: white;
     margin-bottom: 0.35rem;
+}
+
+.forecastMultiCard h6 {
+    font-size: 0.75rem;
+    margin-top: -1rem;
+    font-weight: 600;
+    color: #f1c9c9;
 }
 
 

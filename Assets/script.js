@@ -18,8 +18,6 @@ window.onclick = function(event) {
 }
 
 
-
-
 // this is my API key
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
 
@@ -49,7 +47,8 @@ var cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 
 
 
-// Since the site requires new buttons for each city in the history, we need a function to create that
+// createWeatherButton is the function that gives all created or recalled buttons the attribute to be 
+// clicked and call the weather
 function createWeatherButton() {
     var presetCityButtons = document.querySelectorAll(".cityName");
     presetCityButtons.forEach(function (historyBtn) {
@@ -101,6 +100,8 @@ const retrieveCity = function (lat, lon) {
             // console.log("is the Unix-rendered local time");
             // console.log(localTime.toLocaleDateString("en-US"));
             // console.log("is the Unix-rendered local date");
+            let currentUvi = (Math.round(data.current.uvi * 10)/10);
+
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
             //  local Date
             $('.city-info').html(cityInputField + "<br>" + localTime.toLocaleDateString("en-US"));
@@ -109,7 +110,10 @@ const retrieveCity = function (lat, lon) {
             $('.temperature').text("Currently: " + Math.round(parseFloat(data.current.temp)) + " °F (" + currentCelsius + " °C)");
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
             $('.humidity').text("Humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
-            $('.uv-index').html("UV Index: " + data.current.uvi);
+            $('.uv-index').html("UV Index: " + currentUvi);
+            if (currentUvi >= 11) {
+                $('.local-weekday').append("<h6>Extreme UVI Warning</h6>");
+            }
             // local Time
             $('.current-conditions').text("Current conditions: " + data.current.weather[0].description);
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
@@ -216,6 +220,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Spain"
             } else if (data.city.country==="SE") {
                 nationName = "Sweden"
+            } else if (data.city.country==="TH") {
+                nationName = "Thailand"
             } else if (data.city.country==="UA") {
                 nationName = "Ukraine"
             } else if (data.city.country==="GB") {
@@ -265,17 +271,24 @@ const multiDayForecast = function (data) {
         let unixForecastDay = (parseInt(localUnixWeekday) + i + 1) % 7;
 
         let forecastDay = weekdayArray[unixForecastDay];
-        
+
+        let dailyMaxUvi = (Math.round(data.daily[i].uvi * 10)/10);
+
         // console.log(dayPlus);
         // console.log("is 24 hours from now at the selected location");
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4><br><p class="forecast-day">' + forecastDay + '</p>');
+        if (dailyMaxUvi >= 11) {
+            $(dayCard).append("<h6>Extreme UVI Warning</h6>");
+        }
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
         $(dayCard).append("<h5>High Temp: " + Math.round(parseFloat(data.daily[i].temp.max)) + " °F</h5>");
         // console.log([i]);
         $(dayCard).append("<h5>Low Temp: " + Math.round(parseFloat(data.daily[i].temp.min)) + " °F</h5>");
         $(dayCard).append("<h5>Wind: " + Math.round(parseFloat(data.daily[i].wind_speed)) + " mph</h5>");
         $(dayCard).append("<h5>Humidity: " + data.daily[i].humidity + "%</h5>");
-        $(dayCard).append("<h5>Max UV Index: " + data.daily[i].uvi + "</h5>");
+        $(dayCard).append("<h5>Max UV Index: " + dailyMaxUvi + "</h5>");
+
+        
     }
 }
 
