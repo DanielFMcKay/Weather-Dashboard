@@ -275,7 +275,7 @@ const multiDayForecast = function (data) {
         $(dayCard).append("<h5>Low Temp: " + Math.round(parseFloat(data.daily[i].temp.min)) + " °F</h5>");
         $(dayCard).append("<h5>Wind: " + Math.round(parseFloat(data.daily[i].wind_speed)) + " mph</h5>");
         $(dayCard).append("<h5>Humidity: " + data.daily[i].humidity + "%</h5>");
-        $(dayCard).append("<h5>UV Index: " + data.daily[i].uvi + "</h5>");
+        $(dayCard).append("<h5>Max UV Index: " + data.daily[i].uvi + "</h5>");
     }
 }
 
