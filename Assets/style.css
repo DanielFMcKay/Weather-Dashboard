@@ -490,6 +490,9 @@ body {
         margin: 0.35rem;
         margin-right: 0.2rem;
     }
+    .error-message {
+        max-width: 80%;
+    }
 }
 
 @media screen and (max-width: 500px) {
