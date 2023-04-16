@@ -269,6 +269,14 @@ body {
     text-shadow: 2px 2px 2px #8899AA;
 }
 
+.city-info {
+    margin-top: -0.25rem;
+}
+
+.local-weekday {
+    margin-top: -0.7rem;
+}
+
 .weather-card h3 {
     font-size: 1.6rem;
     color: black;
@@ -402,10 +410,12 @@ body {
 }
 
 .forecastMultiCard h6 {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     margin-top: -1rem;
+    margin-bottom: 1rem;
     font-weight: 600;
-    color: #f1c9c9;
+    color: #ffada2;
+    /* text-shadow: 1px 1px 0px rgb(204, 137, 137); */
 }
 
 

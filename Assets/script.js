@@ -101,13 +101,17 @@ const retrieveCity = function (lat, lon) {
             // console.log(localTime.toLocaleDateString("en-US"));
             // console.log("is the Unix-rendered local date");
             let currentUvi = (Math.round(data.current.uvi * 10)/10);
+            let bigTemp = Math.round(parseFloat(data.current.temp));
 
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
             //  local Date
             $('.city-info').html(cityInputField + "<br>" + localTime.toLocaleDateString("en-US"));
             $('.local-weekday').text(localWeekday);
             $('.big-temp').text(Math.round(parseFloat(data.current.temp)) + " °F");
-            $('.temperature').text("Currently: " + Math.round(parseFloat(data.current.temp)) + " °F (" + currentCelsius + " °C)");
+            $('.temperature').text("Currently: " + bigTemp + " °F (" + currentCelsius + " °C)");
+            if (bigTemp >= 100) {
+                $('.local-weekday').append("<h6>Extreme Heat Advisory</h6>");
+            }
             $('.wind-speed').text("Wind Speed: " + Math.round(parseFloat(data.current.wind_speed)) + " mph");
             $('.humidity').text("Humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
             $('.uv-index').html("UV Index: " + currentUvi);
@@ -274,14 +278,19 @@ const multiDayForecast = function (data) {
 
         let dailyMaxUvi = (Math.round(data.daily[i].uvi * 10)/10);
 
+        let dailyHiTemp = Math.round(parseFloat(data.daily[i].temp.max));
+
         // console.log(dayPlus);
         // console.log("is 24 hours from now at the selected location");
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4><br><p class="forecast-day">' + forecastDay + '</p>');
-        if (dailyMaxUvi >= 11) {
-            $(dayCard).append("<h6>Extreme UVI Warning</h6>");
-        }
+        // if (dailyHiTemp >= 100) {
+        //     $(dayCard).append("<h6>Extreme Heat Advisory</h6>");
+        // }
+        // if (dailyMaxUvi >= 11) {
+        //     $(dayCard).append("<h6>Extreme UVI Warning</h6>");
+        // }
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
-        $(dayCard).append("<h5>High Temp: " + Math.round(parseFloat(data.daily[i].temp.max)) + " °F</h5>");
+        $(dayCard).append("<h5>High Temp: " + dailyHiTemp + " °F</h5>");
         // console.log([i]);
         $(dayCard).append("<h5>Low Temp: " + Math.round(parseFloat(data.daily[i].temp.min)) + " °F</h5>");
         $(dayCard).append("<h5>Wind: " + Math.round(parseFloat(data.daily[i].wind_speed)) + " mph</h5>");
