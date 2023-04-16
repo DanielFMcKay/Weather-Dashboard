@@ -113,23 +113,23 @@ const retrieveCity = function (lat, lon) {
             windDirect = data.current.wind_deg;
             console.log("wind_deg is " + windDirect);
 
-            if (windDirect >= 349 ){ compass = "N" }
-            else if (windDirect >= 327 ){ compass = "NNW" }
-            else if (windDirect >= 304 ){ compass = "NW" }
-            else if (windDirect >= 282 ){ compass = "WNW" }
-            else if (windDirect >= 259 ){ compass = "W" }
-            else if (windDirect >= 237 ){ compass = "WSW" }
-            else if (windDirect >= 214 ){ compass = "SW" }
-            else if (windDirect >= 192 ){ compass = "SSW" }
-            else if (windDirect >= 169 ){ compass = "S" }
-            else if (windDirect >= 147 ){ compass = "SSE" }
-            else if (windDirect >= 124 ){ compass = "SE" }
-            else if (windDirect >= 102 ){ compass = "ESE" }            
-            else if (windDirect >= 79 ){ compass = "E" }
-            else if (windDirect >= 57 ){ compass = "ENE" }
-            else if (windDirect >= 34 ){ compass = "NE" }
-            else if (windDirect >= 12 ){ compass = "NNE" }
-            else if (windDirect <= 11 ){ compass = "N" }
+            if (windDirect >= 349 ){ compass = "S" }
+            else if (windDirect >= 327 ){ compass = "SSE" }
+            else if (windDirect >= 304 ){ compass = "SE" }
+            else if (windDirect >= 282 ){ compass = "ESE" }
+            else if (windDirect >= 259 ){ compass = "E" }
+            else if (windDirect >= 237 ){ compass = "ENE" }
+            else if (windDirect >= 214 ){ compass = "NE" }
+            else if (windDirect >= 192 ){ compass = "NNE" }
+            else if (windDirect >= 169 ){ compass = "N" }
+            else if (windDirect >= 147 ){ compass = "NNW" }
+            else if (windDirect >= 124 ){ compass = "NW" }
+            else if (windDirect >= 102 ){ compass = "WNW" }            
+            else if (windDirect >= 79 ){ compass = "W" }
+            else if (windDirect >= 57 ){ compass = "WSW" }
+            else if (windDirect >= 34 ){ compass = "SW" }
+            else if (windDirect >= 12 ){ compass = "SSW" }
+            else if (windDirect <= 11 ){ compass = "S" }
             else console.log("wtf wind");
 
             
