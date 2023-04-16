@@ -89,24 +89,24 @@ const retrieveCity = function (lat, lon) {
             let weekdayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             let localWeekday = weekdayArray[localUnixWeekday];
 
+
+
+            // Celsius conversions for select readouts
             let currentCelsius = Math.round(parseFloat(((data.current.temp - 32) * 5 / 9)));
             let hiCelsius = Math.round(parseFloat(((Math.round(parseFloat(data.daily[0].temp.max)) - 32) * 5 / 9)));
             let loCelsius = Math.round(parseFloat(((Math.round(parseFloat(data.daily[0].temp.min)) - 32) * 5 / 9)));
+            let feelsLikeCelsius = Math.round(parseFloat(((Math.round(parseFloat(data.current.feels_like)) - 32) * 5 / 9)));
 
-            // console.log(localWeekday);
-            // console.log("is localWeekday")
 
-            // console.log(currentCelsius);
-            // console.log("is currentCelsius");
 
-            // console.log(localTime.toLocaleTimeString("en-US"));
-            // console.log("is the Unix-rendered local time");
-            // console.log(localTime.toLocaleDateString("en-US"));
-            // console.log("is the Unix-rendered local date");
+            // rounding UVI to one decimal point, also putting it in a variable to more easily trigger an advisory alert
             let currentUvi = (Math.round(data.current.uvi * 10) / 10);
             let bigTemp = Math.round(parseFloat(data.current.temp));
 
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
+
+
+
 
             // Wind Direction
             let compass;
@@ -157,7 +157,7 @@ const retrieveCity = function (lat, lon) {
             $('.local-time').html("Local time is: " + localTime.toLocaleTimeString("en-US"));
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "°F (" + hiCelsius + "°C)");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "°F (" + loCelsius + "°C)");
-            $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F");
+            $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F (" + feelsLikeCelsius + "°C)");
 
             console.log("current weather parameters:");
             console.log(data.current.weather);
