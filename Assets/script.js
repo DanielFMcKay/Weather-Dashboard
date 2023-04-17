@@ -2,6 +2,7 @@
 
 const citySidebar = $("#city-sidebar");
 
+
 // modal
 const notFound = document.getElementById("placeNotFound");
 notFound.style.display = "none";
@@ -158,6 +159,7 @@ const retrieveCity = function (lat, lon) {
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "°F (" + hiCelsius + "°C)");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "°F (" + loCelsius + "°C)");
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F (" + feelsLikeCelsius + "°C)");
+            $('.wind-note').text("");
 
             console.log("current weather parameters:");
             console.log(data.current.weather);
@@ -194,6 +196,7 @@ const weatherForecast = function (cityInputField) {
                 // window.alert("Place Not Found");
                 return;
             }
+
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
             console.log(data.city.country);
             console.log("is country of origin");

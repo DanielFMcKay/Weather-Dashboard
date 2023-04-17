@@ -299,6 +299,11 @@ body {
     color: #5f1a1a;
 }
 
+.wind-note {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px #93c8da;
+}
 
 .card-body {
     display: flex;
