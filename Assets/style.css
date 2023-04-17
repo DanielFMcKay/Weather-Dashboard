@@ -53,7 +53,7 @@ header h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3rem;
     font-weight: 600;
-    padding-top: 1.1rem;
+    padding-top: 1rem;
     margin-bottom: 0.2rem;
 }
 
@@ -65,7 +65,7 @@ header h1 {
 }
 
 .header-image {
-    height: 7.6rem;
+    height: 7.5rem;
     width: 100%;
     margin-bottom: 6px;
     border-bottom-right-radius: 15px;
@@ -97,7 +97,7 @@ body {
     font-weight: 600;
     color: #f8f8f8;
     margin-bottom: 0.7rem;
-    margin-top: -0.25rem;
+    margin-top: -0.35rem;
 }
 
 #city-sidebar {
@@ -237,7 +237,6 @@ body {
     font-size: 1.45rem;
     font-weight: 500;
     text-shadow: 2px 2px 2px #8899AA;
-    margin-top: -0.6rem;
 }
 
 .over-column1 p {
@@ -275,7 +274,7 @@ body {
 }
 
 .local-weekday {
-    margin-top: -0.7rem;
+    margin-top: -0.6rem;
 }
 
 .weather-card h3 {
@@ -292,17 +291,20 @@ body {
     margin-top: -0.1rem;
 }
 
+.weather-card h5 {
+    font-size: 1.4rem;
+}
+
 .weather-card h6 {
     font-size: 1.1rem;
     font-weight: 600;
-    margin-top: -0.25rem;
     color: #5f1a1a;
 }
 
 .wind-note {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    text-shadow: 1px 1px 1px #93c8da;
+    text-shadow: 1px 1px 1px #8dbae2;
 }
 
 .card-body {
@@ -356,7 +358,8 @@ body {
     min-width: 10rem;
     margin-left: 0.5%;
     border: 1px solid #91a0af;
-    padding-bottom: 4px;
+    padding-bottom: 2px;
+    padding-top: -1px;
 }
 
 .multiDayTitle {

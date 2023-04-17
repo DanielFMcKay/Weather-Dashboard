@@ -214,6 +214,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Brazil"
             } else if (data.city.country === "CN") {
                 nationName = "China"
+            } else if (data.city.country === "EG") {
+                nationName = "Egypt"
             } else if (data.city.country === "FR") {
                 nationName = "France"
             } else if (data.city.country === "DE") {
