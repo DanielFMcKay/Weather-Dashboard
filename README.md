@@ -1,6 +1,6 @@
-![image](https://user-images.githubusercontent.com/123746582/233585183-8f37b625-c3ec-4b8f-8111-b6bf8907e058.png)
+![image](https://user-images.githubusercontent.com/123746582/233632282-c75e09df-4cd5-484e-a461-a5a2a0136fee.png)
 
-![image](https://user-images.githubusercontent.com/123746582/233586844-e767cbe2-9037-4d83-b2e1-4d2de77e3c77.png)
+![image](https://user-images.githubusercontent.com/123746582/233634189-f94973e9-6fac-4c6e-8c47-f0a6de3919c6.png)
 
 # Weather-Dashboard
 
@@ -34,7 +34,9 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Furthermore, a six day forecast on separate cards is shown along the bottom of the display to show same conditions for the next 6 days, including a high and low daily temperature in lieu of a current one.
 
-* Finally, there is a button to both clear the local storage and reload the page, for easier use.
+* Additionally, there is a button to both clear the local storage and reload the page, for easier use.
+
+* Lastly there is a button to remove only the most recently added history button. Or more specifically the button currently at the end of the stored cities array. After clicking it, it will also reload the page.
 
 ### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
 
