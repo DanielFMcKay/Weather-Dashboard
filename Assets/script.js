@@ -67,7 +67,7 @@ function loadHistoryButtons() {
         var citySearchHistory = document.createElement("button");
         citySearchHistory.setAttribute("class", "cityName historyBtn");
         citySearchHistory.textContent = cityStored[i];
-        console.log("location stored is " + cityStored[i] + " " + i);
+        console.log("location " + (i + 1) +" is " + cityStored[i] + ".");
         $("#storedCity").append(citySearchHistory);
         createWeatherButton();
     }
@@ -112,7 +112,7 @@ const retrieveCity = function (lat, lon) {
             // Wind Direction
             let compass;
             windDirect = data.current.wind_deg;
-            console.log("wind_deg is " + windDirect);
+            // console.log("wind_deg is " + windDirect);
 
             if (windDirect >= 349 ){ compass = "S" }
             else if (windDirect >= 327 ){ compass = "SSE" }
@@ -137,18 +137,18 @@ const retrieveCity = function (lat, lon) {
 
 
             //  local Date
-            $('.city-info').html(cityInputField + "<br>" + localTime.toLocaleDateString("en-US"));
+            $('.local-date').html(localTime.toLocaleDateString("en-US"));
             $('.local-weekday').text(localWeekday);
             $('.big-temp').text(Math.round(parseFloat(data.current.temp)) + "°F");
             $('.temperature').text("Currently: " + bigTemp + "°F (" + currentCelsius + "°C)");
             if (bigTemp >= 100) {
-                $('.local-weekday').append("<h6>Extreme Heat Advisory</h6>");
+                $('.heat-warning').html("Extreme Heat Advisory");
             }
             $('.wind-speed').text("Wind: " + Math.round(parseFloat(data.current.wind_speed)) + " mph (" + compass + ")") ;
             $('.humidity').text("Humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
             $('.uv-index').html("UV Index: " + currentUvi);
             if (currentUvi >= 11) {
-                $('.local-weekday').append("<h6>Extreme UVI Warning</h6>");
+                $('.uvi-warning').html("<h6>Extreme UVI Warning</h6>");
             }
             // local Time
             $('.current-conditions').text("Current conditions: " + data.current.weather[0].description);
@@ -161,8 +161,8 @@ const retrieveCity = function (lat, lon) {
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F (" + feelsLikeCelsius + "°C)");
             $('.wind-note').text("");
 
-            console.log("current weather parameters:");
-            console.log(data.current.weather);
+            // console.log("current weather parameters: " + data.current.weather);
+
 
             multiDayForecast(data);
         })
@@ -176,7 +176,7 @@ const weatherForecast = function (cityInputField) {
     // console.log(cityInputField);
 
 
-    const openWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial' + APIKey;
+    const openWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial&lang=en' + APIKey;
     // console.log(openWeather);
     // console.log("is openWeather")
 
@@ -198,10 +198,14 @@ const weatherForecast = function (cityInputField) {
             }
 
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
-            console.log(data.city.country);
-            console.log("is country of origin");
+            let placeName = data.city.name;
+            // console.log("The country's name is: " + data.city.country);
+            // console.log("The city's name Is: " + placeName);
             // below may be used later
             let nationName = data.city.country;
+ 
+            // Country code conversion for select nations.
+            // I'd probably actually wanna put this in another file in the future.
             if (data.city.country === "US") {
                 nationName = "United States"
             } else if (data.city.country === "CA") {
@@ -214,6 +218,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Brazil"
             } else if (data.city.country === "CN") {
                 nationName = "China"
+            } else if (data.city.country === "CO") {
+                nationName = "Colombia"
             } else if (data.city.country === "EG") {
                 nationName = "Egypt"
             } else if (data.city.country === "FR") {
@@ -240,6 +246,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Mexico"
             } else if (data.city.country === "NG") {
                 nationName = "Nigeria"
+            } else if (data.city.country === "NZ") {
+                nationName = "New Zealand"
             } else if (data.city.country === "PK") {
                 nationName = "Pakistan"
             } else if (data.city.country === "PH") {
@@ -268,14 +276,14 @@ const weatherForecast = function (cityInputField) {
                 nationName = "United Kingdom"
             }
 
-            $('.country-code').text(nationName);
+            // $('.country-code').text(nationName);
+
+            $('.city-info').html(placeName + ", " + nationName);
 
             // catch for duplicate entries below
             for (let i = 0; i < cityStored.length; i++) {
                 // console.log(cityStored[i]);
                 if (cityInputField === cityStored[i]) {
-                    console.log(cityStored.length);
-                    console.log("is number of locations stored")
                     return;
                 }
             }
@@ -368,6 +376,7 @@ cityInput.addEventListener("keypress", function (event) {
 
 // this loads the buttons from local storage. I think.
 loadHistoryButtons();
+console.log("There are " + cityStored.length + " locations stored.");
 
 // ngl, I added this button so I could show this one to my dad
 clearEverything.addEventListener("click", function () {

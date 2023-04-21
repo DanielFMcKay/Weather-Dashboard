@@ -146,6 +146,7 @@ body {
 
 
 #searchBtn {
+    color: #f8f8f8;
     font-size: 1.6rem;
     text-decoration: none;
     padding: 5px 0 5px 0;
@@ -165,7 +166,7 @@ body {
 }
 
 #searchBtn:hover {
-    color: #e8e8e8;
+    color: #f2f2f2;
     background: linear-gradient(0.45turn, #2d42a3, #8394e0);
     box-shadow: 4px 4px 4px #6587a8;
 }
@@ -225,6 +226,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    min-width: 20rem;
 }
 
 .over-column1 {
@@ -232,10 +234,16 @@ body {
     margin-right: 0.8rem;
 }
 
+.local-date {
+    margin-top: -0.6rem;
+}
+
 .local-weekday {
     color: black;
     font-size: 1.45rem;
     font-weight: 500;
+    margin-top: 1rem;
+
     text-shadow: 2px 2px 2px #8899AA;
 }
 
@@ -252,7 +260,7 @@ body {
 }
 
 .weather-card h1 {
-    font-size: 2.2rem;
+    font-size: 2.1rem;
     text-shadow: 1px 1px 1px #5684b9;
     color: black;
 }
@@ -266,16 +274,14 @@ body {
 .weather-card h2 {
     font-size: 1.7rem;
     color: black;
-    text-shadow: 2px 2px 2px #8899AA;
+    text-shadow: 2px 2px 2px #748aa0;
 }
 
 .city-info {
     margin-top: -0.25rem;
 }
 
-.local-weekday {
-    margin-top: -0.6rem;
-}
+
 
 .weather-card h3 {
     font-size: 1.6rem;
@@ -291,14 +297,17 @@ body {
     margin-top: -0.1rem;
 }
 
-.weather-card h5 {
+.local-weekday {
     font-size: 1.4rem;
+    margin-top: -0.4rem;
+    margin-bottom: 0.15rem;
 }
 
 .weather-card h6 {
     font-size: 1.1rem;
     font-weight: 600;
     color: #5f1a1a;
+    margin-top: -0.15rem;
 }
 
 .wind-note {
@@ -316,7 +325,7 @@ body {
 /* main information beneath weather icon and temperature */
 .infoColumns {
     color: black;
-    margin: -0.5rem 0 -0.5rem -0.6rem;
+    margin: -0.5rem 0 -1rem -0.6rem;
     text-shadow: 2px 2px 2px #AAAAAA;
     display: flex;
     flex-direction: row;
@@ -350,9 +359,9 @@ body {
     margin: 1rem;
 }
 
-
+/* #cfdaf5 */
 .multiDay {
-    background: linear-gradient(to right , #aebadc, #cfdaf5);
+    background: linear-gradient(to right, #aebadc, #d4def8);
     border-radius: 0 0 10px 10px;
     width: cover;
     min-width: 10rem;
@@ -401,7 +410,7 @@ body {
 .forecastMultiCard h4 {
     margin-bottom: 0.46rem;
     font-size: 1.2rem;
-    text-shadow: 1px 1px 1px rgb(52, 50, 78);
+    text-shadow: 1px 1px 1px #34324e;
     color: #e8ecc3;
 }
 
@@ -424,7 +433,7 @@ body {
     margin-bottom: 1rem;
     font-weight: 600;
     color: #ffada2;
-    /* text-shadow: 1px 1px 0px rgb(204, 137, 137); */
+    /* text-shadow: 1px 1px 0px #cc8989; */
 }
 
 
