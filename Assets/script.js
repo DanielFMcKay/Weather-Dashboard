@@ -155,7 +155,7 @@ const retrieveCity = function (lat, lon) {
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
 
-            $('.local-time').html("Local time is: " + localTime.toLocaleTimeString("en-US"));
+            $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US"));
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "°F (" + hiCelsius + "°C)");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "°F (" + loCelsius + "°C)");
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F (" + feelsLikeCelsius + "°C)");
