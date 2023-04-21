@@ -49,7 +49,7 @@ header {
 
 
 header h1 {
-    background: -webkit-linear-gradient(0.265turn, #fcfaf5, #ddd7b4);
+    background: -webkit-linear-gradient(0.3turn, #fcfaf5, #e6dbb3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     /* color: #faf7e4; */

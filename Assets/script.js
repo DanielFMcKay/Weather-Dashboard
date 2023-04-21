@@ -268,6 +268,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "South Korea"
             } else if (data.city.country === "ES") {
                 nationName = "Spain"
+            } else if (data.city.country === "SD") {
+                nationName = "Sudan"
             } else if (data.city.country === "SE") {
                 nationName = "Sweden"
             } else if (data.city.country === "TH") {
