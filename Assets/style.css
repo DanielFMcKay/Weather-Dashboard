@@ -43,6 +43,10 @@ header {
     background: linear-gradient(0.4turn, #b9b9b9, #ececec);
 }
 
+.clear-last:hover {
+    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
+}
+
 
 header h1 {
     background: -webkit-linear-gradient(0.265turn, #fcfaf5, #ddd7b4);
@@ -58,10 +62,17 @@ header h1 {
 }
 
 /* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
-.aligner {
-    visibility: hidden;
+.clear-last {
+    /* visibility: hidden; */
+    width: fit-content;
+    height: fit-content;
+    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
+    max-width: 9rem;
+    border-radius: 16px;
+    margin: 0.5rem 0 0 0.5rem;
     font-size: 0.8rem;
-    margin: 1rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
 }
 
 .header-image {
@@ -520,8 +531,5 @@ body {
     }
     .forecastMultiCard {
         width: 49%;
-    }
-    .aligner {
-        display: none;
     }
 }

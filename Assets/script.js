@@ -43,6 +43,8 @@ currentDayDisplay.text(currentDay);
 var multiDayDisplay = $("#multiDayForecast");
 const clearEverything = $("#clearStorageBtn")[0];
 
+const clearLast = $(".clear-last")[0];
+
 // gets the array of cities stored in local storage
 var cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 
@@ -67,7 +69,7 @@ function loadHistoryButtons() {
         var citySearchHistory = document.createElement("button");
         citySearchHistory.setAttribute("class", "cityName historyBtn");
         citySearchHistory.textContent = cityStored[i];
-        console.log("location " + (i + 1) +" is " + cityStored[i] + ".");
+        console.log("location " + (i + 1) + " is " + cityStored[i] + ".");
         $("#storedCity").append(citySearchHistory);
         createWeatherButton();
     }
@@ -114,26 +116,26 @@ const retrieveCity = function (lat, lon) {
             windDirect = data.current.wind_deg;
             // console.log("wind_deg is " + windDirect);
 
-            if (windDirect >= 349 ){ compass = "S" }
-            else if (windDirect >= 327 ){ compass = "SSE" }
-            else if (windDirect >= 304 ){ compass = "SE" }
-            else if (windDirect >= 282 ){ compass = "ESE" }
-            else if (windDirect >= 259 ){ compass = "E" }
-            else if (windDirect >= 237 ){ compass = "ENE" }
-            else if (windDirect >= 214 ){ compass = "NE" }
-            else if (windDirect >= 192 ){ compass = "NNE" }
-            else if (windDirect >= 169 ){ compass = "N" }
-            else if (windDirect >= 147 ){ compass = "NNW" }
-            else if (windDirect >= 124 ){ compass = "NW" }
-            else if (windDirect >= 102 ){ compass = "WNW" }            
-            else if (windDirect >= 79 ){ compass = "W" }
-            else if (windDirect >= 57 ){ compass = "WSW" }
-            else if (windDirect >= 34 ){ compass = "SW" }
-            else if (windDirect >= 12 ){ compass = "SSW" }
-            else if (windDirect <= 11 ){ compass = "S" }
+            if (windDirect >= 349) { compass = "S" }
+            else if (windDirect >= 327) { compass = "SSE" }
+            else if (windDirect >= 304) { compass = "SE" }
+            else if (windDirect >= 282) { compass = "ESE" }
+            else if (windDirect >= 259) { compass = "E" }
+            else if (windDirect >= 237) { compass = "ENE" }
+            else if (windDirect >= 214) { compass = "NE" }
+            else if (windDirect >= 192) { compass = "NNE" }
+            else if (windDirect >= 169) { compass = "N" }
+            else if (windDirect >= 147) { compass = "NNW" }
+            else if (windDirect >= 124) { compass = "NW" }
+            else if (windDirect >= 102) { compass = "WNW" }
+            else if (windDirect >= 79) { compass = "W" }
+            else if (windDirect >= 57) { compass = "WSW" }
+            else if (windDirect >= 34) { compass = "SW" }
+            else if (windDirect >= 12) { compass = "SSW" }
+            else if (windDirect <= 11) { compass = "S" }
             else console.log("wtf wind");
 
-            
+
 
 
             //  local Date
@@ -144,7 +146,7 @@ const retrieveCity = function (lat, lon) {
             if (bigTemp >= 100) {
                 $('.heat-warning').html("Extreme Heat Advisory");
             }
-            $('.wind-speed').text("Wind: " + Math.round(parseFloat(data.current.wind_speed)) + " mph (" + compass + ")") ;
+            $('.wind-speed').text("Wind: " + Math.round(parseFloat(data.current.wind_speed)) + " mph (" + compass + ")");
             $('.humidity').text("Humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
             $('.uv-index').html("UV Index: " + currentUvi);
             if (currentUvi >= 11) {
@@ -203,7 +205,7 @@ const weatherForecast = function (cityInputField) {
             // console.log("The city's name Is: " + placeName);
             // below may be used later
             let nationName = data.city.country;
- 
+
             // Country code conversion for select nations.
             // I'd probably actually wanna put this in another file in the future.
             if (data.city.country === "US") {
@@ -381,5 +383,15 @@ console.log("There are " + cityStored.length + " locations stored.");
 // ngl, I added this button so I could show this one to my dad
 clearEverything.addEventListener("click", function () {
     localStorage.clear();
+    location.reload();
+});
+
+console.log(cityStored);
+
+clearLast.addEventListener("click", function () {
+
+    cityStored.splice((cityStored.length - 1), 1);
+    console.log(cityStored);
+    localStorage.setItem('citySearch', JSON.stringify(cityStored));
     location.reload();
 });
