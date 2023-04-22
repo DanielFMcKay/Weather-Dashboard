@@ -13,7 +13,7 @@ html {
 
 header {
     background: linear-gradient(174deg, #264075, #5778bb 20%, #5183e9 30%, #dadeec 96%);
-    border-radius: 15px;
+    border-radius: 16px;
     width: 99.75%;
     margin-left: 2px;
 }
@@ -55,7 +55,7 @@ header h1 {
     color: #f9fded;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 3rem;
+    font-size: 3.05rem;
     font-weight: 600;
     padding-top: 1rem;
     margin-bottom: 0.2rem;
@@ -565,14 +565,14 @@ body {
 
     #clearStorageBtn {
         top: -0.35rem;
-        left: -0.4rem;
+        left: -0.35rem;
         font-size: 0.6rem;
         padding: -0.15rem 0.1rem;
     }
 
     .clear-last {
         top: -0.35rem;
-        right: -0.4rem;
+        right: -0.35rem;
         font-size: 0.6rem;
         padding: -0.15rem 0.1rem;
     }
