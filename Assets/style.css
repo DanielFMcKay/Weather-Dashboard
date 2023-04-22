@@ -612,16 +612,19 @@ body {
         padding: -0.15rem 0.1rem;
     }
 
+    #fetch-field {
+        margin-left: 12.5%;
+        margin-right: 17%;
+        width: 80%;
+    }
+
     #searchBtn {
-        margin-left: 19%;
-        margin-right: 16%;
-        max-width: 75%;
+        margin-left: 11.5%
+        width: 80%;
     }
 
     .historyBtn {
-        margin-left: 19%;
-        margin-right: 16%;
-        width: 75%;
+        margin-left: 21%;
     }
 
     #multiDayForecast {
