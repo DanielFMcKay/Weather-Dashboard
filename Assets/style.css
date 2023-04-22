@@ -509,6 +509,7 @@ body {
     }
 
     #clearStorageBtn {
+        color: black;
         position: absolute;
         background: rgba(154, 159, 167, 0.32);
         border: 1px solid #365e99;
@@ -519,6 +520,7 @@ body {
     }
 
     .clear-last {
+        color: black;
         position: absolute;
         background: rgba(154, 159, 167, 0.32);
         border: 1px solid #365e99;
