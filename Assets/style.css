@@ -96,14 +96,6 @@ body {
     background-color: #e9f6fa;
 }
 
-/* not currently called */
-#currentDay {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-}
-
 
 /* displays current date and time beneath page title */
 #currentDateTime {
@@ -533,7 +525,8 @@ body {
     }
 
     #currentDateTime {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        margin-right: 0.4rem;
     }
 
     .card-column {
@@ -542,6 +535,7 @@ body {
 
     #city-sidebar {
         min-width: 99%;
+        padding-top: 0.6rem;
     }
 
     .historyBtn {
@@ -563,22 +557,25 @@ body {
 
 @media screen and (max-width: 480px) {
     header h1 {
-        font-size: 2.4rem;
-        margin-top: -0.9rem;
+        font-size: 2.55rem;
+        margin-top: -0.2rem;
+        margin-left: 2rem;
+        margin-right: 2rem;
     }
 
     #clearStorageBtn {
-        top: 0;
+        top: -0.35rem;
+        left: -0.4rem;
         font-size: 0.6rem;
-        padding: -0.1rem 0.1rem;
+        padding: -0.15rem 0.1rem;
     }
 
     .clear-last {
-        top: 0;
+        top: -0.35rem;
+        right: -0.4rem;
         font-size: 0.6rem;
-        padding: -0.1rem 0.1rem;
+        padding: -0.15rem 0.1rem;
     }
-
 
     #multiDayForecast {
         justify-content: space-between;
