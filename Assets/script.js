@@ -31,22 +31,24 @@ let cityInput = $("#fetch-field")[0];
 
 const searchBtn = $("#searchBtn")[0];
 
-// jsdays makes time formatting easier and also flexible
+// jsdays makes time formatting easier and also flexible. This one is for the .
 const currentDateTime = dayjs().format('dddd, MMMM DD YYYY, hh:mm a');
 console.log(currentDateTime);
 const dateTimeDisplay = $('#currentDateTime');
 dateTimeDisplay.text(currentDateTime);
-const currentDay = dayjs().format('dddd, MMMM DD');
-console.log(currentDay);
-const currentDayDisplay = $('.current-date');
-currentDayDisplay.text(currentDay);
+
+// const currentDay = dayjs().format('dddd, MMMM DD');
+// console.log(currentDay);
+// const currentDayDisplay = $('.current-date');
+// currentDayDisplay.text(currentDay);
+
 var multiDayDisplay = $("#multiDayForecast");
 const clearEverything = $("#clearStorageBtn")[0];
 
 const clearLast = $(".clear-last")[0];
 
-// gets the array of cities stored in local storage
-var cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
+// Links the constant cityStored to the array of places stored in local storage. Can also be an empty array if none are stored.
+const cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 
 
 
@@ -62,10 +64,11 @@ function createWeatherButton() {
     });
 }
 
-// Loads the search history and the buttons to check the weather for it. Maximum 30 buttons.
-// Only the 30 most recent searches are called and the buttons are displayed from most to least recent.
+// Loads the search history and the buttons to check the weather for it. Maximum 32 buttons.
+// Only the 32 most recent searches are called and the buttons are displayed from most to least recent.
+// If that number is exceeded, then in another part of the script the oldest one is removed as the newest one is created.
 function loadHistoryButtons() {
-    for (let i = cityStored.length - 1; i > (cityStored.length - 30) && i >= 0; i--) {
+    for (let i = cityStored.length - 1; i > (cityStored.length - 32) && i >= 0; i--) {
         var citySearchHistory = document.createElement("button");
         citySearchHistory.setAttribute("class", "cityName historyBtn");
         citySearchHistory.textContent = cityStored[i];
@@ -258,6 +261,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Philippines"
             } else if (data.city.country === "PL") {
                 nationName = "Poland"
+            } else if (data.city.country === "PR") {
+                nationName = "Puerto Rico"
             } else if (data.city.country === "RO") {
                 nationName = "Romania"
             } else if (data.city.country === "RU") {
@@ -276,6 +281,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Sweden"
             } else if (data.city.country === "TH") {
                 nationName = "Thailand"
+            } else if (data.city.country === "TW") {
+                nationName = "Taiwan"
             } else if (data.city.country === "UA") {
                 nationName = "Ukraine"
             } else if (data.city.country === "GB") {
@@ -302,8 +309,13 @@ const weatherForecast = function (cityInputField) {
             historyButton.textContent = cityInputField;
             $("#storedCity").prepend(historyButton);
             createWeatherButton();
-
+            // cityStored.splice((cityStored.length - 1), 1);
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
+
+            // if there are more than 32 buttons, the oldest one will be removed
+            if (cityStored.length > 32) { 
+                cityStored.splice(0, 1) 
+            }
         });
 
 };
@@ -368,7 +380,7 @@ searchBtn.addEventListener("click", function () {
 });
 
 
-// add the Enter button as an alternative to pressing the search button
+// adds the Enter key as an alternative to clicking the search button
 cityInput.addEventListener("keypress", function (event) {
     // If the user presses the "Enter" key on the keyboard
     if (event.key === "Enter") {
@@ -384,7 +396,7 @@ cityInput.addEventListener("keypress", function (event) {
 loadHistoryButtons();
 console.log("There are " + cityStored.length + " locations stored.");
 
-// ngl, I added this button so I could show this one to my dad
+// clears all buttons and storage and reloads the page
 clearEverything.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
@@ -392,8 +404,8 @@ clearEverything.addEventListener("click", function () {
 
 console.log(cityStored);
 
+// clears most recent search including its button and reloads the page
 clearLast.addEventListener("click", function () {
-
     cityStored.splice((cityStored.length - 1), 1);
     console.log(cityStored);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));

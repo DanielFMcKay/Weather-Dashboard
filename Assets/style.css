@@ -26,31 +26,14 @@ header {
     justify-content: space-between;
 }
 
-/* Clearing the page and its history buttons */
-#clearStorageBtn {
-    width: fit-content;
-    height: fit-content;
-    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
-    max-width: 9rem;
-    border-radius: 16px;
-    margin: 0.25rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.3rem 0.75rem;
-}
-
-#clearStorageBtn:hover {
-    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
-}
-
-
+/* This was an earlier build where I put a gradient directly on the font. Does not work well with text shadows, unfortunately. */
 /* header h1 {
     background: -webkit-linear-gradient(0.3turn, #fcfaf5, #e6dbb3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 } */
 
-
+/* Displayed page title attributes here */
 header h1 {
     color: #f9fded;
     text-align: center;
@@ -81,13 +64,31 @@ header h1 {
     background: linear-gradient(0.4turn, #b9b9b9, #ececec);
 }
 
+/* Clearing the page and its history buttons */
+#clearStorageBtn {
+    width: fit-content;
+    height: fit-content;
+    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
+    max-width: 9rem;
+    border-radius: 16px;
+    margin: 0.25rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+}
+
+#clearStorageBtn:hover {
+    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
+}
+
+/* Splash image directly below the header. */
 .header-image {
     height: 7.5rem;
     width: 100%;
     margin-bottom: 6px;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
-    background-image: url("../Assets/images/weather-background-hero.png");
+    background-image: url("../Assets/images/weather-background-splash-image.png");
     background-size: cover;
     background-position: center;
 }
@@ -114,7 +115,7 @@ body {
     display: table-column-group;
     text-align: center;
     border-radius: 10px;
-    min-width: 12.5rem;
+    min-width: 12.75rem;
     width: fit-content;
     max-width: 18%;
     margin-bottom: 6px;
@@ -132,7 +133,7 @@ body {
     color: #394046;
     font-size: 2rem;
     font-weight: 600;
-    margin: -2px 0;
+    margin: -2px 0 -2px 6%;
     text-shadow: 1px 1px 1px #718fa7;
 }
 
@@ -145,7 +146,7 @@ body {
     border-radius: 10px;
     border-width: 3px;
     padding: 5px 0 5px 10px;
-    margin-left: 0.75rem;
+    margin-left: 0.9rem;
     background: #f5fafc;
 }
 
@@ -320,6 +321,7 @@ body {
 }
 
 .wind-note {
+    color: black;
     font-size: 0.8rem;
     font-weight: 600;
     text-shadow: 1px 1px 1px #8dbae2;
@@ -495,7 +497,7 @@ body {
     cursor: pointer;
 }
 
-@media screen and (max-width: 1108px) {
+@media screen and (max-width: 1128px) {
     #city-sidebar {
         min-width: 22.5%;
     }
@@ -523,11 +525,11 @@ body {
         position: absolute;
         background: rgba(191, 193, 196, 0.6);
         border: 1px solid #365e99;
-        border-radius: 0 16px 0 0;
+        border-radius: 16px 0 0 0;
         margin: 0;
-        left: 0rem;
+        right: 0rem;
         bottom: -2rem;
-        padding: 0rem, 0.15rem;
+        padding: 0rem, 0.2rem;
         font-size: 0.65rem;
     }
 
@@ -536,9 +538,9 @@ body {
         position: absolute;
         background: rgba(191, 193, 196, 0.6);
         border: 1px solid #365e99;
-        border-radius: 16px 0 0 0;
+        border-radius: 0 16px 0 0;
         margin: 0;
-        right: 0;
+        left: 0;
         bottom: -2rem;
         padding: 0rem, 0.15rem;
         font-size: 0.65rem;
@@ -595,19 +597,19 @@ body {
     }
 
     #clearStorageBtn {
-        background: rgba(191, 193, 196, 0.24);
+        background: rgba(191, 193, 196, 0.7);
         top: 0;
-        left: 0;
-        border-radius: 16px 0 16px 0;
+        right: 0;
+        border-radius: 0 16px 0 16px;
         font-size: 0.6rem;
         padding: -0.15rem 0.1rem;
     }
 
     .clear-last {
-        background: rgba(191, 193, 196, 0.24);
+        background: rgba(191, 193, 196, 0.7);
         top: 0;
-        right: 0;
-        border-radius: 0 16px 0 16px ;
+        left: 0;
+        border-radius: 16px 0 16px 0;
         font-size: 0.6rem;
         padding: -0.15rem 0.1rem;
     }
@@ -619,7 +621,7 @@ body {
     }
 
     #searchBtn {
-        margin-left: 11.5%
+        margin-left: 11.5%;
         width: 80%;
     }
 
