@@ -111,10 +111,11 @@ body {
 }
 
 #city-sidebar {
+    position: relative;
     color: black;
     display: table-column-group;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 16px;
     min-width: 12.75rem;
     width: fit-content;
     max-width: 18%;
@@ -127,6 +128,8 @@ body {
     padding-left: 0.25rem;
     padding-right: 1.25rem;
     padding-top: 1rem;
+    padding-bottom: 2rem;
+    border: 1px solid #c7cfcf;
 }
 
 #city-sidebar h2 {
@@ -190,7 +193,7 @@ body {
     margin: 0.1rem 1.2rem 0.8rem 0.8rem;
     border-radius: 18px;
     border-width: 3px;
-    color: #101010;
+    color: #141414;
     border: none;
     outline: none;
     background: linear-gradient(0.41turn, #7f8bc4 8%, #bac4f0 92%);
@@ -201,6 +204,24 @@ body {
     background: linear-gradient(0.41turn, #7176b2, #a9b2dd);
     box-shadow: 3px 3px 3px #5f778d;
     color: black;
+}
+
+.clear-oldest {
+    position: absolute;
+    bottom: 0rem;
+    left: 0rem;
+    width: fit-content;
+    height: fit-content;
+    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
+    max-width: 9rem;
+    border-radius: 0 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.3rem 0.6rem;
+}
+
+.clear-oldest:hover {
+    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
 }
 
 .card-column {
@@ -513,6 +534,10 @@ body {
         position: relative;
     }
 
+    header {
+        position: relative;
+    }
+
     header h1 {
         font-size: 2.75rem;
         margin-top: -0.5rem;
@@ -523,31 +548,42 @@ body {
     #clearStorageBtn {
         color: black;
         position: absolute;
-        background: rgba(191, 193, 196, 0.6);
+        background: rgba(191, 193, 196, 0.7);
         border: 1px solid #365e99;
         border-radius: 16px 0 0 0;
         margin: 0;
         right: 0rem;
-        bottom: -2rem;
-        padding: 0rem, 0.2rem;
-        font-size: 0.65rem;
+        bottom: -1.9rem;
+        padding: 0rem, 0.15rem;
+        font-size: 0.7rem;
     }
 
     .clear-last {
         color: black;
         position: absolute;
-        background: rgba(191, 193, 196, 0.6);
+        background: rgba(191, 193, 196, 0.7);
         border: 1px solid #365e99;
         border-radius: 0 16px 0 0;
         margin: 0;
         left: 0;
-        bottom: -2rem;
+        bottom: -1.9rem;
         padding: 0rem, 0.15rem;
-        font-size: 0.65rem;
+        font-size: 0.7rem;
+    }
+
+    .clear-oldest {
+        color: black;
+        background: rgba(191, 193, 196, 0.7);
+        border: 1px solid #879494;
+        bottom: 0;
+        left: 0;
+        border-radius: 0 16px 0 16px;
+        padding: 0rem, 0.15rem;
+        font-size: 0.7rem;
     }
 
     #currentDateTime {
-        font-size: 1.05rem;
+        font-size: 1rem;
         margin-right: 0.4rem;
     }
 
@@ -558,6 +594,7 @@ body {
     #city-sidebar {
         min-width: 99%;
         padding-top: 0.6rem;
+        padding-bottom: 2rem;
     }
 
     #fetch-field {
@@ -602,7 +639,7 @@ body {
         right: 0;
         border-radius: 0 16px 0 16px;
         font-size: 0.6rem;
-        padding: -0.15rem 0.1rem;
+        padding: -0.15rem 1.25rem;
     }
 
     .clear-last {
@@ -611,6 +648,16 @@ body {
         left: 0;
         border-radius: 16px 0 16px 0;
         font-size: 0.6rem;
+        padding: -0.15rem 0.1rem;
+    }
+
+    #city-sidebar {
+        padding-bottom: 1.75rem;
+    }
+
+    .clear-oldest {
+        background: rgba(191, 193, 196, 0.5);
+        font-size: 0.7rem;
         padding: -0.15rem 0.1rem;
     }
 

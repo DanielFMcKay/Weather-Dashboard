@@ -2,7 +2,6 @@
 
 const citySidebar = $("#city-sidebar");
 
-
 // modal
 const notFound = document.getElementById("placeNotFound");
 notFound.style.display = "none";
@@ -46,7 +45,8 @@ var multiDayDisplay = $("#multiDayForecast");
 const clearEverything = $("#clearStorageBtn")[0];
 
 const clearLast = $(".clear-last")[0];
-
+const clearOldest = $(".clear-oldest");
+clearOldest.hide();
 // Links the constant cityStored to the array of places stored in local storage. Can also be an empty array if none are stored.
 const cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 
@@ -83,6 +83,7 @@ function loadHistoryButtons() {
 const retrieveCity = function (lat, lon) {
     var cityCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon +
         '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial' + '&lang=en';
+
     fetch(cityCall)
         .then(function (response) {
             return response.json();
@@ -167,8 +168,10 @@ const retrieveCity = function (lat, lon) {
             $('.wind-note').text("");
 
             // console.log("current weather parameters: " + data.current.weather);
-
-
+        
+            if (cityStored.length >= 2) {
+                clearOldest.show();
+            }
             multiDayForecast(data);
         })
 }
@@ -201,6 +204,7 @@ const weatherForecast = function (cityInputField) {
                 // window.alert("Place Not Found");
                 return;
             }
+            console.log("a call was made");
 
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
             let placeName = data.city.name;
@@ -407,7 +411,16 @@ console.log(cityStored);
 // clears most recent search including its button and reloads the page
 clearLast.addEventListener("click", function () {
     cityStored.splice((cityStored.length - 1), 1);
-    console.log(cityStored);
+    localStorage.setItem('citySearch', JSON.stringify(cityStored));
+    location.reload();
+});
+
+if (cityStored.length >= 2) {
+    clearOldest.show();
+}
+
+clearOldest[0].addEventListener("click", function () {
+    cityStored.splice(0, 1);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
     location.reload();
 });
