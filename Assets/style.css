@@ -554,7 +554,7 @@ body {
         margin: 0;
         right: 0rem;
         bottom: -1.9rem;
-        padding: 0rem, 0.15rem;
+        padding: 0.25rem 0.5rem;
         font-size: 0.7rem;
     }
 
@@ -567,7 +567,7 @@ body {
         margin: 0;
         left: 0;
         bottom: -1.9rem;
-        padding: 0rem, 0.15rem;
+        padding: 0.25rem 0.5rem;
         font-size: 0.7rem;
     }
 
@@ -578,7 +578,7 @@ body {
         bottom: 0;
         left: 0;
         border-radius: 0 16px 0 16px;
-        padding: 0rem, 0.15rem;
+        padding: 0.25rem 0.6rem;
         font-size: 0.7rem;
     }
 
