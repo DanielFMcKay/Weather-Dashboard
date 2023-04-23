@@ -57,7 +57,7 @@ header h1 {
     margin: 0.25rem;
     font-size: 0.8rem;
     font-weight: 500;
-    padding: 0.3rem 0.75rem;
+    padding: 0.25rem 0.75rem 0.35rem 0.75rem;
 }
 
 .clear-last:hover {
@@ -74,7 +74,7 @@ header h1 {
     margin: 0.25rem;
     font-size: 0.8rem;
     font-weight: 500;
-    padding: 0.3rem 0.75rem;
+    padding: 0.25rem 0.75rem 0.35rem 0.75rem;
 }
 
 #clearStorageBtn:hover {
@@ -554,7 +554,7 @@ body {
         margin: 0;
         right: 0rem;
         bottom: -1.9rem;
-        padding: 0.25rem 0.5rem;
+        padding: 0.25rem 0.6rem;
         font-size: 0.7rem;
     }
 
@@ -567,7 +567,7 @@ body {
         margin: 0;
         left: 0;
         bottom: -1.9rem;
-        padding: 0.25rem 0.5rem;
+        padding: 0.25rem 0.6rem;
         font-size: 0.7rem;
     }
 
