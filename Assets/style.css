@@ -122,7 +122,7 @@ body {
     margin-bottom: 6px;
     margin-left: 2px;
     min-height: 18.25rem;
-    background: linear-gradient(0.49turn, #b0d3e0, #e0f0f7, #cbe4ec);
+    background: linear-gradient(0.47turn, #58c5ec, #b0d3e0 6%, #e0f0f7, #cbe4ec 90%, #f7fdff);
     font-size: 2.5rem;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 0.25rem;
@@ -246,7 +246,7 @@ body {
 }
 
 .overview-row {
-    margin: -0.6rem 0 -0.25rem -0.6rem;
+    margin: -0.6rem 0 1rem -0.6rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -312,14 +312,30 @@ body {
     margin-top: -0.25rem;
 }
 
-
-
 .weather-card h3 {
     font-size: 1.6rem;
     color: black;
     text-shadow: 2px 2px 2px #8899AA;
     margin-top: -0.1rem;
 }
+
+.hourlyTitle {
+    color: #012247;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px #8899AA;
+    margin-top: -0.15rem;
+    margin-bottom: -0.15rem;
+}
+
+.weather-card h5 {
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px #8899AA;
+    margin: 0.25rem 0;
+}
+
 
 .weather-card h4 {
     font-size: 1.2rem;
@@ -371,10 +387,14 @@ body {
     margin-left: 0rem;
 }
 
-.infocolumn2 {
+.infoColumn2 {
     display: column;
+    margin-right: 2.75rem;
 }
 
+.infoColumn3 {
+    margin-bottom: 2rem;
+}
 .weather-card img {
     max-width: 9rem;
     max-height: 9rem;

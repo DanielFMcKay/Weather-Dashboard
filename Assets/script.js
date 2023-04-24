@@ -51,18 +51,20 @@ clearOldest.hide();
 const cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 
 
+// function below worked, but was creating a feedback loop in the button attributes as they were being created
 
-// createWeatherButton is the function that gives all created or recalled buttons the attribute to be 
+// setWeatherBtnAttributes is the function that gives all created or recalled buttons the attribute to be 
 // clicked and call the weather
-function createWeatherButton() {
-    var presetCityButtons = document.querySelectorAll(".cityName");
-    presetCityButtons.forEach(function (historyBtn) {
-        historyBtn.addEventListener("click", function (e) {
-            cityInputField = e.target.innerText;
-            weatherForecast(cityInputField);
-        });
-    });
-}
+// function setWeatherBtnAttributes() {
+//     let presetCityButtons = document.querySelectorAll(".historyBtn");
+//     presetCityButtons.forEach(function (historyBtn) {
+//         historyBtn.addEventListener("click", function (e) {
+//             cityInputField = e.target.innerText;
+//             console.log("button created once");
+//             weatherForecast(cityInputField);
+//         });
+//     });
+// }
 
 // Loads the search history and the buttons to check the weather for it. Maximum 32 buttons.
 // Only the 32 most recent searches are called and the buttons are displayed from most to least recent.
@@ -70,13 +72,16 @@ function createWeatherButton() {
 function loadHistoryButtons() {
     for (let i = cityStored.length - 1; i > (cityStored.length - 32) && i >= 0; i--) {
         var citySearchHistory = document.createElement("button");
-        citySearchHistory.setAttribute("class", "cityName historyBtn");
+        citySearchHistory.setAttribute("class", "historyBtn");
         citySearchHistory.textContent = cityStored[i];
         console.log("location " + (i + 1) + " is " + cityStored[i] + ".");
         $("#storedCity").append(citySearchHistory);
-        createWeatherButton();
-    }
-}
+        citySearchHistory.addEventListener("click", function (e) {
+            cityInputField = e.target.innerText;
+            console.log("history button created");
+            weatherForecast(cityInputField);
+    });
+}};
 
 
 // this works in concert with the weatherForecast function to target the specific city requested and return the data for it
@@ -111,8 +116,6 @@ const retrieveCity = function (lat, lon) {
             let bigTemp = Math.round(parseFloat(data.current.temp));
 
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
-
-
 
 
             // Wind Direction
@@ -156,11 +159,13 @@ const retrieveCity = function (lat, lon) {
             if (currentUvi >= 11) {
                 $('.uvi-warning').html("<h6>Extreme UVI Warning</h6>");
             }
-            // local Time
             $('.current-conditions').text("Current conditions: " + data.current.weather[0].description);
-            $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
-            // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
 
+            // timezone-offset is not currently called
+            // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
+            $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
+            
+            // local Time
             $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US"));
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "°F (" + hiCelsius + "°C)");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "°F (" + loCelsius + "°C)");
@@ -172,6 +177,7 @@ const retrieveCity = function (lat, lon) {
             if (cityStored.length >= 2) {
                 clearOldest.show();
             }
+            multiHourForecast(data);
             multiDayForecast(data);
         })
 }
@@ -309,10 +315,14 @@ const weatherForecast = function (cityInputField) {
             cityStored.push(cityInputField);
 
             var historyButton = document.createElement("button");
-            historyButton.setAttribute("class", "cityName historyBtn");
+            historyButton.setAttribute("class", "historyBtn");
             historyButton.textContent = cityInputField;
             $("#storedCity").prepend(historyButton);
-            createWeatherButton();
+            historyButton.addEventListener("click", function (e) {
+                cityInputField = e.target.innerText;
+                console.log("button created once");
+                weatherForecast(cityInputField);
+            });
             // cityStored.splice((cityStored.length - 1), 1);
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
 
@@ -330,6 +340,7 @@ const weatherForecast = function (cityInputField) {
 // this is for the Five Day Forecast
 const multiDayForecast = function (data) {
     $('#multiDayForecast').empty();
+    $('.multiDayTitle').text("6 Day Forecast")
     const unixDate = data.current.dt;
     for (let i = 0; i < 6; i++) {
         const dayCard = $("<div class='row forecastMultiCard'><div/>");
@@ -367,19 +378,37 @@ const multiDayForecast = function (data) {
     }
 }
 
+const multiHourForecast = function (data) {
+            $(".hourlyForecast").empty();
+                // This part is for a future Hourly Forecast function, which would show predictions for the next six or so hours right at the hour mark
+            // I'm leaving it like this with 3600 an 25200 separate instead of 28800 just so I can better figure out what I did here
+            // I'm rounding to the nearest hour by jumping forward an hour and subtracting the remainder of the current hour in seconds.
+            // I'd love to be able to use this for myself when Weather.com's app is freezing up
+            $(".hourlyTitle").text("6 Hour Forecast");
+            const hourlyForecast = $(".hourlyForecast");
+            for (let i = 1; i < 7; i++) {
+                let unixNextHour = ((data.hourly[i].dt + data.timezone_offset + 25200));
+                let nextHumanHour = new Date((unixNextHour) * 1000);
+                let nextMetricHour = nextHumanHour.getHours();
+                let nextImperialHour =  nextMetricHour % 12 || 12;
+                let antiPostMeridian = nextMetricHour <= 12 ? 'AM' : 'PM';
+                console.log ("the next local hour is " + nextImperialHour + ":00 " + antiPostMeridian + 
+                " and the temp then will be " + Math.round(parseFloat(data.hourly[i].temp)));
+                $(hourlyForecast).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": <strong>" +
+                 Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
 
-// this is the search button and it's operation
+        }
+    }
+
+
+// this is the search button and its operation
 searchBtn.addEventListener("click", function () {
     cityInputField = $("#fetch-field").val();
-    // console.log(cityInputField);
-    // console.log("is cityInputField");
     // stops process if nothing is entered
     if (cityInputField === "") {
         return;
     } else {
         weatherForecast(cityInputField);
-        // console.log(cityStored);
-        // console.log("is CityStored");
     }
 });
 
@@ -405,7 +434,7 @@ clearEverything.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
 });
-
+console.log("Your array of stored cities is below");
 console.log(cityStored);
 
 // clears most recent search including its button and reloads the page
