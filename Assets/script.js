@@ -157,7 +157,7 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Hazy"
             } else if (data.current.weather[0].description === "light rain") {
                 currentConditions = "Light Rain"
-            }} else if (data.current.weather[0].description === "moderate rain") {
+            } else if (data.current.weather[0].description === "moderate rain") {
                 currentConditions = "Rainy"
             } else if (data.current.weather[0].description === "tornado") {
                 currentConditions = "Tornado Warning"
