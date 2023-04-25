@@ -1,6 +1,6 @@
-![image](https://user-images.githubusercontent.com/123746582/233632282-c75e09df-4cd5-484e-a461-a5a2a0136fee.png)
+![image](https://user-images.githubusercontent.com/123746582/234225892-1ca9d02e-bf17-43a0-8da7-6de0e4faa8fd.png)
 
-![image](https://user-images.githubusercontent.com/123746582/233634189-f94973e9-6fac-4c6e-8c47-f0a6de3919c6.png)
+![image](https://user-images.githubusercontent.com/123746582/234226051-27d4ae38-500c-406b-9f47-0ce10a01ecaf.png)
 
 # Weather-Dashboard
 
@@ -24,7 +24,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Duplicate entries will also not append a button, but a duplicate request will still call that location's data.
 
-* Additionally, the button persists in local storage, so it reloads when the page does. Only the 32 most recently called searches are displayed however, starting with the one at the end of the array. I felt this was a practical upper limit for now. As of the latest update, the oldest searches and buttons are removed as the newest one is created if that limit has been reached.
+* Additionally, the buttons persist in local storage, so they reload when the page does. Only the 32 most recently called searches are displayed however, starting with the one at the end of the array. I felt this was a practical upper limit for now. As of the latest update, the oldest searches and buttons are removed as the newest one is created if that limit has been reached.
 
 * If a mouse is hovering over the search button, a history button, or the clear everything button, the button will automatically be highlighted.
 
@@ -32,11 +32,13 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * If the current heat is 100 degrees Fahrenheit or more, and/or the current UV index is 11 or more, an advisory will be displayed on the main weather info card in dark red text.
 
+* A 12-hour hourly forecast will also display for the temperature in 2 columns of 6 each.
+
 * Furthermore, a six day forecast on separate cards is shown along the bottom of the display to show same conditions for the next 6 days, including a high and low daily temperature in lieu of a current one.
 
 * Additionally, there is a button to both clear the local storage and reload the page, for easier use.
 
-* Lastly there is a button to remove only the most recently added history button. Or more specifically the button currently at the end of the stored cities array. After clicking it, it will also reload the page.
+* Lastly there is one button each to remove only the most recently added history button and the oldest history button, respectively. After clicking either, the page will also reload.
 
 ### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
 
