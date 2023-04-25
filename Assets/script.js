@@ -142,7 +142,28 @@ const retrieveCity = function (lat, lon) {
             else if (windDirect <= 11) { compass = "S" }
             else console.log("wtf wind");
 
-
+            let currentConditions = data.current.weather[0].description
+            if (data.current.weather[0].description === "overcast clouds") {
+                currentConditions = "Overcast"
+            } else if (data.current.weather[0].description === "broken clouds") {
+                currentConditions = "Mostly Cloudy"
+            } else if (data.current.weather[0].description === "scattered clouds") {
+                currentConditions = "Partly Cloudy"
+            } else if (data.current.weather[0].description === "few clouds") {
+                currentConditions = "Mostly Clear"
+            } else if (data.current.weather[0].description === "clear sky") {
+                currentConditions = "Clear Skies"
+            } else if (data.current.weather[0].description === "haze") {
+                currentConditions = "Hazy"
+            } else if (data.current.weather[0].description === "light rain") {
+                currentConditions = "Light Rain"
+            }} else if (data.current.weather[0].description === "moderate rain") {
+                currentConditions = "Rainy"
+            } else if (data.current.weather[0].description === "tornado") {
+                currentConditions = "Tornado Warning"
+                $('.heat-warning').append('<h6>/!&#92; Tornado Warning /!&#92;</h6>');
+            }
+                
 
 
             //  local Date
@@ -159,14 +180,14 @@ const retrieveCity = function (lat, lon) {
             if (currentUvi >= 11) {
                 $('.uvi-warning').html("<h6>Extreme UVI Warning</h6>");
             }
-            $('.current-conditions').text("Current conditions: " + data.current.weather[0].description);
+            $('.current-conditions').text("Current Conditions: " + currentConditions);
 
             // timezone-offset is not currently called
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
             
             // local Time
-            $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US"));
+            $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US", {hour: '2-digit', minute: '2-digit', hour12: true}));
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "°F (" + hiCelsius + "°C)");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "°F (" + loCelsius + "°C)");
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F (" + feelsLikeCelsius + "°C)");
@@ -247,6 +268,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Germany"
             } else if (data.city.country === "FI") {
                 nationName = "Finland"
+            } else if (data.city.country === "IS") {
+                nationName = "Iceland"
             } else if (data.city.country === "IN") {
                 nationName = "India"
             } else if (data.city.country === "ID") {
@@ -261,6 +284,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Japan"
             } else if (data.city.country === "KE") {
                 nationName = "Kenya"
+            } else if (data.city.country === "LY") {
+                nationName = "Libya"
             } else if (data.city.country === "MX") {
                 nationName = "Mexico"
             } else if (data.city.country === "NG") {

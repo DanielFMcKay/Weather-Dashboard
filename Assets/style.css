@@ -245,7 +245,7 @@ body {
 /* Main weather info area */
 .weather-card {
     color: #012247;
-    background: linear-gradient(155deg, #5982a7 0%, #6b90b1 6%, #c5d7e7 40%, #a7c2da 72%);
+    background: linear-gradient(155deg, #5982a7 0%, #6b90b1 6%, #c5d7e7 40%, #a7c2da 75%);
     margin-left: 0.5%;
     max-width: 100%;
     width:cover;
@@ -347,6 +347,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 16rem;
+    margin-bottom: 1.1rem;
 }
 
 .weather-card h5 {
@@ -357,7 +358,7 @@ body {
 }
 
 .hourlyForecast1, .hourlyForecast2 {
-    text-align: left;
+    text-align: right;
 }
 
 .hourlyTemp1, .hourlyTemp2 {
