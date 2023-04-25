@@ -80,8 +80,9 @@ function loadHistoryButtons() {
             cityInputField = e.target.innerText;
             console.log("history button created");
             weatherForecast(cityInputField);
-    });
-}};
+        });
+    }
+};
 
 
 // this works in concert with the weatherForecast function to target the specific city requested and return the data for it
@@ -163,7 +164,7 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Tornado Warning"
                 $('.heat-warning').append('<h6>/!&#92; Tornado Warning /!&#92;</h6>');
             }
-                
+
 
 
             //  local Date
@@ -185,16 +186,16 @@ const retrieveCity = function (lat, lon) {
             // timezone-offset is not currently called
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
-            
+
             // local Time
-            $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US", {hour: '2-digit', minute: '2-digit', hour12: true}));
+            $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true }));
             $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "°F (" + hiCelsius + "°C)");
             $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "°F (" + loCelsius + "°C)");
             $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F (" + feelsLikeCelsius + "°C)");
             $('.wind-note').text("");
 
             // console.log("current weather parameters: " + data.current.weather);
-        
+
             if (cityStored.length >= 2) {
                 clearOldest.show();
             }
@@ -232,6 +233,9 @@ const weatherForecast = function (cityInputField) {
                 return;
             }
             console.log("a call was made");
+
+            $('.heat-warning').empty();
+            $('.uvi-warning').empty();
 
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
             let placeName = data.city.name;
@@ -354,15 +358,14 @@ const weatherForecast = function (cityInputField) {
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
 
             // if there are more than 32 buttons, the oldest one will be removed
-            if (cityStored.length > 32) { 
-                cityStored.splice(0, 1) 
+            if (cityStored.length > 32) {
+                cityStored.splice(0, 1)
             }
         });
 
 };
 
 // making the functions come from variables allows more flexibility in the order in how I list them, it would seem
-
 
 // this is for the Five Day Forecast
 const multiDayForecast = function (data) {
@@ -407,34 +410,34 @@ const multiDayForecast = function (data) {
 
 // Hourly Forecast function for up to 12 hours out
 const multiHourForecast = function (data) {
-            $(".hourlyForecast1").empty();
-            $(".hourlyForecast2").empty();
-            $(".hourlyTemp1").empty();
-            $(".hourlyTemp2").empty();
+    $(".hourlyForecast1").empty();
+    $(".hourlyForecast2").empty();
+    $(".hourlyTemp1").empty();
+    $(".hourlyTemp2").empty();
 
-            $(".hourlyTitle").text("12 Hour Forecast");
-            const hourlyForecast1 = $(".hourlyForecast1");
-            const hourlyForecast2 = $(".hourlyForecast2");
-            const hourlyTemp1 = $(".hourlyTemp1");
-            const hourlyTemp2 = $(".hourlyTemp2");
-            for (let i = 1; i < 13; i++) {
-                let unixNextHour = ((data.hourly[i].dt + data.timezone_offset + 25200));
-                let nextHumanHour = new Date((unixNextHour) * 1000);
-                let nextMetricHour = nextHumanHour.getHours();
-                let nextImperialHour =  nextMetricHour % 12 || 12;
-                let antiPostMeridian = nextMetricHour <= 12 ? 'AM' : 'PM';
-                // console.log ("the next local hour is " + nextImperialHour + ":00 " + antiPostMeridian + 
-                // " and the temp then will be " + Math.round(parseFloat(data.hourly[i].temp)));
-                 if (i < 7 ) {
-                    $(hourlyForecast1).append("<h5>"  + nextImperialHour + " " + antiPostMeridian + ": </h5>");
-                    $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
-                }
-                 else if (i < 13) {
-                    $(hourlyForecast2).append("<h5>"  + nextImperialHour + " " + antiPostMeridian + ": </h5>");
-                    $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
-                }
+    $(".hourlyTitle").text("12 Hour Forecast");
+    const hourlyForecast1 = $(".hourlyForecast1");
+    const hourlyForecast2 = $(".hourlyForecast2");
+    const hourlyTemp1 = $(".hourlyTemp1");
+    const hourlyTemp2 = $(".hourlyTemp2");
+    for (let i = 1; i < 13; i++) {
+        let unixNextHour = ((data.hourly[i].dt + data.timezone_offset + 25200));
+        let nextHumanHour = new Date((unixNextHour) * 1000);
+        let nextMetricHour = nextHumanHour.getHours();
+        let nextImperialHour = nextMetricHour % 12 || 12;
+        let antiPostMeridian = nextMetricHour <= 12 ? 'AM' : 'PM';
+        // console.log ("the next local hour is " + nextImperialHour + ":00 " + antiPostMeridian + 
+        // " and the temp then will be " + Math.round(parseFloat(data.hourly[i].temp)));
+        if (i < 7) {
+            $(hourlyForecast1).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": </h5>");
+            $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
+        }
+        else if (i < 13) {
+            $(hourlyForecast2).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": </h5>");
+            $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
         }
     }
+}
 
 
 // this is the search button and its operation (it's pretty simple)
