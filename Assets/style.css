@@ -26,6 +26,18 @@ header {
     justify-content: space-between;
 }
 
+/* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
+.aligner {
+    visibility: hidden;
+    width: fit-content;
+    height: fit-content;
+    max-width: 9rem;
+    border-radius: 16px;
+    margin: 0.25rem;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem 0.35rem 0.75rem;
+}
+
 /* This was an earlier build where I put a gradient directly on the font. Does not work well with text shadows, unfortunately. */
 /* header h1 {
     background: -webkit-linear-gradient(0.3turn, #fcfaf5, #e6dbb3);
@@ -42,33 +54,15 @@ header h1 {
     font-weight: 600;
     padding-top: 1rem;
     margin-bottom: 0.2rem;
-    margin-left: 1.25%;
+    margin-left: 0;
     text-shadow: 0 0 1px #6d98f0, 0 0 2px #6d98f0, 0 0 4px #6d98f0, 0 0 8px #6d98f0, 0 0 12px #6d98f0;
-}
-
-/* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
-.clear-last {
-    /* visibility: hidden; */
-    width: fit-content;
-    height: fit-content;
-    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
-    max-width: 9rem;
-    border-radius: 16px;
-    margin: 0.25rem;
-    font-size: 0.8rem;
-    font-weight: 500;
-    padding: 0.25rem 0.75rem 0.35rem 0.75rem;
-}
-
-.clear-last:hover {
-    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
 }
 
 /* Clearing the page and its history buttons */
 #clearStorageBtn {
     width: fit-content;
     height: fit-content;
-    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
+    background: linear-gradient(0.4turn, #a5a5a5, #dbdbdb);
     max-width: 9rem;
     border-radius: 16px;
     margin: 0.25rem;
@@ -127,7 +121,7 @@ body {
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 0.25rem;
     padding-right: 1.25rem;
-    padding-top: 1rem;
+    padding-top: 2.1rem;
     padding-bottom: 2rem;
     border: 1px solid #c7cfcf;
 }
@@ -140,7 +134,7 @@ body {
     text-shadow: 1px 1px 1px #718fa7;
 }
 
-
+/* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
 #fetch-field {
     line-height: 2rem;
     text-align: center;
@@ -192,7 +186,7 @@ body {
     display: block;
     margin: 0.1rem 1.2rem 0.8rem 0.8rem;
     border-radius: 18px;
-    border-width: 3px;
+    border: solid 3px grey;
     color: #141414;
     border: none;
     outline: none;
@@ -206,18 +200,36 @@ body {
     color: black;
 }
 
+.clear-last {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    width: fit-content;
+    height: fit-content;
+    background: linear-gradient(0.4turn, #a5a5a5, #dbdbdb);
+    max-width: 9rem;
+    border-radius: 0 16px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.25rem 0.5rem;
+}
+
+.clear-last:hover {
+    background: linear-gradient(0.4turn, #b9b9b9, #ececec);
+}
+
 .clear-oldest {
     position: absolute;
     bottom: 0rem;
     left: 0rem;
     width: fit-content;
     height: fit-content;
-    background: linear-gradient(0.4turn, #a5a5a5, #dddddd);
+    background: linear-gradient(0.4turn, #a5a5a5, #dbdbdb);
     max-width: 9rem;
     border-radius: 0 16px;
     font-size: 0.8rem;
     font-weight: 500;
-    padding: 0.3rem 0.6rem;
+    padding: 0.25rem 0.5rem;
 }
 
 .clear-oldest:hover {
@@ -320,21 +332,40 @@ body {
 }
 
 .hourlyTitle {
+    text-align: center;
     color: #012247;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 600;
     text-shadow: 2px 2px 2px #8899AA;
     margin-top: -0.15rem;
-    margin-bottom: -0.15rem;
+    margin-bottom: 0rem;
+}
+
+.hour-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 16rem;
 }
 
 .weather-card h5 {
-    text-align: center;
     font-size: 1.15rem;
     font-weight: 400;
     text-shadow: 1px 1px 1px #8899AA;
     margin: 0.25rem 0;
 }
+
+.hourlyForecast1, .hourlyForecast2 {
+    text-align: left;
+}
+
+.hourlyTemp1, .hourlyTemp2 {
+    color: #043e81;
+    margin-left: -1.75rem;
+    text-align: right;
+}
+
 
 
 .weather-card h4 {
@@ -554,6 +585,10 @@ body {
         position: relative;
     }
 
+    .aligner {
+        display: none;
+    }
+
     header {
         position: relative;
     }
@@ -575,20 +610,18 @@ body {
         right: 0rem;
         bottom: -1.9rem;
         padding: 0.25rem 0.6rem;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .clear-last {
         color: black;
-        position: absolute;
         background: rgba(191, 193, 196, 0.7);
-        border: 1px solid #365e99;
-        border-radius: 0 16px 0 0;
-        margin: 0;
-        left: 0;
-        bottom: -1.9rem;
+        border: 1px solid #879494;
+        top: 0;
+        right: 0;
+        border-radius: 0 16px 0 16px;
         padding: 0.25rem 0.6rem;
-        font-size: 0.7rem;
+        font-size: 0.75rem;
     }
 
     .clear-oldest {
@@ -613,7 +646,7 @@ body {
 
     #city-sidebar {
         min-width: 99%;
-        padding-top: 0.6rem;
+        padding-top: 2rem;
         padding-bottom: 2rem;
     }
 
@@ -635,11 +668,6 @@ body {
         max-width: 62%;
     }
 
-    /* .country-code {
-        font-size: 1rem;
-        margin: 0.35rem;
-        margin-right: 0.2rem;
-    } */
     .error-message {
         max-width: 80%;
     }
@@ -663,11 +691,8 @@ body {
     }
 
     .clear-last {
-        background: rgba(191, 193, 196, 0.7);
-        top: 0;
-        left: 0;
-        border-radius: 16px 0 16px 0;
-        font-size: 0.6rem;
+        background: rgba(191, 193, 196, 0.5);
+        font-size: 0.7rem;
         padding: -0.15rem 0.1rem;
     }
 

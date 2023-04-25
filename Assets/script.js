@@ -229,6 +229,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Argentina"
             } else if (data.city.country === "AU") {
                 nationName = "Australia"
+            } else if (data.city.country === "BD") {
+                nationName = "Bangladesh"
             } else if (data.city.country === "BR") {
                 nationName = "Brazil"
             } else if (data.city.country === "CN") {
@@ -378,30 +380,39 @@ const multiDayForecast = function (data) {
     }
 }
 
+// Hourly Forecast function for up to 12 hours out
 const multiHourForecast = function (data) {
-            $(".hourlyForecast").empty();
-                // This part is for a future Hourly Forecast function, which would show predictions for the next six or so hours right at the hour mark
-            // I'm leaving it like this with 3600 an 25200 separate instead of 28800 just so I can better figure out what I did here
-            // I'm rounding to the nearest hour by jumping forward an hour and subtracting the remainder of the current hour in seconds.
-            // I'd love to be able to use this for myself when Weather.com's app is freezing up
-            $(".hourlyTitle").text("6 Hour Forecast");
-            const hourlyForecast = $(".hourlyForecast");
-            for (let i = 1; i < 7; i++) {
+            $(".hourlyForecast1").empty();
+            $(".hourlyForecast2").empty();
+            $(".hourlyTemp1").empty();
+            $(".hourlyTemp2").empty();
+
+            $(".hourlyTitle").text("12 Hour Forecast");
+            const hourlyForecast1 = $(".hourlyForecast1");
+            const hourlyForecast2 = $(".hourlyForecast2");
+            const hourlyTemp1 = $(".hourlyTemp1");
+            const hourlyTemp2 = $(".hourlyTemp2");
+            for (let i = 1; i < 13; i++) {
                 let unixNextHour = ((data.hourly[i].dt + data.timezone_offset + 25200));
                 let nextHumanHour = new Date((unixNextHour) * 1000);
                 let nextMetricHour = nextHumanHour.getHours();
                 let nextImperialHour =  nextMetricHour % 12 || 12;
                 let antiPostMeridian = nextMetricHour <= 12 ? 'AM' : 'PM';
-                console.log ("the next local hour is " + nextImperialHour + ":00 " + antiPostMeridian + 
-                " and the temp then will be " + Math.round(parseFloat(data.hourly[i].temp)));
-                $(hourlyForecast).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": <strong>" +
-                 Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
-
+                // console.log ("the next local hour is " + nextImperialHour + ":00 " + antiPostMeridian + 
+                // " and the temp then will be " + Math.round(parseFloat(data.hourly[i].temp)));
+                 if (i < 7 ) {
+                    $(hourlyForecast1).append("<h5>"  + nextImperialHour + " " + antiPostMeridian + ": </h5>");
+                    $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
+                }
+                 else if (i < 13) {
+                    $(hourlyForecast2).append("<h5>"  + nextImperialHour + " " + antiPostMeridian + ": </h5>");
+                    $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
+                }
         }
     }
 
 
-// this is the search button and its operation
+// this is the search button and its operation (it's pretty simple)
 searchBtn.addEventListener("click", function () {
     cityInputField = $("#fetch-field").val();
     // stops process if nothing is entered
@@ -417,8 +428,6 @@ searchBtn.addEventListener("click", function () {
 cityInput.addEventListener("keypress", function (event) {
     // If the user presses the "Enter" key on the keyboard
     if (event.key === "Enter") {
-        // Cancel the default action, if needed
-        // event.preventDefault();
         // Trigger the button element with a click
         document.getElementById("searchBtn").click();
     }
