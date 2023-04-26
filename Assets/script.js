@@ -450,11 +450,11 @@ const multiHourForecast = function (data) {
         // I wantet two columns and also for the temperature reading to stand out, so it became four columns
         if (i < 7) {
             $(hourlyForecast1).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": </h5>");
-            $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
+            $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
         }
         else if (i < 13) {
             $(hourlyForecast2).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": </h5>");
-            $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")
+            $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
         }
     }
 }

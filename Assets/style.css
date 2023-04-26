@@ -116,7 +116,7 @@ body {
     margin-bottom: 6px;
     margin-left: 2px;
     min-height: 18.25rem;
-    background: linear-gradient(0.47turn, #58c5ec, #b0d3e0 6%, #e0f0f7, #cbe4ec 90%, #f7fdff);
+    background: linear-gradient(0.54turn, #58c5ec, #b0d3e0 6%, #e0f0f7, #cbe4ec 90%, #f7fdff);
     font-size: 2.5rem;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 0.25rem;
@@ -203,12 +203,12 @@ body {
 .clear-last {
     position: absolute;
     top: 0rem;
-    right: 0rem;
+    left: 0rem;
     width: fit-content;
     height: fit-content;
     background: linear-gradient(0.4turn, #a5a5a5, #dbdbdb);
     max-width: 9rem;
-    border-radius: 0 16px;
+    border-radius: 16px 0;
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.25rem 0.5rem;
@@ -258,7 +258,7 @@ body {
 }
 
 .overview-row {
-    margin: -0.6rem 0 1rem -0.6rem;
+    margin: -0.8rem 0 1rem -0.6rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -411,6 +411,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: -1rem;
+    margin-bottom: -1.25rem;
 }
 
 .infoColumn1 {
@@ -485,8 +486,8 @@ body {
 }
 
 .forecastMultiCard img {
-    margin-top: -0.9rem;
-    margin-bottom: -0.2rem;
+    margin-top: -1.05rem;
+    margin-bottom: -0.3rem;
     width: 50%;
     height: 50%;
 }
@@ -618,9 +619,7 @@ body {
         color: black;
         background: rgba(191, 193, 196, 0.7);
         border: 1px solid #879494;
-        top: 0;
-        right: 0;
-        border-radius: 0 16px 0 16px;
+        border-radius: 16px 0;
         padding: 0.25rem 0.6rem;
         font-size: 0.75rem;
     }
@@ -631,7 +630,7 @@ body {
         border: 1px solid #879494;
         bottom: 0;
         left: 0;
-        border-radius: 0 16px 0 16px;
+        border-radius: 0 16px;
         padding: 0.25rem 0.6rem;
         font-size: 0.7rem;
     }
