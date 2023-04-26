@@ -156,10 +156,24 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Clear Skies"
             } else if (data.current.weather[0].description === "haze") {
                 currentConditions = "Hazy"
+            } else if (data.current.weather[0].description === "smoke") {
+                currentConditions = "Smoke"
+            } else if (data.current.weather[0].description === "shower rain") {
+                currentConditions = "Showers"
             } else if (data.current.weather[0].description === "light rain") {
                 currentConditions = "Light Rain"
             } else if (data.current.weather[0].description === "moderate rain") {
-                currentConditions = "Rainy"
+                currentConditions = "Rain"
+            } else if (data.current.weather[0].description === "heavy intensity rain") {
+                currentConditions = "Heavy Rain"
+            } else if (data.current.weather[0].description === "thunderstorm with rain") {
+                currentConditions = "Thunderstorms"
+            } else if (data.current.weather[0].description === "thunderstorm") {
+                currentConditions = "Thunderstorms"
+            } else if (data.current.weather[0].description === "snow") {
+                currentConditions = "Snow"
+            } else if (data.current.weather[0].description === "light snow") {
+                currentConditions = "Light Snow"
             } else if (data.current.weather[0].description === "tornado") {
                 currentConditions = "Tornado Warning"
                 $('.heat-warning').append('<h6>/!&#92; Tornado Warning /!&#92;</h6>');
@@ -171,7 +185,7 @@ const retrieveCity = function (lat, lon) {
             $('.local-date').html(localTime.toLocaleDateString("en-US"));
             $('.local-weekday').text(localWeekday);
             $('.big-temp').text(Math.round(parseFloat(data.current.temp)) + "°F");
-            $('.temperature').text("Currently: " + bigTemp + "°F (" + currentCelsius + "°C)");
+            $('.temperature').html("<h3>Currently: " + bigTemp + "<small>°F</small> (" + currentCelsius + "<small>°C</small>)</h3>");
             if (bigTemp >= 100) {
                 $('.heat-warning').html("Extreme Heat Advisory");
             }
@@ -189,9 +203,9 @@ const retrieveCity = function (lat, lon) {
 
             // local Time
             $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true }));
-            $('.hi-temp').text("Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "°F (" + hiCelsius + "°C)");
-            $('.lo-temp').text("Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "°F (" + loCelsius + "°C)");
-            $('.feels-like').text("Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "°F (" + feelsLikeCelsius + "°C)");
+            $('.hi-temp').html("<h4>Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "<small>°F</small> (" + hiCelsius + "<small>°C</small>)</h4>");
+            $('.lo-temp').html("<h4>Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "<small>°F</small> (" + loCelsius + "<small>°C</small>)</h4>");
+            $('.feels-like').html("<h4>Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "<small>°F</small> (" + feelsLikeCelsius + "<small>°C</small>)</h4>");
             $('.wind-note').text("");
 
             // console.log("current weather parameters: " + data.current.weather);
@@ -239,13 +253,12 @@ const weatherForecast = function (cityInputField) {
 
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
             let placeName = data.city.name;
-            // console.log("The country's name is: " + data.city.country);
-            // console.log("The city's name Is: " + placeName);
-            // below may be used later
+            
             let nationName = data.city.country;
 
             // Country code conversion for select nations.
             // I'd probably actually wanna put this in another file in the future.
+            // Most people don't know ISO-2 country codes, and I wanted to make the readout more accessible at least
             if (data.city.country === "US") {
                 nationName = "United States"
             } else if (data.city.country === "CA") {
@@ -266,10 +279,14 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Cuba"
             } else if (data.city.country === "EG") {
                 nationName = "Egypt"
+            } else if (data.city.country === "ET") {
+                nationName = "Ethiopia"
             } else if (data.city.country === "FR") {
                 nationName = "France"
             } else if (data.city.country === "DE") {
                 nationName = "Germany"
+            } else if (data.city.country === "GT") {
+                nationName = "Guatemala"
             } else if (data.city.country === "FI") {
                 nationName = "Finland"
             } else if (data.city.country === "IS") {
@@ -292,10 +309,12 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Libya"
             } else if (data.city.country === "MX") {
                 nationName = "Mexico"
-            } else if (data.city.country === "NG") {
-                nationName = "Nigeria"
+            } else if (data.city.country === "NL") {
+                nationName = "Netherlands"
             } else if (data.city.country === "NZ") {
                 nationName = "New Zealand"
+            } else if (data.city.country === "NG") {
+                nationName = "Nigeria"
             } else if (data.city.country === "PK") {
                 nationName = "Pakistan"
             } else if (data.city.country === "PH") {
@@ -324,13 +343,13 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Thailand"
             } else if (data.city.country === "TW") {
                 nationName = "Taiwan"
+            }  else if (data.city.country === "TR") {
+                nationName = "Turkey"
             } else if (data.city.country === "UA") {
                 nationName = "Ukraine"
             } else if (data.city.country === "GB") {
                 nationName = "United Kingdom"
             }
-
-            // $('.country-code').text(nationName);
 
             $('.city-info').html(placeName + ", " + nationName);
 
@@ -354,7 +373,7 @@ const weatherForecast = function (cityInputField) {
                 console.log("button created once");
                 weatherForecast(cityInputField);
             });
-            // cityStored.splice((cityStored.length - 1), 1);
+
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
 
             // if there are more than 32 buttons, the oldest one will be removed
@@ -424,10 +443,11 @@ const multiHourForecast = function (data) {
         let unixNextHour = ((data.hourly[i].dt + data.timezone_offset + 25200));
         let nextHumanHour = new Date((unixNextHour) * 1000);
         let nextMetricHour = nextHumanHour.getHours();
+        // changes to 12-hour format with AM and PM
         let nextImperialHour = nextMetricHour % 12 || 12;
         let antiPostMeridian = nextMetricHour <= 12 ? 'AM' : 'PM';
-        // console.log ("the next local hour is " + nextImperialHour + ":00 " + antiPostMeridian + 
-        // " and the temp then will be " + Math.round(parseFloat(data.hourly[i].temp)));
+
+        // I wantet two columns and also for the temperature reading to stand out, so it became four columns
         if (i < 7) {
             $(hourlyForecast1).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": </h5>");
             $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "°F</strong></h5>")

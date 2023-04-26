@@ -88,7 +88,7 @@ header h1 {
 }
 
 body {
-    background-color: #e9f6fa;
+    background: linear-gradient(0.37turn,#ecf7f7, #def3f3 15%, #ecf7f7, #cdf0f0 90%, #58cfcf);
 }
 
 
