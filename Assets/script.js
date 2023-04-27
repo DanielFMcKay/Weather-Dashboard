@@ -1,4 +1,4 @@
-// Javascript goes here
+// Javascript goes here.
 
 const citySidebar = $("#city-sidebar");
 
@@ -21,7 +21,7 @@ window.onclick = function (event) {
 // this is my API key
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
 
-// the input field. The reason I kept "citInputField" so much is it's easier to track in de-bugging
+// the input field. The reason I kept "citInputField" is it's easier to track in de-bugging.
 let cityInputField = $("#fetch-field").val();
 
 // for use with directly pressing the Enter button
@@ -30,18 +30,15 @@ let cityInput = $("#fetch-field")[0];
 
 const searchBtn = $("#searchBtn")[0];
 
-// jsdays makes time formatting easier and also flexible. This one is for the .
+// jsdays makes time formatting easier and also flexible. Even if I'm just using it for the local time clock.
 const currentDateTime = dayjs().format('dddd, MMMM DD YYYY, hh:mm a');
 console.log(currentDateTime);
 const dateTimeDisplay = $('#currentDateTime');
 dateTimeDisplay.text(currentDateTime);
 
-// const currentDay = dayjs().format('dddd, MMMM DD');
-// console.log(currentDay);
-// const currentDayDisplay = $('.current-date');
-// currentDayDisplay.text(currentDay);
 
-var multiDayDisplay = $("#multiDayForecast");
+
+const multiDayDisplay = $("#multiDayForecast");
 const clearEverything = $("#clearStorageBtn")[0];
 
 const clearLast = $(".clear-last")[0];
@@ -174,6 +171,8 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Snow"
             } else if (data.current.weather[0].description === "light snow") {
                 currentConditions = "Light Snow"
+            } else if (data.current.weather[0].description === "sleet") {
+                currentConditions = "Sleet"
             } else if (data.current.weather[0].description === "tornado") {
                 currentConditions = "Tornado Warning"
                 $('.heat-warning').append('<h6>/!&#92; Tornado Warning /!&#92;</h6>');
@@ -184,7 +183,7 @@ const retrieveCity = function (lat, lon) {
             //  local Date
             $('.local-date').html(localTime.toLocaleDateString("en-US"));
             $('.local-weekday').text(localWeekday);
-            $('.big-temp').text(Math.round(parseFloat(data.current.temp)) + "°F");
+            $('.big-temp').html("<p class='big-temp'>" + Math.round(parseFloat(data.current.temp)) + '<small>°F</small>');
             $('.temperature').html("<h3>Currently: " + bigTemp + "<small>°F</small> (" + currentCelsius + "<small>°C</small>)</h3>");
             if (bigTemp >= 100) {
                 $('.heat-warning').html("Extreme Heat Advisory");
@@ -269,6 +268,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Australia"
             } else if (data.city.country === "BD") {
                 nationName = "Bangladesh"
+            } else if (data.city.country === "BS") {
+                nationName = "The Bahamas"
             } else if (data.city.country === "BR") {
                 nationName = "Brazil"
             } else if (data.city.country === "CN") {
@@ -349,6 +350,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Ukraine"
             } else if (data.city.country === "GB") {
                 nationName = "United Kingdom"
+            } else if (data.city.country === "VN") {
+                nationName = "Vietnam"
             }
 
             $('.city-info').html(placeName + ", " + nationName);
