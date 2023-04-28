@@ -1,6 +1,6 @@
 ![image](https://user-images.githubusercontent.com/123746582/234225892-1ca9d02e-bf17-43a0-8da7-6de0e4faa8fd.png)
 
-![image](https://user-images.githubusercontent.com/123746582/234226051-27d4ae38-500c-406b-9f47-0ce10a01ecaf.png)
+![image](https://user-images.githubusercontent.com/123746582/235102791-496ff4d9-575a-4e64-93b3-78747ea847e2.png)
 
 # Weather-Dashboard
 
