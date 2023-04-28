@@ -112,6 +112,7 @@ const retrieveCity = function (lat, lon) {
             // rounding UVI to one decimal point, also putting it in a variable to more easily trigger an advisory alert
             let currentUvi = (Math.round(data.current.uvi * 10) / 10);
             let bigTemp = Math.round(parseFloat(data.current.temp));
+            let windGust = Math.round(parseFloat(data.hourly[0].wind_gust));
 
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
 
@@ -163,6 +164,10 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Rain"
             } else if (data.current.weather[0].description === "heavy intensity rain") {
                 currentConditions = "Heavy Rain"
+            }  else if (data.current.weather[0].description === "extreme rain") {
+                currentConditions = "Torrential Rain"
+            }  else if (data.current.weather[0].description === "freezing rain") {
+                currentConditions = "Freezing Rain"
             } else if (data.current.weather[0].description === "thunderstorm with rain") {
                 currentConditions = "Thunderstorms"
             } else if (data.current.weather[0].description === "thunderstorm") {
@@ -192,7 +197,7 @@ const retrieveCity = function (lat, lon) {
             $('.humidity').text("Humidity: " + Math.round(parseFloat(data.current.humidity)) + "%");
             $('.uv-index').html("UV Index: " + currentUvi);
             if (currentUvi >= 11) {
-                $('.uvi-warning').html("<h6>Extreme UVI Warning</h6>");
+                $('.uvi-warning').append("<h6>Extreme UVI Warning</h6>");
             }
             $('.current-conditions').text("Current Conditions: " + currentConditions);
 
@@ -207,7 +212,14 @@ const retrieveCity = function (lat, lon) {
             $('.feels-like').html("<h4>Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "<small>°F</small> (" + feelsLikeCelsius + "<small>°C</small>)</h4>");
             $('.wind-note').text("");
 
-            // console.log("current weather parameters: " + data.current.weather);
+            // Not Yet called
+            // Info Column 3
+            // $('.wind-gust').text("Wind Gusts up to: " + Math.round(parseFloat(data.hourly[0].wind_gust)) + " mph")
+            if (windGust >= 50) {
+                $('.uvi-warning').append("<h6>Extreme Wind Gust Warning</h6>");
+            }
+
+            
 
             if (cityStored.length >= 2) {
                 clearOldest.show();
@@ -298,6 +310,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "India"
             } else if (data.city.country === "ID") {
                 nationName = "Indonesia"
+            } else if (data.city.country === "IR") {
+                nationName = "Iran"
             } else if (data.city.country === "IE") {
                 nationName = "Ireland"
             } else if (data.city.country === "IT") {
@@ -310,16 +324,22 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Kenya"
             } else if (data.city.country === "LY") {
                 nationName = "Libya"
-            } else if (data.city.country === "MX") {
+            } else if (data.city.country === "MY") {
+                nationName = "Malaysia"
+            }else if (data.city.country === "MX") {
                 nationName = "Mexico"
             } else if (data.city.country === "NL") {
-                nationName = "Netherlands"
+                nationName = "The Netherlands"
             } else if (data.city.country === "NZ") {
                 nationName = "New Zealand"
             } else if (data.city.country === "NG") {
                 nationName = "Nigeria"
+            } else if (data.city.country === "NO") {
+                nationName = "Norway"
             } else if (data.city.country === "PK") {
                 nationName = "Pakistan"
+            }  else if (data.city.country === "PE") {
+                nationName = "Peru"
             } else if (data.city.country === "PH") {
                 nationName = "Philippines"
             } else if (data.city.country === "PL") {
