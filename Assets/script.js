@@ -114,6 +114,13 @@ const retrieveCity = function (lat, lon) {
             let bigTemp = Math.round(parseFloat(data.current.temp));
             let windGust = Math.round(parseFloat(data.hourly[0].wind_gust));
 
+            let sunriseRawData = new Date((data.current.sunrise + data.timezone_offset + 25200) * 1000);
+            let sunriseTime = sunriseRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
+            console.log("The sun rises today at " + sunriseTime);
+            let sunsetRawData = new Date((data.current.sunset + data.timezone_offset + 25200) * 1000);
+            let sunsetTime = sunsetRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
+            console.log("The sun sets today at " + sunsetTime);
+
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
 
 
@@ -214,10 +221,12 @@ const retrieveCity = function (lat, lon) {
 
             // Not Yet called
             // Info Column 3
-            // $('.wind-gust').text("Wind Gusts up to: " + Math.round(parseFloat(data.hourly[0].wind_gust)) + " mph")
+            $('.wind-gust').text("Wind Gusts up to: " + Math.round(parseFloat(data.hourly[0].wind_gust)) + " mph")
             if (windGust >= 50) {
                 $('.uvi-warning').append("<h6>Extreme Wind Gust Warning</h6>");
             }
+            $('.sunrise').text("Sunrise: " + sunriseTime);
+            $('.sunset').text("Sunset: " + sunsetTime);
 
             
 
@@ -286,6 +295,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Brazil"
             } else if (data.city.country === "CN") {
                 nationName = "China"
+            } else if (data.city.country === "CZ") {
+                nationName = "Czechia"
             } else if (data.city.country === "CO") {
                 nationName = "Colombia"
             } else if (data.city.country === "CU") {
