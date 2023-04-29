@@ -75,7 +75,7 @@ function loadHistoryButtons() {
         $("#storedCity").append(citySearchHistory);
         citySearchHistory.addEventListener("click", function (e) {
             cityInputField = e.target.innerText;
-            console.log("history button created");
+            console.log("history button(s) created");
             weatherForecast(cityInputField);
         });
     }
@@ -382,6 +382,7 @@ const weatherForecast = function (cityInputField) {
             for (let i = 0; i < cityStored.length; i++) {
                 // console.log(cityStored[i]);
                 if (cityInputField === cityStored[i]) {
+                    console.log("no duplicates allowed!");
                     return;
                 }
             }
@@ -389,13 +390,13 @@ const weatherForecast = function (cityInputField) {
             // below pushes the new location to the array of stored locations and makes a new button for it
             cityStored.push(cityInputField);
 
-            var historyButton = document.createElement("button");
+            const historyButton = document.createElement("button");
             historyButton.setAttribute("class", "historyBtn");
             historyButton.textContent = cityInputField;
+            console.log("a new button was created");
             $("#storedCity").prepend(historyButton);
             historyButton.addEventListener("click", function (e) {
                 cityInputField = e.target.innerText;
-                console.log("button created once");
                 weatherForecast(cityInputField);
             });
 
@@ -404,9 +405,11 @@ const weatherForecast = function (cityInputField) {
             // if there are more than 32 buttons, the oldest one will be removed
             if (cityStored.length > 32) {
                 cityStored.splice(0, 1)
+                localStorage.setItem('citySearch', JSON.stringify(cityStored));
+                console.log("oldest search automatically removed due to cap");
+                $('.historyBtn')[32].remove();
             }
         });
-
 };
 
 // making the functions come from variables allows more flexibility in the order in how I list them, it would seem
@@ -509,21 +512,25 @@ cityInput.addEventListener("keypress", function (event) {
 
 // this loads the buttons from local storage. I think.
 loadHistoryButtons();
+
 console.log("There are " + cityStored.length + " locations stored.");
+console.log("Your array of stored cities is below");
+console.log(cityStored);
+
+
 
 // clears all buttons and storage and reloads the page
 clearEverything.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
 });
-console.log("Your array of stored cities is below");
-console.log(cityStored);
 
 // clears most recent search including its button and reloads the page
 clearLast.addEventListener("click", function () {
     cityStored.splice((cityStored.length - 1), 1);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
-    location.reload();
+    $('.historyBtn')[0].remove();
+    console.log("most recent button removed");
 });
 
 if (cityStored.length >= 2) {
@@ -531,7 +538,9 @@ if (cityStored.length >= 2) {
 }
 
 clearOldest[0].addEventListener("click", function () {
+    let i = cityStored.length;
     cityStored.splice(0, 1);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
-    location.reload();
+    $('.historyBtn')[i-1].remove();
+    console.log("oldest button removed");
 });
