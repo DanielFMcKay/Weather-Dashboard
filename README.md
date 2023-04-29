@@ -24,7 +24,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Duplicate entries will also not append a button, but a duplicate request will still call that location's data.
 
-* Additionally, the buttons persist in local storage, so they reload when the page does. Only the 32 most recently called searches are displayed however, starting with the one at the end of the array. I felt this was a practical upper limit for now. As of the latest update, the oldest searches and buttons are removed as the newest one is created if that limit has been reached.
+* Additionally, the buttons persist in local storage, so they reload when the page does. Only the 32 most recently called searches are displayed however, starting with the one at the end of the array. I felt this was a practical upper limit for now. The oldest searches and buttons are automatically removed as the newest one is created if that limit has been reached.
 
 * If a mouse is hovering over the search button, a history button, or the clear everything button, the button will automatically be highlighted.
 
@@ -38,7 +38,7 @@ This app is for the week 06 assignment for the UC Berkeley coding boot camp thro
 
 * Additionally, there is a button to both clear the local storage and reload the page, for easier use.
 
-* Lastly there is one button each to remove only the most recently added history button and the oldest history button, respectively. After clicking either, the page will also reload.
+* Lastly there is one button each to remove only the most recently added history button and the oldest history button, respectively. The button will also be removed from local storage. However, the page will still display any currently displayed information.
 
 ### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
 
