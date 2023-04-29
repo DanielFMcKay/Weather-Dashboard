@@ -18,7 +18,7 @@ Overview: a weather app for displaying current weather and six day forecasts tha
 
 ### Core Functions
 
-* This weather page will take a city name, with the option of adding an ISO 2-digit country code, and return a forecast with the temperature, wind speed, wind direction, UV index, humidty, and current date, as well as a weather icon for the type of weather. It will also show today's high and low temperatures. All measurements use Imperial units, although there is an additional Celsius readout for the current temperature.
+* This weather page will take a city name, with the option of adding an ISO 2-digit country code, and return a forecast with the temperature, wind speed, wind direction, UV index, humidty, and current date, as well as a weather icon for the type of weather. It will also show today's high and low temperatures , as well as the time of today's sunset and sunrise, and maximum hourly wind gust. All measurements use Imperial units, although there is an additional Celsius readout for the current temperature.
 
 * It does this by contacting OpenWeatherMap.org with an API call to retrieve the information.
 
