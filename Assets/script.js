@@ -499,12 +499,12 @@ const multiHourForecast = function (data) {
         if (i < 7) {
             $(hourlyForecast1).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
-            $(hourlyIcon1).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='28px'/><br>`)
+            $(hourlyIcon1).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='26px'/><br>`)
         }
         else if (i < 13) {
             $(hourlyForecast2).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
-            $(hourlyIcon2).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='28px'/><br>`)
+            $(hourlyIcon2).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='26px'/><br>`)
         }
     }
 }

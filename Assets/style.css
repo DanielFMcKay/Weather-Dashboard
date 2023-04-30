@@ -365,6 +365,7 @@ body {
 .hourlyForecast1,
 .hourlyForecast2 {
     text-align: right;
+    margin-bottom: 0.1rem;
 }
 
 .hourlyIcon1,
@@ -373,7 +374,7 @@ body {
     margin-left: -1.35rem;
     height: 3rem;
     width: 1.5rem;
-    margin-top: 0.15rem;
+    margin-top: 0.1rem;
     margin-bottom: -1.5rem;
 }
 
@@ -383,6 +384,7 @@ body {
     color: #043e81;
     margin-left: -1.75rem;
     text-align: right;
+    margin-bottom: 0.1rem;
 }
 
 .weather-card h4 {
