@@ -210,14 +210,14 @@ const retrieveCity = function (lat, lon) {
             if (currentUvi >= 11) {
                 $('.uvi-warning').append("<h6>Extreme UVI Warning</h6>");
             }
-            $('.current-conditions').html("<p class='altShade'>Current Conditions: " + currentConditions + "</p>");
-
+            
             // timezone-offset is not currently called
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
 
             // local Time
             $('.local-time').html("<p class='altShade'>Local Time: " + localTime.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true }) + "</p>");
+            $('.current-conditions').html("<p class='altShade'>Current Conditions: " + currentConditions + "</p>");
             $('.hi-temp').html("<p class='altShade'>Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "<small>°F</small> (" + hiCelsius + "<small>°C</small>)</p>");
             $('.lo-temp').html("<p class='altShade'>Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "<small>°F</small> (" + loCelsius + "<small>°C</small>)</p>");
             $('.feels-like').html("<p class='altShade'>Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "<small>°F</small> (" + feelsLikeCelsius + "<small>°C</small>)</p>");
@@ -476,12 +476,17 @@ const multiHourForecast = function (data) {
     $(".hourlyForecast2").empty();
     $(".hourlyTemp1").empty();
     $(".hourlyTemp2").empty();
+    $(".hourlyIcon1").empty();
+    $(".hourlyIcon2").empty();
+    
 
     $(".hourlyTitle").text("12 Hour Forecast");
     const hourlyForecast1 = $(".hourlyForecast1");
     const hourlyForecast2 = $(".hourlyForecast2");
     const hourlyTemp1 = $(".hourlyTemp1");
     const hourlyTemp2 = $(".hourlyTemp2");
+    const hourlyIcon1 = $(".hourlyIcon1");
+    const hourlyIcon2 = $(".hourlyIcon2");
     for (let i = 1; i < 13; i++) {
         let unixNextHour = ((data.hourly[i].dt + data.timezone_offset + 25200));
         let nextHumanHour = new Date((unixNextHour) * 1000);
@@ -494,10 +499,12 @@ const multiHourForecast = function (data) {
         if (i < 7) {
             $(hourlyForecast1).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
+            $(hourlyIcon1).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='28px'/><br>`)
         }
         else if (i < 13) {
             $(hourlyForecast2).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
+            $(hourlyIcon2).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='28px'/><br>`)
         }
     }
 }

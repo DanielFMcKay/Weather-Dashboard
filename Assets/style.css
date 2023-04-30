@@ -263,7 +263,7 @@ body {
 }
 
 .overview-row {
-    margin: -0.8rem 0 1rem -0.6rem;
+    margin: -0.8rem 0 1.4rem -0.6rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -283,15 +283,14 @@ body {
 }
 
 .local-date {
-    margin-top: -0.6rem;
+    margin-top: -0.3rem;
+    margin-bottom: 0.35rem;
 }
 
 .local-weekday {
     color: black;
     font-size: 1.45rem;
     font-weight: 500;
-    margin-top: 1rem;
-
     text-shadow: 2px 2px 2px #8899AA;
 }
 
@@ -352,7 +351,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 16rem;
+    width: 18rem;
     margin-bottom: 1.1rem;
 }
 
@@ -360,13 +359,24 @@ body {
     font-size: 1.15rem;
     font-weight: 400;
     text-shadow: 1px 1px 1px #8899AA;
-    margin: 0.2rem 0;
+    margin: 0.35rem 0;
 }
 
 .hourlyForecast1,
 .hourlyForecast2 {
     text-align: right;
 }
+
+.hourlyIcon1,
+.hourlyIcon2 {
+    display: column;
+    margin-left: -1.35rem;
+    height: 3rem;
+    width: 1.5rem;
+    margin-top: 0.15rem;
+    margin-bottom: -1.5rem;
+}
+
 
 .hourlyTemp1,
 .hourlyTemp2 {
@@ -383,7 +393,7 @@ body {
 }
 
 .local-weekday {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     margin-top: -0.4rem;
     margin-bottom: 0.15rem;
 }
@@ -430,7 +440,8 @@ body {
 .infoColumn2 {
     display: column;
     margin-right: 2.5rem;
-    margin-bottom: 0rem
+    margin-bottom: 0rem;
+    margin-top: -0.1rem;
 }
 
 .altShade {
@@ -446,6 +457,7 @@ body {
     display: column;
     margin-right: 2.25rem;
     margin-bottom: 0.75rem;
+    margin-top: -0.2rem;
 }
 
 .weather-card img {
