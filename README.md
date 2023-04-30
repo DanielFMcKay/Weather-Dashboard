@@ -2,6 +2,8 @@
 
 ![image](https://img.shields.io/badge/License-GNU_GPL_v3.0-slateblue.svg)
 
+## Live Site: [Weather Dashboard](https://danielfmckay.github.io/Weather-Dashboard/) 
+
 #### Desktop Screenshots
 ![image](https://user-images.githubusercontent.com/123746582/235308513-0ace5506-6290-4d7c-9bcb-49bac47377f7.png)
 
