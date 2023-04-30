@@ -118,8 +118,10 @@ const retrieveCity = function (lat, lon) {
             let sunriseTime = sunriseRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
             console.log("The sun rises today at " + sunriseTime);
             let sunsetRawData = new Date((data.current.sunset + data.timezone_offset + 25200) * 1000);
+            console.log("sunsetRawData is " + sunsetRawData)
             let sunsetTime = sunsetRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
-            console.log("The sun sets today at " + sunsetTime);
+            console.log("The sun sets today at " + data.current.sunset);
+
 
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
 
@@ -171,9 +173,9 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Rain"
             } else if (data.current.weather[0].description === "heavy intensity rain") {
                 currentConditions = "Heavy Rain"
-            }  else if (data.current.weather[0].description === "extreme rain") {
+            } else if (data.current.weather[0].description === "extreme rain") {
                 currentConditions = "Torrential Rain"
-            }  else if (data.current.weather[0].description === "freezing rain") {
+            } else if (data.current.weather[0].description === "freezing rain") {
                 currentConditions = "Freezing Rain"
             } else if (data.current.weather[0].description === "thunderstorm with rain") {
                 currentConditions = "Thunderstorms"
@@ -206,17 +208,17 @@ const retrieveCity = function (lat, lon) {
             if (currentUvi >= 11) {
                 $('.uvi-warning').append("<h6>Extreme UVI Warning</h6>");
             }
-            $('.current-conditions').text("Current Conditions: " + currentConditions);
+            $('.current-conditions').html("<p class='altShade'>Current Conditions: " + currentConditions + "</p>");
 
             // timezone-offset is not currently called
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
 
             // local Time
-            $('.local-time').html("Local Time: " + localTime.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true }));
-            $('.hi-temp').html("<h4>Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "<small>°F</small> (" + hiCelsius + "<small>°C</small>)</h4>");
-            $('.lo-temp').html("<h4>Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "<small>°F</small> (" + loCelsius + "<small>°C</small>)</h4>");
-            $('.feels-like').html("<h4>Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "<small>°F</small> (" + feelsLikeCelsius + "<small>°C</small>)</h4>");
+            $('.local-time').html("<p class='altShade'>Local Time: " + localTime.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true }) + "</p>");
+            $('.hi-temp').html("<p class='altShade'>Today's High Temp: " + Math.round(parseFloat(data.daily[0].temp.max)) + "<small>°F</small> (" + hiCelsius + "<small>°C</small>)</p>");
+            $('.lo-temp').html("<p class='altShade'>Today's Low Temp: " + Math.round(parseFloat(data.daily[0].temp.min)) + "<small>°F</small> (" + loCelsius + "<small>°C</small>)</p>");
+            $('.feels-like').html("<p class='altShade'>Currently Feels Like: " + Math.round(parseFloat(data.current.feels_like)) + "<small>°F</small> (" + feelsLikeCelsius + "<small>°C</small>)</p>");
             $('.wind-note').text("");
 
             // Not Yet called
@@ -228,7 +230,7 @@ const retrieveCity = function (lat, lon) {
             $('.sunrise').text("Sunrise: " + sunriseTime);
             $('.sunset').text("Sunset: " + sunsetTime);
 
-            
+
 
             if (cityStored.length >= 2) {
                 clearOldest.show();
@@ -273,7 +275,7 @@ const weatherForecast = function (cityInputField) {
 
             retrieveCity(data.city.coord.lat, data.city.coord.lon);
             let placeName = data.city.name;
-            
+
             let nationName = data.city.country;
 
             // Country code conversion for select nations.
@@ -337,7 +339,7 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Libya"
             } else if (data.city.country === "MY") {
                 nationName = "Malaysia"
-            }else if (data.city.country === "MX") {
+            } else if (data.city.country === "MX") {
                 nationName = "Mexico"
             } else if (data.city.country === "NL") {
                 nationName = "The Netherlands"
@@ -349,7 +351,7 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Norway"
             } else if (data.city.country === "PK") {
                 nationName = "Pakistan"
-            }  else if (data.city.country === "PE") {
+            } else if (data.city.country === "PE") {
                 nationName = "Peru"
             } else if (data.city.country === "PH") {
                 nationName = "Philippines"
@@ -377,7 +379,7 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Thailand"
             } else if (data.city.country === "TW") {
                 nationName = "Taiwan"
-            }  else if (data.city.country === "TR") {
+            } else if (data.city.country === "TR") {
                 nationName = "Turkey"
             } else if (data.city.country === "UA") {
                 nationName = "Ukraine"
@@ -552,6 +554,6 @@ clearOldest[0].addEventListener("click", function () {
     let i = cityStored.length;
     cityStored.splice(0, 1);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
-    $('.historyBtn')[i-1].remove();
+    $('.historyBtn')[i - 1].remove();
     console.log("oldest button removed");
 });
