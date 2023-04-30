@@ -1,5 +1,7 @@
 # Weather-Dashboard
 
+![image](https://img.shields.io/badge/License-GNU_GPL_v3.0-slateblue.svg)
+
 #### Desktop Screenshots
 ![image](https://user-images.githubusercontent.com/123746582/235308513-0ace5506-6290-4d7c-9bcb-49bac47377f7.png)
 
@@ -63,6 +65,10 @@
 
 * The site will also compress and move around elements to display on smaller screen sizes, with main breakpoints at 768px and 476px.
 
-### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
+### Live Site
+* Direct Link: https://danielfmckay.github.io/Weather-Dashboard/
+
+## License
+This site is licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/). Feel free to share and modify it, but if you do so, please just give accurate attribution to the source and the writer and state any significant changes, and please don't change the license under which it is exported.
 
 ### © Dan McKay 2023
