@@ -165,6 +165,8 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Hazy"
             } else if (data.current.weather[0].description === "smoke") {
                 currentConditions = "Smoke"
+            } else if (data.current.weather[0].description === "light intensity shower rain") {
+                currentConditions = "Light Showers"
             } else if (data.current.weather[0].description === "shower rain") {
                 currentConditions = "Showers"
             } else if (data.current.weather[0].description === "light rain") {
@@ -486,15 +488,15 @@ const multiHourForecast = function (data) {
         let nextMetricHour = nextHumanHour.getHours();
         // changes to 12-hour format with AM and PM
         let nextImperialHour = nextMetricHour % 12 || 12;
-        let antiPostMeridian = nextMetricHour <= 12 ? 'AM' : 'PM';
+        let antiPostMeridian = nextMetricHour < 12 ? 'AM' : 'PM';
 
         // I wantet two columns and also for the temperature reading to stand out, so it became four columns
         if (i < 7) {
-            $(hourlyForecast1).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": </h5>");
+            $(hourlyForecast1).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
         }
         else if (i < 13) {
-            $(hourlyForecast2).append("<h5>" + nextImperialHour + " " + antiPostMeridian + ": </h5>");
+            $(hourlyForecast2).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
         }
     }
