@@ -1,12 +1,16 @@
+# Weather-Dashboard
+
+#### Desktop Screenshots
 ![image](https://user-images.githubusercontent.com/123746582/235308513-0ace5506-6290-4d7c-9bcb-49bac47377f7.png)
 
 ![image](https://user-images.githubusercontent.com/123746582/235349801-f5c005c4-59ba-4778-a51e-516c29ecdcf4.png)
 
-# Weather-Dashboard
+#### Mobile Screenshots
+![image](https://user-images.githubusercontent.com/123746582/235350508-be3d2b57-f77f-450f-aeaa-2f254c580ae8.png) ![image](https://user-images.githubusercontent.com/123746582/235350491-9be534d6-6ff1-4c6f-bb9b-b6caa6ad92b5.png)
+![image](https://user-images.githubusercontent.com/123746582/235350403-232fae95-ac37-406b-8009-7b048d790d1b.png) ![image](https://user-images.githubusercontent.com/123746582/235350188-2897fdb6-6b92-4626-a3a4-82368b14e91e.png)
 
-Overview: a weather app for displaying current weather and six day forecasts that saves and reloads cities that the user inputs.
-
-# 06 Server-Side APIs: Weather Dashboard
+## Overview
+* This is a weather app for displaying current weather and six day forecasts that saves and reloads cities that the user inputs.
 
 ## Live Site: [Weather Dashboard](https://danielfmckay.github.io/Weather-Dashboard/) 
 
@@ -40,7 +44,7 @@ Overview: a weather app for displaying current weather and six day forecasts tha
 
 * Furthermore, a six day forecast on separate cards is shown along the bottom of the display to show same conditions for the next 6 days, including a high and low daily temperature in lieu of a current one.
 
-#### Warnings
+#### Weather Warnings
 
 * If the current heat is 100 degrees Fahrenheit or more, or the current UV index is 11 or more, or wind gusts are 50 mph or higher, or the returned weather condition is "tornados", then a warning or advisory will be displayed on the main weather info card in dark red text for each type of event.
 
@@ -54,6 +58,10 @@ Overview: a weather app for displaying current weather and six day forecasts tha
 #### Element Highlighting
 
 * Lastly, if the mouse is hovering over the search button, a history button, or a deletion or clear everything button, the button will automatically be highlighted with the use of darker or lighter background colors, as well as larger box shadows for the first two. The search field will also become very slightly brighter if the mouse is hovering over it.
+
+#### Mobile Resizing
+
+* The site will also compress and move around elements to display on smaller screen sizes, with main breakpoints at 768px and 476px.
 
 ### Live Site: https://danielfmckay.github.io/Weather-Dashboard/
 
