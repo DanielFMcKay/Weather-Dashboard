@@ -122,6 +122,10 @@ const retrieveCity = function (lat, lon) {
             let sunsetTime = sunsetRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
             console.log("The sun sets today at " + data.current.sunset);
 
+            // polar winter / polar summer exception
+            if (sunsetTime === 'Invalid Date') { sunsetTime = 'N/A' }
+            if (sunriseTime === 'Invalid Date') { sunriseTime = 'N/A' }
+
 
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
 
@@ -165,6 +169,10 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Hazy"
             } else if (data.current.weather[0].description === "smoke") {
                 currentConditions = "Smoke"
+            } else if (data.current.weather[0].description === "fog") {
+                currentConditions = "Fog"
+            } else if (data.current.weather[0].description === "mist") {
+                currentConditions = "Mist"
             } else if (data.current.weather[0].description === "light intensity shower rain") {
                 currentConditions = "Light Showers"
             } else if (data.current.weather[0].description === "shower rain") {
@@ -287,6 +295,10 @@ const weatherForecast = function (cityInputField) {
                 nationName = "United States"
             } else if (data.city.country === "CA") {
                 nationName = "Canada"
+            } else if (data.city.country === "AF") {
+                nationName = "Afghanistan"
+            } else if (data.city.country === "AQ") {
+                nationName = "Antarctica"
             } else if (data.city.country === "AR") {
                 nationName = "Argentina"
             } else if (data.city.country === "AU") {
@@ -303,6 +315,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Czechia"
             } else if (data.city.country === "CO") {
                 nationName = "Colombia"
+            } else if (data.city.country === "CD") {
+                nationName = "Congo, DR"
             } else if (data.city.country === "CU") {
                 nationName = "Cuba"
             } else if (data.city.country === "DK") {
@@ -499,12 +513,12 @@ const multiHourForecast = function (data) {
         if (i < 7) {
             $(hourlyForecast1).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp1).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
-            $(hourlyIcon1).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='26px'/><br>`)
+            $(hourlyIcon1).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='30px' class='icon-align'/>`)
         }
         else if (i < 13) {
             $(hourlyForecast2).append("<h5>" + nextImperialHour + " <small>" + antiPostMeridian + "</small>: </h5>");
             $(hourlyTemp2).append("<h5><strong>" + Math.round(parseFloat(data.hourly[i].temp)) + "<small>°F</small></strong></h5>")
-            $(hourlyIcon2).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='26px'/><br>`)
+            $(hourlyIcon2).append(`<img src="https://openweathermap.org/img/wn/${data.hourly[i].weather[0].icon}@4x.png" width='27px' class='icon-align'/>`)
         }
     }
 }

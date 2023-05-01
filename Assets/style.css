@@ -51,11 +51,10 @@ header h1 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 3.05rem;
     font-weight: 600;
-    padding-top: 1rem;
+    padding-top: 0.85rem;
     margin-bottom: 0.2rem;
     margin-left: 0;
     text-shadow: 0 0 1px #6d98f0, 0 0 2px #6d98f0, 0 0 4px #6d98f0, 0 0 8px #6d98f0, 0 0 12px #6d98f0;
-
 }
 
 /* Clearing the page and its history buttons */
@@ -77,7 +76,7 @@ header h1 {
 
 /* Splash image directly below the header. */
 .header-image {
-    height: 7.4rem;
+    height: 7.25rem;
     width: 100%;
     margin-bottom: 6px;
     border-bottom-right-radius: 15px;
@@ -308,7 +307,7 @@ body {
 }
 
 .weather-card h1 {
-    font-size: 2.1rem;
+    font-size: 2rem;
     text-shadow: 1px 1px 1px #5684b9;
     color: black;
 }
@@ -374,7 +373,7 @@ body {
     margin-left: -1.35rem;
     height: 3rem;
     width: 1.5rem;
-    margin-top: 0.1rem;
+    margin-top: 0.25rem;
     margin-bottom: -1.5rem;
 }
 
@@ -387,11 +386,15 @@ body {
     margin-bottom: 0.1rem;
 }
 
+.icon-align {
+    margin-top: -3px;
+}
+
 .weather-card h4 {
-    font-size: 1.2rem;
-    color: black;
-    text-shadow: 1px 1px 1px #8899AA;
-    margin-top: -0.1rem;
+    font-size: 1.25rem;
+    color: #21272c;
+    text-shadow: 2px 2px 2px #8899AA;
+    margin-top: -0.15rem;
 }
 
 .local-weekday {
@@ -428,7 +431,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin-top: -1rem;
+    margin-top: -1.25rem;
     margin-bottom: -1.5rem;
 }
 
@@ -459,7 +462,7 @@ body {
     display: column;
     margin-right: 2.25rem;
     margin-bottom: 0.75rem;
-    margin-top: -0.2rem;
+    margin-top: -0.3rem;
 }
 
 .weather-card img {
