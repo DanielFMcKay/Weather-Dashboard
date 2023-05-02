@@ -212,28 +212,30 @@ body {
 }
 
 .deleteBtn {
-    color: #2f3233;
+    color: #1b1c1d;
     font-weight: 400;
     font-size: 1.1rem;
     padding: 3px;
     float: left;
     border-radius: 0 1.25rem 1.25rem 0;
+    /* background: transparent; */
     background: linear-gradient(to right, #a5a5a5, #dbdbdb);
-    border: 1px solid #484d52;
+    border: 1px solid #4b5258;
     border-left: #778899;
     margin-top: 0.2rem;
     margin-right: 0.75rem;
     min-width: 1.35rem;
     min-height: 2.25rem;
-    box-shadow: 1px 1px 1px #a9baca;
-    opacity: 0.8;
+    box-shadow: 1px 1px 1px #95a2af;
+    opacity: 0.75;
 }
 
 .deleteBtn:hover {
     color: #3a3d3d;
     background: linear-gradient(to right, #b9b9b9, #ececec);
     box-shadow: 2px 2px 2px #778899;
-    opacity: 1;
+    text-shadow: 0 0 1px #464a4e;
+    opacity: 0.9;
 }
 
 
@@ -768,7 +770,9 @@ min-width: 17.2rem;
         font: 1.35rem;
         min-width: 1.5rem;
         max-height: 2.1rem;
-        background: rgba(191, 193, 196, 0.6);
+        opacity: 0.65;
+        border: 1px solid #708c99;
+        box-shadow: none;
     }
 
     .historyBtn {
@@ -776,6 +780,10 @@ min-width: 17.2rem;
         margin-left: 20%;
         margin-right: 18%;
         max-width: 62%;
+    }
+
+    .infoColumn2 {
+        margin-right: 1rem;
     }
 
     .icon-align {
