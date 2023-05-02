@@ -113,19 +113,19 @@ body {
     display: table-column-group;
     text-align: center;
     border-radius: 16px;
-    min-width: 12.75rem;
+    min-width: 13.75rem;
     width: fit-content;
     max-width: 18%;
     margin-bottom: 6px;
     margin-left: 2px;
     min-height: 18.25rem;
     background: linear-gradient(0.545turn, #58c5ec 1%, #b0d3e0 7%, #e0f0f7, #cbe4ec 90%, #f7fdff);
-    font-size: 2.5rem;
+    font-size: 2.05rem;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 0.25rem;
-    padding-right: 1.25rem;
+    padding-right: 0.5rem;
     padding-top: 2.25rem;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
     border: 1px solid #c7cfcf;
 }
 
@@ -147,6 +147,7 @@ body {
     border-width: 3px;
     padding: 5px 0 5px 10px;
     margin-left: 0.9rem;
+    margin-top: 0.5rem;
     background: #f5fafc;
 }
 
@@ -154,12 +155,11 @@ body {
     background: white;
 }
 
-
 #searchBtn {
     color: #f8f8f8;
     font-size: 1.6rem;
     text-decoration: none;
-    padding: 5px 0 5px 0;
+    padding: 0.3rem 0;
     min-width: 95%;
     width: fit-content;
     display: block;
@@ -181,14 +181,25 @@ body {
     box-shadow: 4px 4px 4px #6587a8;
 }
 
+#storedCity {
+    margin-top: -0.6rem;
+}
+
+.historyBtnRow {
+    display: inline-block;
+    max-height: fit-content;
+    margin: 0rem 0rem -1rem -0.5rem;
+    width: 100%;
+}
 
 .historyBtn {
     font-size: 1.4rem;
     text-decoration: none;
     padding: 2px 6px;
-    width: 95%;
+    width: 80%;
+    min-width: fit-content;
     display: block;
-    margin: 0.1rem 1.2rem 0.8rem 0.8rem;
+    margin: 0rem -0.5rem 0.8rem -0.75rem;
     border-radius: 18px;
     border: solid 3px grey;
     color: #141414;
@@ -196,7 +207,33 @@ body {
     outline: none;
     background: linear-gradient(0.41turn, #7f8bc4 8%, #bac4f0 92%);
     box-shadow: 2px 2px 2px #8b9daf;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
+.deleteBtn {
+    color: #3f3f3f;
+    font-weight: 600;
+    font-size: 1.25rem;
+    padding: 2px;
+    float: left;
+    border-radius: 0 1.25rem 1.25rem 0;
+    background: linear-gradient(to right, #a5a5a5, #dbdbdb);
+    border: 1px solid #080808;
+    border-left: #778899;
+    margin-top: 0.2rem;
+    margin-right: 0.75rem;
+    min-width: 1.35rem;
+    min-height: 1.25rem;
+    box-shadow: 1px 1px 1px #a9baca;
+}
+
+.deleteBtn:hover {
+    color: #484848;
+    background: linear-gradient(to right, #b9b9b9, #ececec);
+    box-shadow: 2px 2px 2px #778899;
+}
+
 
 .historyBtn:hover {
     background: linear-gradient(0.41turn, #7176b2, #a9b2dd);
@@ -273,13 +310,17 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    min-width: 19.75rem;
 }
 
 .over-column1 {
     width: 18rem;
     margin-right: 0.8rem;
 }
+
+.over-column2 {
+min-width: 17.2rem;
+}
+
 
 .local-date {
     margin-top: -0.3rem;
@@ -329,8 +370,8 @@ body {
 }
 
 .weather-card h3 {
-    font-size: 1.6rem;
-    color: black;
+    font-size: 1.5rem;
+    color: #080808;
     text-shadow: 2px 2px 2px #8899AA;
     margin-top: -0.15rem;
 }
@@ -350,7 +391,7 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    width: 18rem;
+    width: 17.75rem;
     margin-bottom: 1.1rem;
 }
 
@@ -407,6 +448,7 @@ body {
     font-size: 1.1rem;
     font-weight: 600;
     color: #5f1a1a;
+    text-shadow: 0px 0px 1px #5f3535;
     margin-top: -0.15rem;
 }
 
@@ -437,21 +479,22 @@ body {
 
 .infoColumn1 {
     display: column;
-    margin-right: 2.75rem;
+    margin-right: 2.5rem;
     margin-left: 0rem;
     margin-bottom: 0.5rem;
 }
 
 .infoColumn2 {
     display: column;
-    margin-right: 2.5rem;
-    margin-bottom: 0rem;
+    margin-right: 2.25rem;
+    margin-bottom: 0.3rem;
     margin-top: -0.1rem;
 }
 
 .altShade {
-    font-size: 1.25rem;
-    color: #263950;;
+    font-size: 1.2rem;
+    color: #263950;
+    ;
     font-weight: 600;
     text-shadow: 2px 2px 2px #8a9fb4;
     margin-top: -0.2rem;
@@ -462,7 +505,7 @@ body {
     display: column;
     margin-right: 2.25rem;
     margin-bottom: 0.75rem;
-    margin-top: -0.3rem;
+    margin-top: -0.25rem;
 }
 
 .weather-card img {
@@ -597,15 +640,45 @@ body {
     cursor: pointer;
 }
 
-@media screen and (max-width: 1128px) {
+@media screen and (max-width: 1200px) {
     #city-sidebar {
-        min-width: 22.5%;
+        min-width: 24.5%;
+    }
+    
+
+    #fetch-field {
+        font-size: 1.6rem;
+    }
+
+    #searchBtn {
+        font-size: 1.5rem;
+        padding: 0.2rem 0;
+    }
+
+    .historyBtn {
+        margin-right: 10%;
     }
 
     .card-column {
-        max-width: 77%;
+        max-width: 75%;
     }
 }
+
+@media screen and (max-width: 1000px) {
+
+    #searchBtn {
+        font-size: 1.4rem;
+    }
+
+    .historyBtn {
+        margin-right: -2rem;
+        font-size: 1.4rem;
+        max-height: 4.2rem;
+        margin-left: 0;
+        max-width: 72%;
+    }
+}
+
 
 @media screen and (max-width: 768px) {
     #title-row {
@@ -647,7 +720,7 @@ body {
         border: 1px solid #879494;
         border-radius: 16px 0;
         padding: 0.25rem 0.6rem;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
 
     .clear-oldest {
@@ -658,7 +731,7 @@ body {
         left: 0;
         border-radius: 0 16px;
         padding: 0.25rem 0.6rem;
-        font-size: 0.7rem;
+        font-size: 0.8rem;
     }
 
     #currentDateTime {
@@ -673,7 +746,7 @@ body {
     #city-sidebar {
         min-width: 99%;
         padding-top: 2rem;
-        padding-bottom: 2rem;
+        padding-bottom: 2.75rem;
     }
 
     #fetch-field {
@@ -683,19 +756,27 @@ body {
     }
 
     #searchBtn {
+        font: 1.7rem;
         margin-left: 20%;
         margin-right: 18%;
         min-width: 62%;
     }
 
+    .deleteBtn {
+        color: rgb(36, 40, 44);
+        font: 1.35rem;
+        min-width: 1.5rem;
+        max-height: 2.1rem;
+        background: rgba(191, 193, 196, 0.6);
+    }
+
     .historyBtn {
+        font: 1.25rem;
         margin-left: 20%;
         margin-right: 18%;
         max-width: 62%;
-
-
     }
-    
+
     .icon-align {
         margin-top: -4px;
     }
@@ -729,7 +810,7 @@ body {
     }
 
     #city-sidebar {
-        padding-bottom: 1.75rem;
+        padding-bottom: 2.5rem;
     }
 
     .clear-oldest {

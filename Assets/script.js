@@ -45,8 +45,8 @@ const clearLast = $(".clear-last")[0];
 const clearOldest = $(".clear-oldest");
 clearOldest.hide();
 // Links the constant cityStored to the array of places stored in local storage. Can also be an empty array if none are stored.
-const cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
-
+var cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
+// const deleteStored = JSON.parse(localStorage.getItem('deleteSearch')) || [];
 
 // function below worked, but was creating a feedback loop in the button attributes as they were being created
 
@@ -68,16 +68,36 @@ const cityStored = JSON.parse(localStorage.getItem('citySearch')) || [];
 // If that number is exceeded, then in another part of the script the oldest one is removed as the newest one is created.
 function loadHistoryButtons() {
     for (let i = cityStored.length - 1; i > (cityStored.length - 32) && i >= 0; i--) {
-        var citySearchHistory = document.createElement("button");
-        citySearchHistory.setAttribute("class", "historyBtn");
-        citySearchHistory.textContent = cityStored[i];
+        const buttonPair = document.createElement("div");
+        const historyButton = document.createElement("button");
+        const deleteButton = document.createElement("button");
+        historyButton.setAttribute("class", "historyBtn");
+        deleteButton.setAttribute("class", "deleteBtn");
+        deleteButton.textContent = 'X';
+        buttonPair.setAttribute("class", "row")
+        buttonPair.setAttribute("class", "historyBtnRow")
+        historyButton.textContent = cityStored[i];
         console.log("location " + (i + 1) + " is " + cityStored[i] + ".");
-        $("#storedCity").append(citySearchHistory);
-        citySearchHistory.addEventListener("click", function (e) {
+        
+        $("#storedCity").append(buttonPair);
+        buttonPair.append(deleteButton);
+        buttonPair.append(historyButton);
+
+        historyButton.addEventListener("click", function (e) {
             cityInputField = e.target.innerText;
             console.log("history button(s) created");
             weatherForecast(cityInputField);
         });
+
+        let deleteName = cityStored[i];
+        deleteButton.addEventListener("click", function () {
+
+            console.log(deleteName + " deleted");
+            let newCityStored = cityStored.filter(item => item !== deleteName);
+            cityStored = newCityStored;
+            buttonPair.remove();
+            localStorage.setItem('citySearch', JSON.stringify(cityStored));
+         });
     }
 };
 
@@ -218,7 +238,7 @@ const retrieveCity = function (lat, lon) {
             if (currentUvi >= 11) {
                 $('.uvi-warning').append("<h6>Extreme UVI Warning</h6>");
             }
-            
+
             // timezone-offset is not currently called
             // Why does unix time start in PST???? Anyway, I added 7 hours worth of seconds before the offset.
             $('.timezone-offset').html("Location's Timezone: UTC " + ((data.timezone_offset) / 3600));
@@ -419,17 +439,41 @@ const weatherForecast = function (cityInputField) {
             // below pushes the new location to the array of stored locations and makes a new button for it
             cityStored.push(cityInputField);
 
+            const buttonPair = document.createElement("div");
             const historyButton = document.createElement("button");
+            const deleteButton = document.createElement("button");
             historyButton.setAttribute("class", "historyBtn");
+            deleteButton.setAttribute("class", "deleteBtn");
+            deleteButton.textContent = 'X';
+            buttonPair.setAttribute("class", "row")
+            buttonPair.setAttribute("class", "historyBtnRow")
             historyButton.textContent = cityInputField;
-            console.log("a new button was created");
-            $("#storedCity").prepend(historyButton);
+            $("#storedCity").prepend(buttonPair);
+
+            buttonPair.append(deleteButton);
+            buttonPair.append(historyButton);
+
             historyButton.addEventListener("click", function (e) {
                 cityInputField = e.target.innerText;
                 weatherForecast(cityInputField);
             });
+            console.log("a new button was created");
 
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
+
+
+            deleteButton.addEventListener("click", function () {
+                let deleteName = cityInputField;
+                
+                console.log(deleteName + " deleted");
+                let newCityStored = cityStored.filter(item => item !== deleteName);
+                cityStored = newCityStored;
+                buttonPair.remove();
+                localStorage.setItem('citySearch', JSON.stringify(cityStored));
+             });
+
+
+
 
             // if there are more than 32 buttons, the oldest one will be removed
             if (cityStored.length > 32) {
@@ -463,15 +507,7 @@ const multiDayForecast = function (data) {
 
         let dailyHiTemp = Math.round(parseFloat(data.daily[i].temp.max));
 
-        // console.log(dayPlus);
-        // console.log("is 24 hours from now at the selected location");
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4><br><p class="forecast-day">' + forecastDay + '</p>');
-        // if (dailyHiTemp >= 100) {
-        //     $(dayCard).append("<h6>Extreme Heat Advisory</h6>");
-        // }
-        // if (dailyMaxUvi >= 11) {
-        //     $(dayCard).append("<h6>Extreme UVI Warning</h6>");
-        // }
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
         $(dayCard).append("<h5>High Temp: " + dailyHiTemp + " °F</h5>");
         // console.log([i]);
@@ -492,7 +528,7 @@ const multiHourForecast = function (data) {
     $(".hourlyTemp2").empty();
     $(".hourlyIcon1").empty();
     $(".hourlyIcon2").empty();
-    
+
 
     $(".hourlyTitle").text("12 Hour Forecast");
     const hourlyForecast1 = $(".hourlyForecast1");
@@ -566,6 +602,7 @@ clearLast.addEventListener("click", function () {
     cityStored.splice((cityStored.length - 1), 1);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
     $('.historyBtn')[0].remove();
+    $('.deleteBtn')[0].remove();
     console.log("most recent button removed");
 });
 
@@ -578,5 +615,6 @@ clearOldest[0].addEventListener("click", function () {
     cityStored.splice(0, 1);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
     $('.historyBtn')[i - 1].remove();
+    $('.deleteBtn')[i - 1].remove();
     console.log("oldest button removed");
 });
