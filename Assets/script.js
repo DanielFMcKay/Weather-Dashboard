@@ -73,7 +73,7 @@ function loadHistoryButtons() {
         const deleteButton = document.createElement("button");
         historyButton.setAttribute("class", "historyBtn");
         deleteButton.setAttribute("class", "deleteBtn");
-        deleteButton.textContent = 'X';
+        deleteButton.textContent = '✖';
         buttonPair.setAttribute("class", "row")
         buttonPair.setAttribute("class", "historyBtnRow")
         historyButton.textContent = cityStored[i];
@@ -444,7 +444,7 @@ const weatherForecast = function (cityInputField) {
             const deleteButton = document.createElement("button");
             historyButton.setAttribute("class", "historyBtn");
             deleteButton.setAttribute("class", "deleteBtn");
-            deleteButton.textContent = 'X';
+            deleteButton.textContent = '✖';
             buttonPair.setAttribute("class", "row")
             buttonPair.setAttribute("class", "historyBtnRow")
             historyButton.textContent = cityInputField;

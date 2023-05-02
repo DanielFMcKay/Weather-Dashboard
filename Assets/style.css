@@ -122,8 +122,8 @@ body {
     background: linear-gradient(0.545turn, #58c5ec 1%, #b0d3e0 7%, #e0f0f7, #cbe4ec 90%, #f7fdff);
     font-size: 2.05rem;
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
-    padding-left: 0.25rem;
-    padding-right: 0.5rem;
+    padding-left: 0rem;
+    padding-right: 0.75rem;
     padding-top: 2.25rem;
     padding-bottom: 3rem;
     border: 1px solid #c7cfcf;
@@ -163,14 +163,14 @@ body {
     min-width: 95%;
     width: fit-content;
     display: block;
-    margin: 1rem 1.2rem 1.2rem 0.8rem;
+    margin: 1rem 1.25rem 1.2rem 0.7rem;
     border-radius: 18px;
     border-width: 3px;
     color: #f0f0f0;
     border: none;
     outline: none;
     padding-left: 4px;
-    padding-right: 4px;
+    padding-right: 2px;
     background: linear-gradient(0.39turn, #3d52af, #99a8eb);
     box-shadow: 3px 3px 3px #7797b8;
 }
@@ -188,7 +188,7 @@ body {
 .historyBtnRow {
     display: inline-block;
     max-height: fit-content;
-    margin: 0rem 0rem -1rem -0.5rem;
+    margin: 0rem 0rem -1rem 0rem;
     width: 100%;
 }
 
@@ -212,26 +212,28 @@ body {
 }
 
 .deleteBtn {
-    color: #3f3f3f;
-    font-weight: 600;
-    font-size: 1.25rem;
-    padding: 2px;
+    color: #2f3233;
+    font-weight: 400;
+    font-size: 1.1rem;
+    padding: 3px;
     float: left;
     border-radius: 0 1.25rem 1.25rem 0;
     background: linear-gradient(to right, #a5a5a5, #dbdbdb);
-    border: 1px solid #080808;
+    border: 1px solid #484d52;
     border-left: #778899;
     margin-top: 0.2rem;
     margin-right: 0.75rem;
     min-width: 1.35rem;
-    min-height: 1.25rem;
+    min-height: 2.25rem;
     box-shadow: 1px 1px 1px #a9baca;
+    opacity: 0.8;
 }
 
 .deleteBtn:hover {
-    color: #484848;
+    color: #3a3d3d;
     background: linear-gradient(to right, #b9b9b9, #ececec);
     box-shadow: 2px 2px 2px #778899;
+    opacity: 1;
 }
 
 
@@ -640,7 +642,7 @@ min-width: 17.2rem;
     cursor: pointer;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1208px) {
     #city-sidebar {
         min-width: 24.5%;
     }
@@ -763,7 +765,6 @@ min-width: 17.2rem;
     }
 
     .deleteBtn {
-        color: rgb(36, 40, 44);
         font: 1.35rem;
         min-width: 1.5rem;
         max-height: 2.1rem;
