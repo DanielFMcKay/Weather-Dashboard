@@ -144,9 +144,9 @@ const retrieveCity = function (lat, lon) {
             let sunriseTime = sunriseRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
             console.log("The sun rises today at " + sunriseTime);
             let sunsetRawData = new Date((data.current.sunset + data.timezone_offset + 25200) * 1000);
-            console.log("sunsetRawData is " + sunsetRawData)
+            // console.log("sunsetRawData is " + sunsetRawData)
             let sunsetTime = sunsetRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
-            console.log("The sun sets today at " + data.current.sunset);
+            console.log("The sun sets today at " + sunsetTime);
 
             // polar winter / polar summer exception
             if (sunsetTime === 'Invalid Date') { sunsetTime = 'N/A' }
@@ -333,6 +333,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Bangladesh"
             } else if (data.city.country === "BS") {
                 nationName = "The Bahamas"
+            } else if (data.city.country === "BE") {
+                nationName = "Belgium"
             } else if (data.city.country === "BR") {
                 nationName = "Brazil"
             } else if (data.city.country === "CN") {
@@ -343,6 +345,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Colombia"
             } else if (data.city.country === "CD") {
                 nationName = "Congo, DR"
+            } else if (data.city.country === "CI") {
+                nationName = "Côte D'Ivoire"
             } else if (data.city.country === "CU") {
                 nationName = "Cuba"
             } else if (data.city.country === "DK") {
@@ -369,6 +373,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Iran"
             } else if (data.city.country === "IE") {
                 nationName = "Ireland"
+            } else if (data.city.country === "IL") {
+                nationName = "Israel"
             } else if (data.city.country === "IT") {
                 nationName = "Italy"
             } else if (data.city.country === "JM") {
@@ -478,8 +484,8 @@ const weatherForecast = function (cityInputField) {
                 localStorage.setItem('citySearch', JSON.stringify(cityStored));
              });
 
-
-
+            let rawAQI = data.list.main.aqi;
+             console.log(rawAQI + " is data.list.main.aqi");
 
             // if there are more than 32 buttons, the oldest one will be removed
             if (cityStored.length > 32) {
