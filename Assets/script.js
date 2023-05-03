@@ -17,6 +17,12 @@ window.onclick = function (event) {
     }
 }
 
+// allows Esc to close the Not Found modal if still in the city input text field
+$('#fetch-field').keydown(function(event) { 
+    if (event.key === 'Escape' ) { 
+      notFound.style.display = "none";
+    }
+  });
 
 // this is my API key
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
@@ -73,7 +79,7 @@ function loadHistoryButtons() {
         const deleteButton = document.createElement("button");
         historyButton.setAttribute("class", "historyBtn");
         deleteButton.setAttribute("class", "deleteBtn");
-        deleteButton.textContent = '✖';
+        deleteButton.textContent = '✕';
         buttonPair.setAttribute("class", "row")
         buttonPair.setAttribute("class", "historyBtnRow")
         historyButton.textContent = cityStored[i];
@@ -444,7 +450,7 @@ const weatherForecast = function (cityInputField) {
             const deleteButton = document.createElement("button");
             historyButton.setAttribute("class", "historyBtn");
             deleteButton.setAttribute("class", "deleteBtn");
-            deleteButton.textContent = '✖';
+            deleteButton.textContent = '✕';
             buttonPair.setAttribute("class", "row")
             buttonPair.setAttribute("class", "historyBtnRow")
             historyButton.textContent = cityInputField;
