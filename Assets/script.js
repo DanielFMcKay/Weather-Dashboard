@@ -235,6 +235,7 @@ const retrieveCity = function (lat, lon) {
             $('.local-weekday').text(localWeekday);
             $('.big-temp').html("<p class='big-temp'>" + Math.round(parseFloat(data.current.temp)) + '<small>°F</small>');
             $('.temperature').html("<h3>Currently: " + bigTemp + "<small>°F</small> (" + currentCelsius + "<small>°C</small>)</h3>");
+            // Heat advisory
             if (bigTemp >= 100) {
                 $('.heat-warning').html("Extreme Heat Advisory");
             }
@@ -323,6 +324,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Canada"
             } else if (data.city.country === "AF") {
                 nationName = "Afghanistan"
+            } else if (data.city.country === "DZ") {
+                nationName = "Algeria"
             } else if (data.city.country === "AQ") {
                 nationName = "Antarctica"
             } else if (data.city.country === "AR") {
@@ -371,6 +374,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Indonesia"
             } else if (data.city.country === "IR") {
                 nationName = "Iran"
+            } else if (data.city.country === "IQ") {
+                nationName = "Iraq"
             } else if (data.city.country === "IE") {
                 nationName = "Ireland"
             } else if (data.city.country === "IL") {
@@ -423,6 +428,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Sudan"
             } else if (data.city.country === "SE") {
                 nationName = "Sweden"
+            } else if (data.city.country === "CH") {
+                nationName = "Switzerland"
             } else if (data.city.country === "TH") {
                 nationName = "Thailand"
             } else if (data.city.country === "TW") {
@@ -483,10 +490,7 @@ const weatherForecast = function (cityInputField) {
                 buttonPair.remove();
                 localStorage.setItem('citySearch', JSON.stringify(cityStored));
              });
-
-            let rawAQI = data.list.main.aqi;
-             console.log(rawAQI + " is data.list.main.aqi");
-
+             
             // if there are more than 32 buttons, the oldest one will be removed
             if (cityStored.length > 32) {
                 cityStored.splice(0, 1)

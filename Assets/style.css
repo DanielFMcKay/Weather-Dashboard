@@ -81,11 +81,11 @@ header h1:hover {
 
 /* Splash image directly below the header. */
 .header-image {
-    height: 7.25rem;
+    height: 7rem;
     width: 100%;
     margin-bottom: 6px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 16px;
+    border-bottom-left-radius: 16px;
     background-image: url("../Assets/images/weather-background-splash-image.png");
     background-size: cover;
     background-position: center;
@@ -315,6 +315,7 @@ body {
     flex-wrap: wrap;
 }
 
+
 .over-column1,
 .over-column2 {
     display: flex;
@@ -389,7 +390,7 @@ margin-bottom: -0.75rem;
 }
 
 .over-column3 {
-    margin-bottom: -0.1rem;
+    margin-bottom: -0.25rem;
 }
 
 .hourlyTitle {
@@ -448,7 +449,7 @@ margin-bottom: -0.75rem;
 }
 
 .weather-card h4 {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     color: #21272c;
     text-shadow: 2px 2px 2px #8899AA;
     margin-top: -0.15rem;
@@ -570,7 +571,7 @@ margin-bottom: -0.75rem;
 }
 
 .forecastMultiCard img {
-    margin-top: -1.05rem;
+    margin-top: -1.1rem;
     margin-bottom: -0.3rem;
     width: 50%;
     height: 50%;
@@ -632,25 +633,26 @@ margin-bottom: -0.75rem;
 .error-message p {
     text-align: center;
     color: #2a2a2e;
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 600;
     text-shadow: 2px 2px 2px #b9cde6;
+    margin-bottom: 0rem;
 }
 
 /* The Close Button */
 .close-error {
-    color: #5f5f5f;
+    color: #828c9c;
     float: right;
-    position: relative;
-    top: 0;
-    right: 0;
-    font-size: 1.6rem;
+    font-size: 1.25rem;
     font-weight: 600;
+    margin-top: -1.15rem;
+    margin-right: -1.15rem;
 }
 
 .close-error:hover,
 .close-error:focus {
-    color: black;
+    color: #42464b;
+    text-shadow: 0 0 1px #708090, 1px 1px 1px #708090;
     text-decoration: none;
     cursor: pointer;
 }
