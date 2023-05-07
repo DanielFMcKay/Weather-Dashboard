@@ -5,13 +5,13 @@
 ## Live Site: [Weather Dashboard](https://danielfmckay.github.io/Weather-Dashboard/) 
 
 #### Desktop Screenshots
-![image](https://user-images.githubusercontent.com/123746582/235308513-0ace5506-6290-4d7c-9bcb-49bac47377f7.png)
+![image](https://user-images.githubusercontent.com/123746582/236685173-99062e84-22e7-4764-8b0f-8e5d5cd1cea9.png)
 
-![image](https://user-images.githubusercontent.com/123746582/235349801-f5c005c4-59ba-4778-a51e-516c29ecdcf4.png)
+![image](https://user-images.githubusercontent.com/123746582/236685213-0087528d-1273-415e-b9a6-164cd7d6b6e1.png)
 
 #### Mobile Screenshots
-![image](https://user-images.githubusercontent.com/123746582/235350508-be3d2b57-f77f-450f-aeaa-2f254c580ae8.png) ![image](https://user-images.githubusercontent.com/123746582/235350491-9be534d6-6ff1-4c6f-bb9b-b6caa6ad92b5.png)
-![image](https://user-images.githubusercontent.com/123746582/235350403-232fae95-ac37-406b-8009-7b048d790d1b.png) ![image](https://user-images.githubusercontent.com/123746582/235350188-2897fdb6-6b92-4626-a3a4-82368b14e91e.png)
+![image](https://user-images.githubusercontent.com/123746582/236685511-08aceba0-fe9b-40f8-ace0-1ab36092e74d.png) ![image](https://user-images.githubusercontent.com/123746582/236685568-528c13a1-8fc7-4d0f-af47-38959f97ad68.png)
+![image](https://user-images.githubusercontent.com/123746582/236685618-86abe6e3-cb1b-4ae5-b124-7779d3db4666.png)
 
 ## Overview
 * This is a weather app for displaying current weather and six day forecasts that saves and reloads cities that the user inputs.
@@ -56,8 +56,9 @@
 
 * Additionally, there is a button to both clear the local storage and reload the page, for easier use.
 
-* Furthermore there is one button each to remove only the most recently added history button and the oldest history button, respectively. The button will also be removed from local storage. However, the page will still display any currently displayed information.
+* Furthermore, each search has a paired button that removes both the button for that previously searched location and itself, by removing the div that contains both of them, as well as removing its storage from the array so it won't reload from local storage.
 
+* Finally there are a pair of buttons that remove the most recent and oldest searches respectively. These are vestigial with the addition of the paired deletion buttons, but they're not hurting anything and are styled very nicely so I'm leaving them in for now.
 
 #### Element Highlighting
 
@@ -71,6 +72,6 @@
 * Direct Link: https://danielfmckay.github.io/Weather-Dashboard/
 
 ## License
-This site is licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/). Feel free to share and modify it, but if you do so, please just give accurate attribution to the source and the writer and state any significant changes, and please don't change the license under which it is exported.
+This site is licensed under the [GNU General Public License v3.0](https://choosealicense.com/licenses/gpl-3.0/). Feel free to share and modify it, but please just give accurate attribution to the source and the writer and state any significant changes, and please don't change the license under which it is exported.
 
 ### © Dan McKay 2023
