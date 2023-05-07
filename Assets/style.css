@@ -149,12 +149,13 @@ body {
     text-align: center;
     font-size: 1.7rem;
     width: 94%;
-    border-radius: 10px;
+    border-radius: 12px;
     border-width: 3px;
-    padding: 0.3rem 0 0.3rem 0.65rem;
+    padding: 0.3rem 0 0.3rem 1.05rem;
     margin-left: 0.9rem;
     margin-top: 0.5rem;
     background: #f5fafc;
+    border: 3px inset solid #303133;
 }
 
 #fetch-field:hover {
