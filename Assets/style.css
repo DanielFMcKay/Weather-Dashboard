@@ -11,7 +11,7 @@ html {
 }
 
 header {
-    background: linear-gradient(174deg, #25468a, #5073b9 20%, #5183e9 30%, #dadeec 96%);
+    background: linear-gradient(174deg, #2452a7, #3b72e0 20%, #5183e9 30%, #dadaec 96%);
     border-radius: 16px;
     width: 99.75%;
     margin-left: 2px;
@@ -135,11 +135,12 @@ body {
 }
 
 #city-sidebar h2 {
-    color: #394046;
+    color: #31414e;
     font-size: 2rem;
     font-weight: 600;
     margin: -2px 0 -2px 6%;
     text-shadow: 1px 1px 1px #718fa7;
+    opacity: 0.96;
 }
 
 /* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */

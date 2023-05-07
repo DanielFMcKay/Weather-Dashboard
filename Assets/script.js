@@ -340,6 +340,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Belgium"
             } else if (data.city.country === "BR") {
                 nationName = "Brazil"
+            } else if (data.city.country === "CL") {
+                nationName = "Chile"
             } else if (data.city.country === "CN") {
                 nationName = "China"
             } else if (data.city.country === "CZ") {
@@ -614,6 +616,7 @@ clearEverything.addEventListener("click", function () {
 });
 
 // clears most recent search including its button and reloads the page
+// button is now obsolete, but not hurting anything plus it looks nice, so I'm keeping it for now
 clearLast.addEventListener("click", function () {
     cityStored.splice((cityStored.length - 1), 1);
     localStorage.setItem('citySearch', JSON.stringify(cityStored));
@@ -626,6 +629,8 @@ if (cityStored.length >= 2) {
     clearOldest.show();
 }
 
+// clears oldest search in the array and button at the bottom of the list
+// button is now obsolete, but not hurting anything plus it looks nice, so I'm keeping it for now
 clearOldest[0].addEventListener("click", function () {
     let i = cityStored.length;
     cityStored.splice(0, 1);
