@@ -10,8 +10,8 @@
 ![image](https://user-images.githubusercontent.com/123746582/236685213-0087528d-1273-415e-b9a6-164cd7d6b6e1.png)
 
 #### Mobile Screenshots
-![image](https://user-images.githubusercontent.com/123746582/236685511-08aceba0-fe9b-40f8-ace0-1ab36092e74d.png) ![image](https://user-images.githubusercontent.com/123746582/236685568-528c13a1-8fc7-4d0f-af47-38959f97ad68.png)
-![image](https://user-images.githubusercontent.com/123746582/236685618-86abe6e3-cb1b-4ae5-b124-7779d3db4666.png)
+![image](https://user-images.githubusercontent.com/123746582/236685511-08aceba0-fe9b-40f8-ace0-1ab36092e74d.png) ![image](https://user-images.githubusercontent.com/123746582/237041415-a0cee931-6dee-492a-912b-b9a7f538e683.png)
+[![image](https://user-images.githubusercontent.com/123746582/236685618-86abe6e3-cb1b-4ae5-b124-7779d3db4666.png)](https://user-images.githubusercontent.com/123746582/237041049-222b8ea1-c5dc-4c51-9b83-f69926ccd8b2.png)
 
 ## Overview
 * This is a weather app for displaying current weather and six day forecasts that saves and reloads cities that the user inputs.
