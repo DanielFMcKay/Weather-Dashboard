@@ -582,12 +582,13 @@ margin-bottom: -0.75rem;
 .forecastMultiCard h4 {
     margin-bottom: 0.46rem;
     font-size: 1.2rem;
-    text-shadow: 1px 1px 1px #34324e;
     color: #e8ecc3;
+    text-shadow: 1px 1px 1px #5f6b8b;
 }
 
 .forecast-day {
     color: #e8ecc3;
+    text-shadow: 1px 1px 1px #5f6b8b;
     font-size: 1rem;
     font-weight: 500;
     margin-top: -0.5rem;
