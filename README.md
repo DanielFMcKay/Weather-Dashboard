@@ -25,13 +25,13 @@
 
 ### Core Functions
 
-* This weather page will take a city name, with the option of adding an ISO 2-digit country code, and return a forecast with the temperature, wind speed, wind direction, UV index, humidty, and current date, as well as a weather icon for the type of weather. It will also show today's high and low temperatures , as well as the time of today's sunset and sunrise, and maximum hourly wind gust. All measurements use Imperial units, although there is an additional Celsius readout for the current temperature.
-
-* It does this by contacting OpenWeatherMap.org with an API call to retrieve the information.
+* This weather page will take a city name, with the option of adding an ISO 2-digit country code, and return a forecast with the temperature, wind speed, wind direction, UV index, humidty, and current date, as well as a weather icon for the type of weather. It will also show today's high and low temperatures , as well as the time of today's sunset and sunrise, and maximum hourly wind gust. All measurements use Imperial units, although there is an additional Celsius readout for today's current, high, and low temperatures.
 
 * It also shows the current day, date, and time on the top of the page beneath the header. It also shows the city name and ISO 2-digit country code in the info display  as returned by the API call. If it is one of several dozen countries which I've added to a conversion for, it will display the full country name as well.
 
-* Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later. Technically, they are prepended, so that they will always display with the most recently called location at the top, whether it is freshly created or called from local storate when the page is loaded.
+* It does this by contacting OpenWeatherMap.org with an API call to retrieve the information.
+
+* Also, when a city is requested, a button is appended beneath the search field that is both part of the search history, and can be used to call up a forecast for that city again later. Technically, they are prepended, so that they will always display with the most recently called location at the top, whether it is freshly created or called from local storage when the page is loaded.
 
 * Duplicate entries will also not append a button, but a duplicate request will still call that location's data.
 
@@ -53,7 +53,7 @@
 
 #### Button and Storage Deletion
 
-* Additionally, there is a button to both clear the local storage and reload the page, for easier use.
+* There is a button to both clear all local storage and reload the page, for easily starting and clearing up clutter.
 
 * Furthermore, each search has a paired button that removes both the button for that previously searched location and itself, by removing the div that contains both of them, as well as removing its storage from the array so it won't reload from local storage.
 
