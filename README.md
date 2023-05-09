@@ -21,7 +21,7 @@
 
 * This app was originally for the week 06 assignment for the UC Berkeley coding boot camp through Boot Camp Spot.
 
-* As I considered it the first thing I built that I could show family members, it has been extensively updated and polished since then as a tool for self-training.
+* As I considered it the first thing I built that I could show family members, it has been extensively updated and polished since then, and also used as a tool for self-training.
 
 ### Core Functions
 
