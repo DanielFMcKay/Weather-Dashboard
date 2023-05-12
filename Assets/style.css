@@ -86,7 +86,7 @@ header h1:hover {
     margin-bottom: 6px;
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
-    background-image: url("../Assets/images/weather-background-splash-image.png");
+    background-image: url("../assets/images/weather-background-splash-image.png");
     background-size: cover;
     background-position: center;
 }
@@ -216,6 +216,18 @@ body {
     box-shadow: 2px 2px 2px #8b9daf;
     overflow: hidden;
     text-overflow: ellipsis;
+    opacity: 0;
+    animation: appear 1s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .historyBtn:hover {
@@ -240,8 +252,20 @@ body {
     min-width: 1.35rem;
     min-height: 2.25rem;
     box-shadow: 1px 1px 1px #95a2af;
-    opacity: 0.75
+    opacity: 0;
+    animation: appear 1s ease forwards;
 }
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0.75;
+    }
+}
+
 
 .deleteBtn:hover {
     color: #3a3d3d;
@@ -282,6 +306,18 @@ body {
     font-size: 0.8rem;
     font-weight: 500;
     padding: 0.25rem 0.5rem;
+    opacity: 0;
+    animation: appear 1.8s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .clear-oldest:hover {
@@ -332,8 +368,8 @@ body {
 }
 
 .over-column2 {
-min-width: 17.2rem;
-margin-bottom: -0.75rem;
+    min-width: 17.2rem;
+    margin-bottom: -0.75rem;
 }
 
 
@@ -360,6 +396,18 @@ margin-bottom: -0.75rem;
     font-weight: 600;
     margin-top: -0.8rem;
     margin-bottom: 0.1rem;
+    opacity: 0;
+    animation: appear 1.2s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .weather-card h1 {
@@ -469,6 +517,22 @@ margin-bottom: -0.75rem;
     color: #5f1a1a;
     text-shadow: 0px 0px 1px #5f3535;
     margin-top: -0.15rem;
+    opacity: 0;
+    animation: appear 1.6s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.weather-card h6:hover {
+    text-shadow: 0 0 1px #d15656, 0 0 2px #d15656;
 }
 
 .wind-note {
@@ -559,6 +623,7 @@ margin-bottom: -0.75rem;
 }
 
 .forecastMultiCard {
+    position: relative;
     color: white;
     flex-wrap: wrap;
     background: linear-gradient(0.55turn, #40547a, #93abce, #365180);
@@ -570,6 +635,18 @@ margin-bottom: -0.75rem;
     min-width: 9.5rem;
     max-width: 15rem;
     height: fit-content;
+    opacity: 0;
+    animation: appear 1.4s ease forwards;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .forecastMultiCard img {
@@ -664,7 +741,7 @@ margin-bottom: -0.75rem;
     #city-sidebar {
         min-width: 24.5%;
     }
-    
+
 
     #fetch-field {
         font-size: 1.55rem;
@@ -682,7 +759,8 @@ margin-bottom: -0.75rem;
     .card-column {
         max-width: 75%;
     }
-        .aligner-up {
+
+    .aligner-up {
         margin-top: -2.8rem;
     }
 }
@@ -785,14 +863,14 @@ margin-bottom: -0.75rem;
         margin-right: 18%;
         width: 62%;
     }
-    
+
     #searchBtn {
         font: 1.7rem;
         margin-left: 20%;
         margin-right: 18%;
         min-width: 62%;
     }
-    
+
     .deleteBtn {
         font: 1.35rem;
         min-width: 1.5rem;
@@ -825,7 +903,7 @@ margin-bottom: -0.75rem;
     .icon-align {
         margin-top: -4px;
     }
-    
+
     .error-message {
         max-width: 80%;
     }

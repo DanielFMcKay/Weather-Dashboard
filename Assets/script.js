@@ -412,6 +412,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Philippines"
             } else if (data.city.country === "PL") {
                 nationName = "Poland"
+            } else if (data.city.country === "PT") {
+                nationName = "Portugal"
             } else if (data.city.country === "PR") {
                 nationName = "Puerto Rico"
             } else if (data.city.country === "RO") {
