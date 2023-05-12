@@ -69,8 +69,8 @@ header h1 {
     color: #f9fded;
     text-align: center;
     font-family: 'Libre Baskerville', Arial, Helvetica, sans-serif;
-    font-size: 3.0rem;
-    font-weight: 700;
+    font-size: 3.05rem;
+    font-weight: 800;
     padding-top: 0.85rem;
     margin-bottom: 0.2rem;
     margin-right: 0.15rem;
@@ -169,7 +169,7 @@ body {
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     padding-left: 0rem;
     padding-right: 0.75rem;
-    padding-top: 2.25rem;
+    padding-top: 2.5rem;
     padding-bottom: 3rem;
     border: 1px solid #c7cfcf;
     opacity: 0;
@@ -185,11 +185,12 @@ body {
 }
 
 #city-sidebar h2 {
-    color: #31414e;
-    font-size: 2rem;
+    font-family: 'Libre Baskerville', Arial, Helvetica, sans-serif;
+    color: #354d55;
+    font-size: 1.75rem;
     font-weight: 400;
     margin: -2px 0 -2px 6%;
-    text-shadow: 0 0 1px #4e5457, 0 0 2px #66757c, 2px 2px 2px #718fa7;
+    text-shadow: 0 0 1px #454a4c, 0 0 2px #66757c, 2px 2px 2px #718fa7;
     opacity: 0.96;
 }
 
@@ -490,14 +491,7 @@ body {
     color: #080808;
     text-shadow: 2px 2px 2px #8899AA;
     margin-top: -0.15rem;
-}
-
-@keyframes appear {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 1;
-    }
+    opacity: 0;
 }
 
 
@@ -656,7 +650,7 @@ body {
     max-height: 9rem;
 }
 
-/* #6-day forecast stuff below */
+/* 6-day forecast stuff below */
 .multiDay {
     background: linear-gradient(to right, #aebadc, #d4def8);
     border-radius: 0 0 16px 16px;
@@ -706,7 +700,7 @@ body {
     max-width: 15rem;
     height: fit-content;
     opacity: 0;
-    animation: appear 1.4s ease forwards;
+    animation: appear 1.5s ease forwards;
 }
 
 @keyframes appear {
