@@ -86,7 +86,7 @@ header h1:hover {
     margin-bottom: 6px;
     border-bottom-right-radius: 16px;
     border-bottom-left-radius: 16px;
-    background-image: url("../assetsc/images/weather-background-splash-image.png");
+    background-image: url("../assets/images/weather-background-splash-image.png");
     background-size: cover;
     background-position: center;
 }
