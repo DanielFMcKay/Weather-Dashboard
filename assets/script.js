@@ -149,8 +149,8 @@ const retrieveCity = function (lat, lon) {
             console.log("The sun sets today at " + sunsetTime);
 
             // polar winter / polar summer exception
-            if (sunsetTime === 'Invalid Date') { sunsetTime = 'N/A' }
-            if (sunriseTime === 'Invalid Date') { sunriseTime = 'N/A' }
+            if (sunsetTime === 'Invalid Date') { sunsetTime = 'N/A' };
+            if (sunriseTime === 'Invalid Date') { sunriseTime = 'N/A' };
 
 
             $('.weather-icon').html(`<img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@4x.png"/>`)
@@ -199,6 +199,8 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Fog"
             } else if (data.current.weather[0].description === "mist") {
                 currentConditions = "Mist"
+            } else if (data.current.weather[0].description === "dust") {
+                currentConditions = "Dust Storms"
             } else if (data.current.weather[0].description === "light intensity shower rain") {
                 currentConditions = "Light Showers"
             } else if (data.current.weather[0].description === "shower rain") {
@@ -264,7 +266,7 @@ const retrieveCity = function (lat, lon) {
             if (windGust >= 50) {
                 $('.uvi-warning').append("<h6>Extreme Wind Gust Warning</h6>");
             }
-            $('.sunrise').text("Sunrise: " + sunriseTime);
+            $('.sunrise').html("Sunrise: " + sunriseTime);
             $('.sunset').text("Sunset: " + sunsetTime);
 
 
@@ -438,6 +440,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Thailand"
             } else if (data.city.country === "TW") {
                 nationName = "Taiwan"
+            } else if (data.city.country === "TZ") {
+                nationName = "Tanzania"
             } else if (data.city.country === "TR") {
                 nationName = "Turkey"
             } else if (data.city.country === "UA") {

@@ -191,7 +191,6 @@ body {
     font-weight: 400;
     margin: -2px 0 -2px 6%;
     text-shadow: 0 0 1px #454a4c, 0 0 2px #66757c, 2px 2px 2px #718fa7;
-    opacity: 0.96;
 }
 
 /* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
@@ -473,7 +472,6 @@ body {
     margin-left: 0.5rem;
     margin-top: -2.25rem;
     margin-bottom: -0.2rem;
-    opacity: 1;
 }
 
 .weather-card h2 {
@@ -491,7 +489,6 @@ body {
     color: #080808;
     text-shadow: 2px 2px 2px #8899AA;
     margin-top: -0.15rem;
-    opacity: 0;
 }
 
 
