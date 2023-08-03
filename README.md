@@ -43,7 +43,7 @@
 
 #### Forecasts
 
-* A 12-hour hourly forecast will also display for the temperature in 2 columns of 6 each.
+* A 12-hour hourly forecast for the requested loccation displays the temperature in 2 columns of 6 hourly forecasts each.
 
 * Furthermore, a six day forecast on separate cards is shown along the bottom of the display to show same conditions for the next 6 days, including a high and low daily temperature in lieu of a current one.
 
