@@ -89,6 +89,7 @@ header h1 {
 
 header h1:hover {
     cursor: default;
+    text-shadow: 0 0 1px #c5d6f3, 0 0 2px #c5d6f3, 0 0 4px #c5d6f3, 2px 0 4px #c5d6f3, -2px 0 4px #c5d6f3;
 }
 
 /* Clearing the page and its history buttons */
@@ -186,11 +187,11 @@ body {
 
 #city-sidebar h2 {
     font-family: 'Libre Baskerville', Arial, Helvetica, sans-serif;
-    color: #354d55;
+    color: #343a46;
     font-size: 1.75rem;
     font-weight: 400;
     margin: -2px 0 -2px 6%;
-    text-shadow: 0 0 1px #454a4c, 0 0 2px #66757c, 2px 2px 2px #718fa7;
+    text-shadow: 0 0 1px #45494c, 0 0 2px #666f7c, 2px 2px 2px #7188a7;
 }
 
 /* keeps title row aligned with Clear Storage button at far left while allowing for better compression on mobile */
@@ -213,7 +214,7 @@ body {
 }
 
 #searchBtn {
-    color: #f8f8f8;
+    color: #f6f6f6;
     font-size: 1.6rem;
     text-decoration: none;
     padding: 0.3rem 0;
@@ -236,6 +237,7 @@ body {
     color: #f4f4f4;
     background: linear-gradient(0.45turn, #273783, #7c8cd4);
     box-shadow: 4px 4px 4px #6587a8;
+    text-shadow: 0 0 1px #fbfbfb;
 }
 
 #storedCity {

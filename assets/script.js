@@ -18,11 +18,11 @@ window.onclick = function (event) {
 }
 
 // allows Esc to close the Not Found modal if still in the city input text field
-$('#fetch-field').keydown(function(event) { 
-    if (event.key === 'Escape' ) { 
-      notFound.style.display = "none";
+$('#fetch-field').keydown(function (event) {
+    if (event.key === 'Escape') {
+        notFound.style.display = "none";
     }
-  });
+});
 
 // this is my API key
 const APIKey = "&appid=e34df904642594e0e3f3151760f273a4";
@@ -84,7 +84,7 @@ function loadHistoryButtons() {
         buttonPair.setAttribute("class", "historyBtnRow")
         historyButton.textContent = cityStored[i];
         console.log("location " + (i + 1) + " is " + cityStored[i] + ".");
-        
+
         $("#storedCity").append(buttonPair);
         buttonPair.append(deleteButton);
         buttonPair.append(historyButton);
@@ -103,7 +103,7 @@ function loadHistoryButtons() {
             cityStored = newCityStored;
             buttonPair.remove();
             localStorage.setItem('citySearch', JSON.stringify(cityStored));
-         });
+        });
     }
 };
 
@@ -198,7 +198,7 @@ const retrieveCity = function (lat, lon) {
             } else if (data.current.weather[0].description === "fog") {
                 currentConditions = "Fog"
             } else if (data.current.weather[0].description === "mist") {
-                currentConditions = "Mist"
+                currentConditions = "Light Fog"
             } else if (data.current.weather[0].description === "dust") {
                 currentConditions = "Dust Storms"
             } else if (data.current.weather[0].description === "light intensity shower rain") {
@@ -270,7 +270,6 @@ const retrieveCity = function (lat, lon) {
             $('.sunset').text("Sunset: " + sunsetTime);
 
 
-
             if (cityStored.length >= 2) {
                 clearOldest.show();
             }
@@ -302,7 +301,7 @@ const weatherForecast = function (cityInputField) {
             if (data.cod !== "200") {
                 console.log("Place Not Found");
 
-                notFound.style.display = "block";;
+                notFound.style.style.display = "block";
 
                 // window.alert("Place Not Found");
                 return;
@@ -398,6 +397,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Malaysia"
             } else if (data.city.country === "MX") {
                 nationName = "Mexico"
+            } else if (data.city.country === "MA") {
+                nationName = "Morocco"
             } else if (data.city.country === "NL") {
                 nationName = "The Netherlands"
             } else if (data.city.country === "NZ") {
@@ -424,6 +425,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Russia"
             } else if (data.city.country === "SA") {
                 nationName = "Saudi Arabia"
+            } else if (data.city.country === "SG") {
+                nationName = "Singapore"
             } else if (data.city.country === "ZA") {
                 nationName = "South Africa"
             } else if (data.city.country === "KR") {
@@ -446,6 +449,8 @@ const weatherForecast = function (cityInputField) {
                 nationName = "Turkey"
             } else if (data.city.country === "UA") {
                 nationName = "Ukraine"
+            } else if (data.city.country === "AE") {
+                nationName = "United Arab Emirates"
             } else if (data.city.country === "GB") {
                 nationName = "United Kingdom"
             } else if (data.city.country === "VN") {
@@ -462,6 +467,9 @@ const weatherForecast = function (cityInputField) {
                     return;
                 }
             }
+
+
+            
 
             // below pushes the new location to the array of stored locations and makes a new button for it
             cityStored.push(cityInputField);
@@ -491,14 +499,14 @@ const weatherForecast = function (cityInputField) {
 
             deleteButton.addEventListener("click", function () {
                 let deleteName = cityInputField;
-                
+
                 console.log(deleteName + " deleted");
                 let newCityStored = cityStored.filter(item => item !== deleteName);
                 cityStored = newCityStored;
                 buttonPair.remove();
                 localStorage.setItem('citySearch', JSON.stringify(cityStored));
-             });
-             
+            });
+
             // if there are more than 32 buttons, the oldest one will be removed
             if (cityStored.length > 32) {
                 cityStored.splice(0, 1)
@@ -530,6 +538,8 @@ const multiDayForecast = function (data) {
         let dailyMaxUvi = (Math.round(data.daily[i].uvi * 10) / 10);
 
         let dailyHiTemp = Math.round(parseFloat(data.daily[i].temp.max));
+
+
 
         $(dayCard).append('<h4>' + dayPlus.toLocaleDateString("en-US") + '</h4><br><p class="forecast-day">' + forecastDay + '</p>');
         $(dayCard).append(`<img src="https://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}@4x.png" width='10px'/>`);
