@@ -229,7 +229,7 @@ const retrieveCity = function (lat, lon) {
                 currentConditions = "Tornado Warning"
                 $('.heat-warning').append('<h6>/!&#92; Tornado Warning /!&#92;</h6>');
             }
-
+// test note
 
 
             //  local Date
