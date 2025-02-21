@@ -110,7 +110,7 @@ function loadHistoryButtons() {
 
 // this works in concert with the weatherForecast function to target the specific city requested and return the data for it
 const retrieveCity = function (lat, lon) {
-    var cityCall = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon +
+    var cityCall = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + lat + '&lon=' + lon +
         '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial' + '&lang=en';
 
     fetch(cityCall)
@@ -286,7 +286,7 @@ const weatherForecast = function (cityInputField) {
     // console.log(cityInputField);
 
 
-    const openWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial&lang=en' + APIKey;
+    const openWeather = "https://api.openweathermap.org/data/3.0/forecast?q=" + cityInputField + '&units=imperial&lang=en' + APIKey;
     // console.log(openWeather);
     // console.log("is openWeather")
 
