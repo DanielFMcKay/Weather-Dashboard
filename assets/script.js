@@ -43,7 +43,6 @@ const dateTimeDisplay = $('#currentDateTime');
 dateTimeDisplay.text(currentDateTime);
 
 
-
 const multiDayDisplay = $("#multiDayForecast");
 const clearEverything = $("#clearStorageBtn")[0];
 
@@ -106,12 +105,14 @@ function loadHistoryButtons() {
         });
     }
 };
-
+// https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 
 // this works in concert with the weatherForecast function to target the specific city requested and return the data for it
 const retrieveCity = function (lat, lon) {
-    var cityCall = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + lat + '&lon=' + lon +
-        '&appid=908d66bc443a59edcf38648405a06695' + '&units=imperial' + '&lang=en';
+    const cityCall = 'https://api.openweathermap.org/data/3.0/onecall?lat=' + lat + '&lon=' + lon +
+        '&appid=e34df904642594e0e3f3151760f273a4' + '&units=imperial' + '&lang=en';
+        console.log("City Targetting attempted.");
+        console.log("cityCall is " + cityCall);
 
     fetch(cityCall)
         .then(function (response) {
@@ -120,6 +121,9 @@ const retrieveCity = function (lat, lon) {
         .then(function (data) {
             // by the way, you can change the icon size somewhat by adding "@2x" or "@4x" before the ".png"
             // Below populates the Weather Card with the target location's information, then calls the 5-day forecast function
+            console.log("City Targetting further attempted.");
+            console.log(data.current.temp);
+
             let localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
             let localUnixWeekday = localTime.getDay();
             let weekdayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -286,9 +290,9 @@ const weatherForecast = function (cityInputField) {
     // console.log(cityInputField);
 
 
-    const openWeather = "https://api.openweathermap.org/data/3.0/forecast?q=" + cityInputField + '&units=imperial&lang=en' + APIKey;
-    // console.log(openWeather);
-    // console.log("is openWeather")
+    const openWeather = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityInputField + '&units=imperial&lang=en' + APIKey;
+    console.log(openWeather);
+    console.log("is openWeather")
 
 
 
@@ -298,14 +302,18 @@ const weatherForecast = function (cityInputField) {
         })
 
         .then(function (data) {
-            if (data.cod !== "200") {
-                console.log("Place Not Found");
+            console.log(data.cod);
+            let lat = (data.city.coord.lat);
+            let lon = (data.city.coord.lon);
+            console.log("lat is " + lat + " and lon is " + lon);
+            // if (data.cod !== "200") {
+            //     console.log("Place Not Found");
 
-                notFound.style.style.display = "block";
+            //     notFound.style.style.display = "block";
 
-                // window.alert("Place Not Found");
-                return;
-            }
+            //     // window.alert("Place Not Found");
+            //     return;
+            // }
             console.log("a call was made");
 
             $('.heat-warning').empty();
@@ -315,6 +323,8 @@ const weatherForecast = function (cityInputField) {
             let placeName = data.city.name;
 
             let nationName = data.city.country;
+
+    
 
             // Country code conversion for select nations.
             // I'd probably actually wanna put this in another file in the future.
@@ -456,6 +466,8 @@ const weatherForecast = function (cityInputField) {
             } else if (data.city.country === "VN") {
                 nationName = "Vietnam"
             }
+
+            console.log("The city is " + placeName + " in " + nationName);
 
             $('.city-info').html(placeName + ", " + nationName);
 
