@@ -124,7 +124,24 @@ const retrieveCity = function (lat, lon) {
             console.log("City Targetting further attempted.");
             console.log(data.current.temp);
 
-            let localTime = new Date((data.current.dt + data.timezone_offset + 25200) * 1000);
+            // account for Daylight Savings Time
+            function isDaylightSavingsTime() {
+                let janOffset = new Date(new Date().getFullYear(), 0, 1).getTimezoneOffset();
+                let julOffset = new Date(new Date().getFullYear(), 6, 1).getTimezoneOffset();
+                let currentOffset = new Date().getTimezoneOffset();
+            
+                return currentOffset < Math.max(janOffset, julOffset);
+            }
+            console.log("It is DST? The answer is " + isDaylightSavingsTime());
+            if (isDaylightSavingsTime() === true) {
+                DST = 3600;
+            }
+            else {  DST = 0; }
+
+            console.log("DST is " + DST);
+
+            let localTime = new Date((data.current.dt + data.timezone_offset + 28800 - DST) * 1000);
+            
             let localUnixWeekday = localTime.getDay();
             let weekdayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
             let localWeekday = weekdayArray[localUnixWeekday];
