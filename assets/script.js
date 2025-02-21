@@ -124,23 +124,31 @@ const retrieveCity = function (lat, lon) {
             console.log("City Targetting further attempted.");
             console.log(data.current.temp);
 
-            // account for Daylight Savings Time
+            
+            // account for Daylight Savings Time; partially
             function isDaylightSavingsTime() {
-                let janOffset = new Date(new Date().getFullYear(), 0, 1).getTimezoneOffset();
+                let janOffset = new Date(new Date().getFullYear(), 1, 1).getTimezoneOffset();
                 let julOffset = new Date(new Date().getFullYear(), 6, 1).getTimezoneOffset();
                 let currentOffset = new Date().getTimezoneOffset();
+                console.log("janOffset is " + janOffset + " and julOffset is " + julOffset + " and currentOffset is " + currentOffset);
             
                 return currentOffset < Math.max(janOffset, julOffset);
             }
-            console.log("It is DST? The answer is " + isDaylightSavingsTime());
-            if (isDaylightSavingsTime() === true) {
+            console.log("It is DST in America? The answer is " + isDaylightSavingsTime());
+            // if it is DST and the country is US, MX, or CA, then add an hour to the time
+            // honestly this is a work in progress
+            let DST;
+            if (isDaylightSavingsTime() === true && data.city.country === "US" || "MX" || "CA" || "BS" || "CU" || "HT" || "TC" || "GB" || "FR" || "DE" || "IT" || "PT" || "PR" || "UA" || "CH" || "AU") {
                 DST = 3600;
             }
             else {  DST = 0; }
+                DST = 3600;
 
             console.log("DST is " + DST);
 
-            let localTime = new Date((data.current.dt + data.timezone_offset + 28800 - DST) * 1000);
+            console.log("data.current.dt is " + data.current.dt);
+            console.log("data.timezone_offset is " + data.timezone_offset);
+            let localTime = new Date((data.current.dt + data.timezone_offset + 25200 + DST) * 1000);
             
             let localUnixWeekday = localTime.getDay();
             let weekdayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
