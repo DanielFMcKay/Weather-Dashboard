@@ -576,6 +576,14 @@ body {
     animation: appear 1.6s ease forwards;
 }
 
+/* .weather-card h7 {
+    font-size: 1.2rem;
+    color: #080c0f;
+    text-shadow: 1px 1px 1px #8899AA;
+    margin-top: -0.2rem;
+    margin-bottom: 1.25rem;
+} */
+
 @keyframes appear {
     from {
         opacity: 0;

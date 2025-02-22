@@ -136,13 +136,13 @@ const retrieveCity = function (lat, lon) {
             console.log("It is DST in America? The answer is " + isDaylightSavingsTime());
             // if it is DST and the country is certain countries like US, CA, or MX, then add an hour to the time
             // honestly this is a work in progress
-            let DST;
+            let DST = 0;
             if (isDaylightSavingsTime() === true && data.city.country === "US" || "MX" || "CA" || "BS" || "CU" || "HT" || "TC" || "GB" || "FR" || "DE" ||
              "IT" || "PT" || "PR" || "UA" || "CH" || "AU" || "NZ") {
                 DST = 3600;
             }
-            else {  DST = 0; }
-                DST = 3600;
+            else {  DST = 0;
+            }
 
             console.log("DST is " + DST);
 
@@ -170,11 +170,14 @@ const retrieveCity = function (lat, lon) {
             let currentUvi = (Math.round(data.current.uvi * 10) / 10);
             let bigTemp = Math.round(parseFloat(data.current.temp));
             let windGust = Math.round(parseFloat(data.hourly[0].wind_gust));
+            let chanceOfPrecipitation = Math.round(parseFloat(data.daily[0].pop)) * 100;
 
-            let sunriseRawData = new Date((data.current.sunrise + data.timezone_offset + 25200) * 1000);
+            console.log("Current rain is " + chanceOfPrecipitation + "% chance of precipitation");
+
+            let sunriseRawData = new Date((data.current.sunrise + data.timezone_offset + 25200 + DST) * 1000);
             let sunriseTime = sunriseRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
             console.log("The sun rises today at " + sunriseTime);
-            let sunsetRawData = new Date((data.current.sunset + data.timezone_offset + 25200) * 1000);
+            let sunsetRawData = new Date((data.current.sunset + data.timezone_offset + 25200 + DST) * 1000);
             // console.log("sunsetRawData is " + sunsetRawData)
             let sunsetTime = sunsetRawData.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true });
             console.log("The sun sets today at " + sunsetTime);
@@ -299,7 +302,7 @@ const retrieveCity = function (lat, lon) {
             }
             $('.sunrise').html("Sunrise: " + sunriseTime);
             $('.sunset').text("Sunset: " + sunsetTime);
-
+            $('.precipitation').text("Chance of Precipitation: " + chanceOfPrecipitation + "%");
 
             if (cityStored.length >= 2) {
                 clearOldest.show();
