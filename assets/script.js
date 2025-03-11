@@ -123,7 +123,6 @@ const retrieveCity = function (lat, lon) {
             // Below populates the Weather Card with the target location's information, then calls the 5-day forecast function
             console.log("City Targetting attempted.");
             // console.log(data.current.temp);
-
             // account for Daylight Savings Time; partially
             function isDaylightSavingsTime() {
                 let janOffset = new Date(new Date().getFullYear(), 1, 1).getTimezoneOffset();
@@ -137,20 +136,22 @@ const retrieveCity = function (lat, lon) {
             // if it is DST and the country is certain countries like US, CA, or MX, then add an hour to the time
             // honestly this is a work in progress
             let DST = 0;
-            if (isDaylightSavingsTime() === true && data.city.country === "US" || "MX" || "CA" || "BS" || "CU" || "HT" || "TC" || "GB" || "FR" || "DE" ||
-             "IT" || "PT" || "PR" || "UA" || "CH" || "AU" || "NZ") {
-                DST = 3600;
-            }
-            else {  DST = 0;
-            }
+            // if (isDaylightSavingsTime() === true && data.city.country === "US" || "MX" || "CA" || "BS" || "CU" || "HT" || "TC" || "GB" || "FR" || "DE" ||
+            //  "IT" || "PT" || "PR" || "UA" || "CH" || "AU" || "NZ") {
+            //     DST = 3600;
+            // }
+            // else {  DST = 0;
+            // }
 
             console.log("DST is " + DST);
 
             console.log("data.current.dt is " + data.current.dt);
             console.log("data.timezone_offset is " + data.timezone_offset);
+
             let localTime = new Date((data.current.dt + data.timezone_offset + 25200 + DST) * 1000);
 
 
+            console.log("The local time is " + localTime.toLocaleTimeString("en-US", { hour: '2-digit', minute: '2-digit', hour12: true }));
 
             let localUnixWeekday = localTime.getDay();
             let weekdayArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
